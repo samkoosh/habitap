@@ -9,6 +9,6 @@ A daily geography game: you see a photo of a plant or animal that lives in only 
 - `species_research.json`: the full research list with confidence notes.
 - Photos load at play time from Wikipedia's API (free-licensed lead images only) and are credited from Wikimedia Commons metadata.
 - Coastlines: Natural Earth (public domain) via [world-atlas](https://github.com/topojson/world-atlas). Rendering: [d3](https://d3js.org) (ISC).
-- Scoring: 100 within 10 km, then `100·e^(−(d−10)/900)` per species.
+- Scoring: 100 within 10 km, then `100·e^(−(d−10)/5150)` per species.
 
 Species facts and points were compiled from Wikipedia and other sources; some points are approximate.
