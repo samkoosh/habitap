@@ -78,7 +78,6 @@ header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color
 .kind{display:inline-block;font-size:13px;font-weight:700;color:var(--moss);background:var(--chip);border-radius:999px;padding:2px 10px;margin-bottom:6px}
 .body h2{font-size:clamp(25px,3vw,30px);margin:2px 0}
 .sci{font-style:italic;font-weight:600;font-size:16px;color:var(--soft)}
-.blur{filter:blur(6px);user-select:none;-webkit-user-select:none;pointer-events:none}
 .hint{margin-top:10px;font-size:15px;color:var(--moss)}
 .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .b{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--btn-line);background:var(--btn);color:var(--ink);font:800 15px "Nunito",sans-serif;cursor:pointer;transition:transform .08s}
@@ -232,7 +231,7 @@ header{position:relative}
     <p>Habitap is a free daily geography game about the world's most local wildlife. Every species in it lives in one small corner of the world, like a single island, lake, cave or mountain. Each day you get five of them, the same five for everyone, and you tap where you think each one lives on a 3D globe.</p>
     <h2>How to play</h2>
     <ol>
-      <li>Look at the photo and the name. Place names inside species names stay blurred until you guess.</li>
+      <li>Look at the photo and the species name.</li>
       <li>Spin and zoom the globe, then tap to drop your pin where you think the species lives.</li>
       <li>Tap <b>Lock it in</b>. You score up to 100 points, depending on how close you land, and learn why it lives only there.</li>
       <li>Stuck? A hint shows the region, for 20 points off.</li>
@@ -442,7 +441,8 @@ function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):
 
 /* ---------- data: species.json in the browser for now, the daily API once it's deployed ---------- */
 const fmt=n=>Math.round(n).toLocaleString();
-const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
+/* soft curve: 100 within 10 km, steep near the spot, tapering so almost any guess earns a point (0 only at the exact antipode) */
+const scoreFor=d=>d<=10?100:Math.max(0,Math.ceil(100*Math.pow(Math.max(0,1-d/20015),7)));
 let spLoad=null;
 const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
 const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki}};
@@ -459,7 +459,8 @@ const data=API?{
 /* ---------- game ---------- */
 let mode='daily',items=[],playDay=dayNum,round=0,results=[],usedHint=false,finished=false,locked=true;
 const canPin=()=>!locked&&!finished&&items.length>0;
-const blurred=t=>esc(t).replace(/\[\[(.+?)\]\]/g,'<span class="blur" aria-label="hidden place name">$1</span>');
+/* names are shown in full; [[…]] markers in the data are just stripped */
+const plain=t=>String(t??'').replace(/\[\[(.+?)\]\]/g,'$1');
 const labelText=()=>mode==='daily'?'Daily #'+puzzleNo:mode==='archive'?`Daily #${noFor(playDay)} (replay)`:'Practice';
 const shareTag=()=>mode==='daily'?'#'+puzzleNo:mode==='archive'?`#${noFor(playDay)} (replay)`:'(practice)';
 async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];items=[];pin=null;target=null;
@@ -474,7 +475,7 @@ async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];i
   track('play_start',{mode,puzzle:mode==='practice'?0:noFor(playDay),resumed:round>0});show()}
 function dots(popIdx=-1){$('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
 function show(){const sp=items[round];guessToken++;pin=null;target=null;usedHint=false;locked=false;$('card').classList.remove('open');
-  $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').innerHTML=blurred(sp.display);$('sci').innerHTML=blurred(sp.sci_display);
+  $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
   $('hint').hidden=true;$('hint').textContent='Hint: '+sp.region;$('hintBtn').hidden=false;$('hintBtn').disabled=false;
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}

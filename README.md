@@ -5,11 +5,11 @@ A daily geography game: you see a photo of a plant or animal that lives in only 
 **Play:** https://garrettarch.github.io/habitap/
 
 ## How it works
-- `species.json`: 275 strict endemics (whole wild range within about 150 km of one point), each with an exact point, place, "why only here", and a fun fact. Place names inside species names are hidden until you guess.
+- `species.json`: 275 strict endemics (whole wild range within about 150 km of one point), each with an exact point, place, "why only here", and a fun fact.
 - `species_research.json`: the full research list with confidence notes.
 - Photos load at play time from Wikipedia's API (free-licensed lead images only) and are credited from Wikimedia Commons metadata.
 - Coastlines: Natural Earth (public domain) via [world-atlas](https://github.com/topojson/world-atlas). Rendering: [d3](https://d3js.org) (ISC).
-- Scoring: 100 within 10 km, then `100·e^(−(d−10)/5150)` per species.
+- Scoring: 100 within 10 km, then `⌈100·(1 − d/20015)^7⌉` per species (20,015 km is the farthest two points can be apart), so a close guess pays off and almost any guess earns at least a point. The hint costs 20.
 
 Species facts and points were compiled from Wikipedia and other sources; some points are approximate.
 
