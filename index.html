@@ -6,66 +6,68 @@
 <title>HabitatTap</title>
 <meta name="description" content="A daily game: see a plant or animal that lives in only one tiny corner of the world, then find that spot on the globe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
 <style>
-/* Field-guide plate: lichen ground, spruce ink, ochre pins; Spectral for names, Hanken Grotesk for interface */
-:root{--ground:#dfe5d6;--paper:#f3f4ec;--ink:#1d2e28;--soft:#4c5f56;--rule:#b9c4b0;--moss:#557046;--ochre:#c08a2b;--ochre-ink:#8a5f14;--sea:#6d97a2;--sea-deep:#4f7783;--landc:#ece5c8;--coast:#7d704c}
+/* Casual daily-game look with a nature palette: soft leaf ground, white cards, moss + ochre accents, Nunito throughout */
+:root{--ground:#eef3ea;--paper:#ffffff;--ink:#1d2e28;--soft:#4c5f56;--rule:#b9c4b0;--moss:#557046;--ochre:#c08a2b;--ochre-ink:#8a5f14;--sea:#6d97a2;--sea-deep:#4f7783;--landc:#ece5c8;--coast:#7d704c}
 *{box-sizing:border-box;min-width:0}
 html{background:var(--ground)}
-body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.55 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2{font-family:"Spectral",Georgia,serif;font-weight:600;line-height:1.08;margin:0;letter-spacing:-.005em}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.55 "Nunito",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:"Nunito",system-ui,sans-serif;font-weight:800;line-height:1.1;margin:0}
 .wrap{max-width:1200px;margin:0 auto;padding:18px max(3vw,14px) 40px}
-header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:12px;margin-bottom:18px;border-bottom:1px solid var(--rule)}
-header h1{font-size:30px;font-weight:700}
+header{display:flex;flex-direction:column;align-items:center;gap:6px;padding-bottom:12px;margin-bottom:18px;border-bottom:1px solid var(--rule);text-align:center}
+header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color:var(--moss)}
 .meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--soft);font-size:15px}
 .dots{display:flex;gap:7px}.dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--soft);background:transparent}
 .dot.on{border-color:var(--ochre);box-shadow:0 0 0 3px rgba(192,138,43,.18)}.dot.done{background:var(--ochre);border-color:var(--ochre)}
-.total{font-family:"Spectral",serif;font-weight:600;font-size:18px;color:var(--ink);font-variant-numeric:tabular-nums lining-nums}
+.total{font-weight:800;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums lining-nums}
 .game{display:grid;grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:22px;align-items:start}
-.card,.end{background:var(--paper);border-radius:6px;box-shadow:0 1px 0 var(--rule),0 12px 28px -22px rgba(29,46,40,.55)}
-.photo{position:relative;margin:12px 12px 0;aspect-ratio:4/3;background:#d5dccc;display:grid;place-items:center;color:var(--soft);font-size:14px;text-align:center;padding:0 16px;border-radius:2px;overflow:hidden}
+.card,.end{background:var(--paper);border-radius:18px;border:1px solid #dbe3d4;box-shadow:0 6px 18px -12px rgba(29,46,40,.35)}
+.photo{position:relative;margin:12px 12px 0;aspect-ratio:4/3;background:#d5dccc;display:grid;place-items:center;color:var(--soft);font-size:14px;text-align:center;padding:0 16px;border-radius:12px;overflow:hidden}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
 .photo img.ok{opacity:1}
 .credit{font-size:12px;color:var(--soft);padding:6px 14px 0;min-height:24px;line-height:1.4}
 .credit a{color:var(--soft)}
 .body{padding:8px 18px 18px}
-.label{border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:3px;margin:6px 4px 4px;padding:12px 14px 12px}
-.kind{font-size:14px;color:var(--soft)}
-.body h2{font-size:clamp(26px,3vw,32px);margin:2px 0 2px}
-.sci{font-family:"Spectral",serif;font-style:italic;font-size:17px;color:var(--soft)}
+.label{margin:2px 0 0}
+.kind{display:inline-block;font-size:13px;font-weight:700;color:var(--moss);background:#e5eedd;border-radius:999px;padding:2px 10px;margin-bottom:6px}
+.body h2{font-size:clamp(25px,3vw,30px);margin:2px 0}
+.sci{font-style:italic;font-weight:600;font-size:16px;color:var(--soft)}
+.blur{filter:blur(6px);user-select:none;-webkit-user-select:none;pointer-events:none}
 .hint{margin-top:10px;font-size:15px;color:var(--moss)}
 .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.b{min-height:44px;padding:0 18px;border-radius:8px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 15px "Hanken Grotesk",sans-serif;cursor:pointer}
+.b{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid #cfd9c7;background:#fff;color:var(--ink);font:800 15px "Nunito",sans-serif;cursor:pointer;transition:transform .08s}
+.b:active{transform:scale(.97)}
 .b:hover{background:rgba(29,46,40,.06)}
-.b.p{background:var(--ink);color:var(--paper)}
-.b.p:hover{background:#2c4239}
+.b.p{background:var(--moss);border-color:var(--moss);color:#fff}
+.b.p:hover{background:#4a6340}
 .b:disabled{opacity:.38;cursor:not-allowed}
 button:focus-visible,a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
 .res{display:none;margin-top:16px}
-.big{font-family:"Spectral",serif;font-size:52px;font-weight:700;line-height:1;color:var(--ochre-ink);font-variant-numeric:tabular-nums lining-nums}
-.big small{font-family:"Hanken Grotesk",sans-serif;font-size:15px;font-weight:500;color:var(--soft);margin-left:8px}
+.big{font-size:52px;font-weight:900;line-height:1;color:var(--ochre-ink);font-variant-numeric:tabular-nums lining-nums}
+.big small{font-family:"Nunito",sans-serif;font-size:15px;font-weight:500;color:var(--soft);margin-left:8px}
 .dist{color:var(--soft);margin:6px 0 12px}
-.place{font-family:"Spectral",serif;font-size:19px;font-weight:600;color:var(--moss);padding-top:10px;border-top:1px solid var(--rule)}
+.place{font-size:18px;font-weight:800;color:var(--moss);padding-top:10px;border-top:1px solid var(--rule)}
 .res p{margin:10px 0}
-.res .lbl{font-size:13px;font-weight:600;color:var(--soft);display:block;margin-bottom:1px}
+.res .lbl{font-size:13px;font-weight:800;color:var(--soft);display:block;margin-bottom:1px}
 .res a{color:var(--ink)}
 .globebox{position:relative;touch-action:none;user-select:none;background:radial-gradient(closest-side,rgba(243,244,236,.7),rgba(223,229,214,0) 100%)}
 canvas{display:block;width:100%;cursor:grab}
 canvas.dragging{cursor:grabbing}
 .zoom{position:absolute;right:6px;top:6px;display:flex;flex-direction:column;gap:6px}
-.zoom button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font-size:21px;line-height:1;cursor:pointer}
+.zoom button{width:44px;height:44px;border-radius:50%;border:2px solid #cfd9c7;background:#fff;color:var(--ink);font-size:21px;line-height:1;cursor:pointer}
 .tipwrap{grid-column:2}.tip{margin:0;text-align:center;color:var(--soft);font-size:14px;margin-top:4px}
 .status{position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);pointer-events:none}
 .end{display:none}
 .end .body{padding:22px}
-.endScore{font-family:"Spectral",serif;font-size:60px;font-weight:700;line-height:1;color:var(--ochre-ink)}
+.endScore{font-size:60px;font-weight:900;line-height:1;color:var(--ochre-ink)}
 .endScore small{font-size:22px;color:var(--soft);font-weight:500}
 .end h2{font-size:26px;margin-top:6px}
 .rows{margin:18px 0;display:grid;gap:10px}
 .row{display:grid;grid-template-columns:minmax(0,1fr) 90px 36px;gap:12px;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--rule)}
-.row b{font-family:"Spectral",serif;font-weight:600;font-size:17px;display:block}
+.row b{font-weight:800;font-size:16px;display:block}
 .row small{color:var(--soft);font-size:13px}
-.bar{height:6px;border-radius:3px;background:var(--rule);overflow:hidden}.bar i{display:block;height:100%;background:var(--ochre)}
+.bar{height:8px;border-radius:4px;background:var(--rule);overflow:hidden}.bar i{display:block;height:100%;background:var(--ochre)}
 .row .n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .toast{color:var(--moss);font-size:14px;align-self:center}
 .streak{color:var(--soft);font-size:14px;margin-top:12px}
@@ -78,7 +80,7 @@ canvas.dragging{cursor:grabbing}
 <body>
 <div class="wrap">
   <header>
-    <h1>HabitatTap</h1>
+    <h1>Habitat<b>Tap</b></h1>
     <div class="meta"><span id="label">Daily</span><div class="dots" id="dots"></div><span class="total" id="total">0 / 500</span></div>
   </header>
 
@@ -130,7 +132,7 @@ canvas.dragging{cursor:grabbing}
     </div>
   </div>
 
-  <p class="foot">Every species here lives in one small corner of the world, like a single island, lake or mountain. Five a day, the same for everyone. Your score depends on how close your pin lands. Place names inside species names stay hidden until you guess. Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas.</p>
+  <p class="foot">Every species here lives in one small corner of the world, like a single island, lake or mountain. Five a day, the same for everyone. Your score depends on how close your pin lands. Place names inside species names stay blurred until you guess. Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas.</p>
 </div>
 
 <script src="d3.min.js"></script>
@@ -151,6 +153,8 @@ function pick(seed){const r=rng(seed),idx=SP.map((_,i)=>i);for(let i=idx.length-
   const out=[],reg={};for(const i of idx){const s=SP[i];if((reg[s.region]||0)>=2)continue;if(out.some(j=>km([SP[j].lat,SP[j].lon],[s.lat,s.lon])<500))continue;out.push(i);reg[s.region]=(reg[s.region]||0)+1;if(out.length===5)break}return out}
 
 /* ---------- topojson (minimal) ---------- */
+function decodeArcs(topo){const tf=topo.transform;return topo.arcs.map(a=>{let x=0,y=0;return a.map(p=>{if(tf){x+=p[0];y+=p[1];return[x*tf.scale[0]+tf.translate[0],y*tf.scale[1]+tf.translate[1]]}return p})})}
+function topoMesh(topo,name){const arcs=decodeArcs(topo),cnt=new Map();const walk=g=>{if(g.type==='GeometryCollection')return g.geometries.forEach(walk);const polys=g.type==='Polygon'?[g.arcs]:g.type==='MultiPolygon'?g.arcs:[];const seen=new Set();polys.forEach(p=>p.forEach(r=>r.forEach(id=>{const i=id<0?~id:id;if(!seen.has(i)){seen.add(i);cnt.set(i,(cnt.get(i)||0)+1)}})))};walk(topo.objects[name]);const lines=[];cnt.forEach((c,i)=>{if(c>1)lines.push(arcs[i])});return{type:'MultiLineString',coordinates:lines}}
 function topoToGeo(topo,name){const tf=topo.transform,arcs=topo.arcs.map(a=>{let x=0,y=0;return a.map(p=>{if(tf){x+=p[0];y+=p[1];return[x*tf.scale[0]+tf.translate[0],y*tf.scale[1]+tf.translate[1]]}return p})});
   const ring=ids=>{const out=[];ids.forEach((id,k)=>{let a=id<0?arcs[~id].slice().reverse():arcs[id];out.push(...(k?a.slice(1):a))});return out};
   const geom=g=>g.type==='Polygon'?{type:'Polygon',coordinates:g.arcs.map(ring)}:g.type==='MultiPolygon'?{type:'MultiPolygon',coordinates:g.arcs.map(p=>p.map(ring))}:g.type==='GeometryCollection'?{type:'GeometryCollection',geometries:g.geometries.map(geom)}:null;
@@ -159,7 +163,7 @@ function topoToGeo(topo,name){const tf=topo.transform,arcs=topo.arcs.map(a=>{let
 /* ---------- globe ---------- */
 const cv=$('globe'),ctx=cv.getContext('2d'),box=$('globebox');
 const proj=d3.geoOrthographic().clipAngle(90).precision(0.3),path=d3.geoPath(proj,ctx),grat=d3.geoGraticule10();
-let land=null,W=0,H=0,base=1,k=1,rot=[-20,-15];
+let land=null,borders=null,states=null,W=0,H=0,base=1,k=1,rot=[-20,-15];
 let pin=null,target=null;
 function size(){const w=box.clientWidth;const h=Math.round(Math.max(320,Math.min(w,innerHeight*0.78,760)));const dpr=devicePixelRatio||1;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.min(w,h)/2-10;draw()}
 function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot);ctx.clearRect(0,0,W,H);const R=base*k,cx=W/2,cy=H/2;
@@ -167,8 +171,10 @@ function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot)
   ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=g;ctx.fill();
   ctx.beginPath();path(grat);ctx.strokeStyle='rgba(243,244,236,.16)';ctx.lineWidth=.8;ctx.stroke();
   if(land){ctx.beginPath();path(land);ctx.fillStyle='#ece5c8';ctx.fill();ctx.strokeStyle='#7d704c';ctx.lineWidth=.7;ctx.stroke()}
+  if(states&&k>=2.2){ctx.beginPath();path(states);ctx.strokeStyle='rgba(125,112,76,'+Math.min(.55,(k-2.2)*.4+.2)+')';ctx.lineWidth=.5;ctx.stroke()}
+  if(borders){ctx.beginPath();path(borders);ctx.strokeStyle='rgba(110,98,66,.85)';ctx.lineWidth=k>3?.9:.6;ctx.stroke()}
   const sh=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.2,cx,cy,R*1.02);sh.addColorStop(0,'rgba(255,253,240,.18)');sh.addColorStop(.65,'rgba(0,0,0,0)');sh.addColorStop(1,'rgba(20,35,30,.32)');
-  ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=sh;ctx.fill();ctx.strokeStyle='#1d2e28';ctx.lineWidth=1.2;ctx.stroke();
+  ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=sh;ctx.fill();ctx.strokeStyle='rgba(29,46,40,.35)';ctx.lineWidth=1;ctx.stroke();
   if(pin&&target){ctx.beginPath();path({type:'LineString',coordinates:[[pin[1],pin[0]],[target[1],target[0]]]});ctx.setLineDash([5,5]);ctx.strokeStyle='#1d2e28';ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([])}
   if(target){marker(target,'#557046',true);label(target,tlabel)}
   if(pin)marker(pin,'#c08a2b',false)}
@@ -178,7 +184,7 @@ function marker(p,col,ring){if(!visible(p))return;const [x,y]=proj([p[1],p[0]]);
   ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.ellipse(x,y+2,7,3,0,0,7);ctx.fill();
   ctx.fillStyle=col;ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x-11,y-14,x-9,y-27,x,y-27);ctx.bezierCurveTo(x+9,y-27,x+11,y-14,x,y);ctx.fill();ctx.stroke();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y-18,3.5,0,7);ctx.fill()}
 const KMAX=40;let tlabel='';
-function label(p,t){if(!t||!visible(p))return;const [x,y]=proj([p[1],p[0]]);ctx.font='600 13px "Hanken Grotesk",sans-serif';const w=ctx.measureText(t).width;let lx=x+14,ly=y+4;if(lx+w+10>W)lx=x-14-w;ctx.fillStyle='rgba(243,244,236,.94)';ctx.beginPath();ctx.roundRect(lx-6,ly-14,w+12,22,4);ctx.fill();ctx.fillStyle='#1d2e28';ctx.fillText(t,lx,ly+1)}const setK=v=>{k=Math.max(1,Math.min(KMAX,v));draw()};
+function label(p,t){if(!t||!visible(p))return;const [x,y]=proj([p[1],p[0]]);ctx.font='600 13px "Nunito",sans-serif';const w=ctx.measureText(t).width;let lx=x+14,ly=y+4;if(lx+w+10>W)lx=x-14-w;ctx.fillStyle='rgba(243,244,236,.94)';ctx.beginPath();ctx.roundRect(lx-6,ly-14,w+12,22,4);ctx.fill();ctx.fillStyle='#1d2e28';ctx.fillText(t,lx,ly+1)}const setK=v=>{k=Math.max(1,Math.min(KMAX,v));draw()};
 let anim=null;
 function flyTo(lat,lon,kk){cancelAnimationFrame(anim);const r0=rot.slice(),k0=k,r1=[-lon,-lat];let dl=r1[0]-r0[0];dl=((dl+540)%360)-180;
   if(reduce){rot=[r0[0]+dl,r1[1]];k=kk;draw();return}const t0=performance.now(),D=900;
@@ -223,6 +229,7 @@ function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):
 let mode='daily',order=[],round=0,results=[],usedHint=false,finished=false,locked=false;
 const canPin=()=>!locked&&!finished&&SP.length>0;
 const fmt=n=>Math.round(n).toLocaleString();
+const blurred=t=>esc(t).replace(/\[\[(.+?)\]\]/g,'<span class="blur" aria-label="hidden place name">$1</span>');
 const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/900));
 function start(m){mode=m;finished=false;order=pick(m==='daily'?dayNum:Math.floor(Math.random()*1e9));round=0;results=[];
   $('label').textContent=m==='daily'?'Daily #'+puzzleNo:'Practice';$('end').style.display='none';$('card').style.display='block';
@@ -230,7 +237,7 @@ function start(m){mode=m;finished=false;order=pick(m==='daily'?dayNum:Math.floor
   const saved=store.get('ht2-day');if(m==='daily'&&saved&&saved.day===dayNum&&saved.results.length===5){results=saved.results;finish();return}show()}
 function dots(){$('dots').innerHTML=order.map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
 function show(){const sp=SP[order[round]];pin=null;target=null;usedHint=false;locked=false;
-  $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=sp.display;$('sci').textContent=sp.sci_display;
+  $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').innerHTML=blurred(sp.display);$('sci').innerHTML=blurred(sp.sci_display);
   $('hint').hidden=true;$('hint').textContent='Hint: '+sp.region;$('hintBtn').hidden=false;$('hintBtn').disabled=false;
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
@@ -263,8 +270,9 @@ $('share').onclick=()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`Ha
 $('practice').onclick=()=>start('practice');
 
 /* ---------- boot ---------- */
-const LAND=['https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-50m.json','https://unpkg.com/world-atlas@2.0.2/land-50m.json','https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json'];
-async function loadLand(){for(const u of LAND){try{const t=await fetch(u).then(r=>{if(!r.ok)throw 0;return r.json()});land=topoToGeo(t,'land');$('status').textContent='';draw();return}catch(e){}}$('status').textContent='Coastlines failed to load. Check your connection and refresh.'}
+const ATLAS=['https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json','https://unpkg.com/world-atlas@2.0.2/countries-50m.json','https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json'];
+async function loadLand(){for(const u of ATLAS){try{const t=await fetch(u).then(r=>{if(!r.ok)throw 0;return r.json()});land=topoToGeo(t,'land');borders=topoMesh(t,'countries');$('status').textContent='';draw();loadStates();return}catch(e){}}$('status').textContent='Coastlines failed to load. Check your connection and refresh.'}
+function loadStates(){fetch('admin1.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{const sc=j.scale;states={type:'MultiLineString',coordinates:j.lines.map(d=>{const out=[];let x=0,y=0;for(let i=0;i<d.length;i+=2){x=i?x+d[i]:d[i];y=i?y+d[i+1]:d[i+1];out.push([x*sc,y*sc])}return out})};draw()}).catch(()=>{})}
 loadLand();
 fetch('species.json').then(r=>r.json()).then(d=>{SP=d;const p=store.get('ht2-progress');start('daily');
   if(p&&p.day===dayNum&&p.results.length&&p.results.length<5&&!finished){results=p.results;round=results.length;show()}}).catch(()=>{$('kind').textContent='Could not load species list.'});
