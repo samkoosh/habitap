@@ -1,0 +1,14 @@
+{
+  "name": "habitap-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "upload-species": "wrangler kv key put --binding=HABITAP species --path=data/species.json --remote",
+    "test": "node test/api.test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

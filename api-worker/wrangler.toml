@@ -1,0 +1,13 @@
+name = "habitap-api"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# Create the namespace with:  npx wrangler kv namespace create HABITAP
+# then paste the id it prints here.
+[[kv_namespaces]]
+binding = "HABITAP"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[vars]
+# Sites allowed to call the API from a browser. Add the final domain when it's live.
+ALLOW_ORIGIN = "https://garrettarch.github.io,https://playhabitap.com,https://www.playhabitap.com,http://localhost:8080"
