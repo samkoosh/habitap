@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Habitap</title>
-<meta name="description" content="A daily game: see a plant or animal that lives in only one tiny corner of the world, then find that spot on the globe.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Habitap: the daily game where you find where rare species live</title>
+<meta name="description" content="Habitap is a free daily geography game. See a plant or animal that lives in only one tiny corner of the world, then tap that spot on a 3D globe. Five new species every day.">
+<!-- SITE URL: swap https://garrettarch.github.io/habitap/ for https://playhabitap.com/ everywhere in this file, sitemap.xml and robots.txt once the domain is live (see LAUNCH.md). -->
+<link rel="canonical" href="https://garrettarch.github.io/habitap/">
+<meta name="theme-color" content="#557046">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Habitap">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Habitap">
+<meta property="og:title" content="Habitap: find where the world's rarest species live">
+<meta property="og:description" content="A free daily geography game. Five plants and animals that live in only one tiny corner of the world. Tap where you think each one lives.">
+<meta property="og:url" content="https://garrettarch.github.io/habitap/">
+<meta property="og:image" content="https://garrettarch.github.io/habitap/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Habitap logo over a globe with a map pin">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Habitap: find where the world's rarest species live">
+<meta name="twitter:description" content="A free daily geography game. Five rare species a day. Tap where they live.">
+<meta name="twitter:image" content="https://garrettarch.github.io/habitap/og.png">
+<!-- Daily puzzle API (api-worker/). Leave empty to play from species.json; set to the Worker URL once deployed. -->
+<meta name="habitap-api" content="">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","@id":"https://garrettarch.github.io/habitap/#site","name":"Habitap","url":"https://garrettarch.github.io/habitap/","inLanguage":"en"},
+ {"@type":["VideoGame","WebApplication"],"@id":"https://garrettarch.github.io/habitap/#game","name":"Habitap","url":"https://garrettarch.github.io/habitap/","description":"A free daily geography game. Each day you see five plants and animals that live in only one small corner of the world, like a single island, lake or mountain, and tap where you think each one lives on a 3D globe.","genre":["Geography game","Daily puzzle","Educational game"],"gamePlatform":"Web browser","applicationCategory":"GameApplication","operatingSystem":"Any","playMode":"SinglePlayer","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://garrettarch.github.io/habitap/og.png","isPartOf":{"@id":"https://garrettarch.github.io/habitap/#site"}},
+ {"@type":"FAQPage","@id":"https://garrettarch.github.io/habitap/#faq","mainEntity":[
+  {"@type":"Question","name":"What is Habitap?","acceptedAnswer":{"@type":"Answer","text":"Habitap is a free daily geography game. Each day it shows you five plants and animals that live in only one small corner of the world, and you tap the spot on a 3D globe where you think each one lives."}},
+  {"@type":"Question","name":"How is my score calculated?","acceptedAnswer":{"@type":"Answer","text":"Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the region hint costs 20 points. The best possible daily score is 500."}},
+  {"@type":"Question","name":"When does the new Habitap puzzle come out?","acceptedAnswer":{"@type":"Answer","text":"A new set of five species unlocks every day at midnight in your local time zone. Everyone gets the same five species for the same date."}},
+  {"@type":"Question","name":"Is Habitap free? Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"Habitap is completely free and needs no account or sign-up. Your streak and progress are saved in your browser on your device."}},
+  {"@type":"Question","name":"Is Habitap like Worldle or GeoGuessr?","acceptedAnswer":{"@type":"Answer","text":"It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a rare plant or animal lives, and you learn why it lives only there."}},
+  {"@type":"Question","name":"Which species are in Habitap?","acceptedAnswer":{"@type":"Answer","text":"Every species is a strict endemic, meaning its whole wild range sits within roughly 150 km of one point, such as a single island, lake, cave or mountain. Examples include animals, plants, fish, birds and amphibians from every continent."}},
+  {"@type":"Question","name":"Can I play past Habitap puzzles?","acceptedAnswer":{"@type":"Answer","text":"Yes. After you finish the daily, the results screen lets you replay earlier dailies or play a practice round. Past puzzles don't affect your streak."}},
+  {"@type":"Question","name":"How do I share my Habitap score?","acceptedAnswer":{"@type":"Answer","text":"When you finish, tap Share result. On a phone it opens your share sheet, and on a computer it copies a short emoji summary of your five guesses with a link to the game."}},
+  {"@type":"Question","name":"Can I play Habitap on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Habitap works in any modern phone browser. You can also add it to your home screen so it opens like an app."}},
+  {"@type":"Question","name":"Where do the photos come from?","acceptedAnswer":{"@type":"Answer","text":"Photos are free-licensed images from Wikimedia Commons, loaded through Wikipedia, and each one is credited with its author and license."}},
+  {"@type":"Question","name":"Who made Habitap?","acceptedAnswer":{"@type":"Answer","text":"Habitap was made for fun by two cousins who love maps, nature and daily puzzle games."}}
+ ]}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
 <style>
@@ -73,7 +114,38 @@ canvas.dragging{cursor:grabbing}
 .streak{color:var(--soft);font-size:14px;margin-top:12px}
 .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--rule);color:var(--soft);font-size:13px;max-width:78ch}
 .foot a{color:var(--soft)}
-@media(max-width:820px){.game{grid-template-columns:1fr;gap:14px}.tipwrap{grid-column:auto}.photo{aspect-ratio:3/2}.body h2{font-size:26px}}
+.mscore{display:none}
+.archive{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--soft)}
+.archive select{min-height:40px;border-radius:999px;border:2px solid #cfd9c7;background:#fff;color:var(--ink);font:700 14px "Nunito",sans-serif;padding:0 12px}
+.about{margin-top:34px;max-width:78ch}
+.about h2{font-size:22px;margin:22px 0 6px}
+.about p,.about li{color:var(--ink)}
+.about ol{padding-left:22px;margin:6px 0}
+.about details{border-bottom:1px solid var(--rule);padding:10px 0}
+.about summary{cursor:pointer;font-weight:800;list-style-position:outside}
+.about details p{margin:6px 0 2px;color:var(--soft)}
+.foot nav{margin-top:6px}
+@media(max-width:820px){
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .wrap{padding-top:max(12px,env(safe-area-inset-top));padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+  header{margin-bottom:12px;padding-bottom:8px}header h1{font-size:28px}
+  .game{grid-template-columns:1fr;gap:12px}.tipwrap{grid-column:auto}
+  /* compact card while guessing: photo beside the name so the globe stays on screen */
+  .card:not(.open){display:grid;grid-template-columns:40% minmax(0,1fr);align-items:start}
+  .card:not(.open) .photo{grid-column:1;grid-row:1;aspect-ratio:1;margin:10px 0 0 10px;cursor:zoom-in}
+  .card:not(.open) .body{grid-column:2;grid-row:1;padding:10px 12px 12px}
+  .card:not(.open) .credit{grid-column:1/-1;grid-row:2;padding-bottom:8px}
+  .card:not(.open) .body h2{font-size:clamp(19px,5.6vw,24px)}
+  .card:not(.open) .sci{font-size:14px}
+  .card.open .photo{aspect-ratio:3/2;cursor:zoom-out}
+  .body h2{font-size:24px}
+  /* thumb-reach action bar pinned to the bottom of the screen */
+  #acts,#nextActs{position:fixed;left:0;right:0;bottom:0;z-index:20;margin:0;padding:10px max(14px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left));background:rgba(255,255,255,.97);border-top:1px solid #dbe3d4;box-shadow:0 -6px 18px -12px rgba(29,46,40,.4);flex-wrap:nowrap;align-items:center}
+  #acts .b,#nextActs .b{flex:1;min-height:50px}
+  #hintBtn{flex:0 0 auto}
+  .mscore{display:block;flex:0 0 auto;font-weight:900;font-size:20px;color:var(--ochre-ink);font-variant-numeric:tabular-nums;padding-right:4px}
+  .mscore small{display:block;font-size:12px;font-weight:600;color:var(--soft);line-height:1}  .zoom{right:4px;top:4px}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -104,7 +176,7 @@ canvas.dragging{cursor:grabbing}
           <p><span class="lbl">Why only here</span><span id="why"></span></p>
           <p><span class="lbl">Fun fact</span><span id="fact"></span></p>
           <p style="font-size:14px"><a id="wiki" href="#" target="_blank" rel="noopener">Read more on Wikipedia</a></p>
-          <div class="acts"><button class="b p" id="next">Next species</button></div>
+          <div class="acts" id="nextActs"><span class="mscore" id="mscore"></span><button class="b p" id="next">Next species</button></div>
         </div>
       </div>
     </section>
@@ -117,9 +189,12 @@ canvas.dragging{cursor:grabbing}
         <div class="acts">
           <button class="b p" id="share">Copy result</button>
           <button class="b" id="practice">Practice round</button>
-          <span class="toast" id="toast"></span>
+          <button class="b" id="backDaily" hidden>Back to today</button>
+          <span class="toast" id="toast" aria-live="polite"></span>
         </div>
         <div class="streak" id="streak"></div>
+        <div class="streak" id="countdown"></div>
+        <div class="archive" id="archiveBox" hidden><label for="archive">Replay a past daily</label><select id="archive"></select></div>
       </div>
     </section>
 
@@ -128,11 +203,36 @@ canvas.dragging{cursor:grabbing}
       <div class="zoom"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">&minus;</button></div>
       <div class="status" id="status">Loading globe…</div>
     </div>
-    <div class="tipwrap"><p class="tip">Drag to spin the globe. Scroll or pinch to zoom, and tap to drop your pin.</p>
+    <div class="tipwrap"><p class="tip" id="tip">Drag to spin the globe. Scroll or pinch to zoom, and tap to drop your pin.</p>
     </div>
   </div>
 
-  <p class="foot">Every species here lives in one small corner of the world, like a single island, lake or mountain. Five a day, the same for everyone. Your score depends on how close your pin lands. Place names inside species names stay blurred until you guess. Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas.</p>
+  <section class="about" aria-labelledby="whatis">
+    <h2 id="whatis">What is Habitap?</h2>
+    <p>Habitap is a free daily geography game about the world's most local wildlife. Every species in it lives in one small corner of the world, like a single island, lake, cave or mountain. Each day you get five of them, the same five for everyone, and you tap where you think each one lives on a 3D globe.</p>
+    <h2>How to play</h2>
+    <ol>
+      <li>Look at the photo and the name. Place names inside species names stay blurred until you guess.</li>
+      <li>Spin and zoom the globe, then tap to drop your pin where you think the species lives.</li>
+      <li>Tap <b>Lock it in</b>. You score up to 100 points, depending on how close you land, and learn why it lives only there.</li>
+      <li>Stuck? A hint shows the region, for 20 points off.</li>
+      <li>After five species, share your score and come back tomorrow to keep your streak going.</li>
+    </ol>
+    <h2>FAQ</h2>
+    <details><summary>How is my score calculated?</summary><p>Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the region hint costs 20 points. The best possible daily score is 500.</p></details>
+    <details><summary>When does the new puzzle come out?</summary><p>A new set of five species unlocks every day at midnight in your local time zone. Everyone gets the same five species for the same date.</p></details>
+    <details><summary>Is Habitap free? Do I need an account?</summary><p>Habitap is completely free and needs no account or sign-up. Your streak and progress are saved in your browser on your device.</p></details>
+    <details><summary>Is Habitap like Worldle or GeoGuessr?</summary><p>It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a rare plant or animal lives, and you learn why it lives only there.</p></details>
+    <details><summary>Which species are in Habitap?</summary><p>Every species is a strict endemic, meaning its whole wild range sits within roughly 150 km of one point, such as a single island, lake, cave or mountain. Examples include animals, plants, fish, birds and amphibians from every continent.</p></details>
+    <details><summary>Can I play past puzzles?</summary><p>Yes. After you finish the daily, the results screen lets you replay earlier dailies or play a practice round. Past puzzles don't affect your streak.</p></details>
+    <details><summary>How do I share my score?</summary><p>When you finish, tap Share result. On a phone it opens your share sheet, and on a computer it copies a short emoji summary of your five guesses with a link to the game.</p></details>
+    <details><summary>Can I play on my phone?</summary><p>Yes. Habitap works in any modern phone browser. You can also add it to your home screen so it opens like an app.</p></details>
+    <details><summary>Where do the photos come from?</summary><p>Photos are free-licensed images from Wikimedia Commons, loaded through Wikipedia, and each one is credited with its author and license.</p></details>
+    <details><summary>Who made Habitap?</summary><p>Habitap was made for fun by two cousins who love maps, nature and daily puzzle games.</p></details>
+  </section>
+
+  <footer class="foot">Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas. Species facts were compiled from Wikipedia and other sources; some points are approximate.
+    <nav><a href="privacy.html">Privacy</a></nav></footer>
 </div>
 
 <script src="d3.min.js"></script>
@@ -141,9 +241,14 @@ canvas.dragging{cursor:grabbing}
 const $=id=>document.getElementById(id);
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const API=((document.querySelector('meta[name="habitap-api"]')||{}).content||'').replace(/\/+$/,'');
 const now=new Date(),dayNum=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/864e5);
-const puzzleNo=dayNum-Math.floor(Date.UTC(2026,10,26)/864e5)+1;
+const EPOCH=Math.floor(Date.UTC(2026,10,26)/864e5),noFor=d=>d-EPOCH+1,puzzleNo=noFor(dayNum);
+const dateFor=d=>new Date(d*864e5).toLocaleDateString(undefined,{month:'short',day:'numeric',timeZone:'UTC'});
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const touch=matchMedia('(pointer: coarse)').matches,narrow=()=>matchMedia('(max-width: 820px)').matches;
+/* analytics: no-op until a Plausible, Umami or GA4 snippet is added (see LAUNCH.md) */
+const track=(name,props={})=>{try{if(window.plausible)plausible(name,{props});else if(window.umami)umami.track(name,props);else if(window.gtag)gtag('event',name,props)}catch(e){}};
 function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 const km=(a,b)=>d3.geoDistance([a[1],a[0]],[b[1],b[0]])*6371;
 let SP=[];
@@ -165,7 +270,7 @@ const cv=$('globe'),ctx=cv.getContext('2d'),box=$('globebox');
 const proj=d3.geoOrthographic().clipAngle(90).precision(0.3),path=d3.geoPath(proj,ctx),grat=d3.geoGraticule10();
 let land=null,borders=null,states=null,W=0,H=0,base=1,k=1,rot=[-20,-15];
 let pin=null,target=null;
-function size(){const w=box.clientWidth;const h=Math.round(Math.max(320,Math.min(w,innerHeight*0.78,760)));const dpr=devicePixelRatio||1;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.min(w,h)/2-10;draw()}
+function size(){const w=box.clientWidth;const h=Math.round(Math.max(300,Math.min(w,innerHeight*(narrow()?0.6:0.78),760)));const dpr=devicePixelRatio||1;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.min(w,h)/2-10;draw()}
 function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot);ctx.clearRect(0,0,W,H);const R=base*k,cx=W/2,cy=H/2;
   const g=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.1,cx,cy,R);g.addColorStop(0,'#86adb6');g.addColorStop(1,'#4a717c');
   ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=g;ctx.fill();
@@ -209,7 +314,8 @@ new ResizeObserver(size).observe(box);
 /* ---------- photos via Wikipedia + Commons ---------- */
 const photoCache={};
 const stripHtml=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim()};
-function getPhoto(sp){if(photoCache[sp.wiki])return photoCache[sp.wiki];
+/* the API sends photo info itself (served through the Worker, so file names can't give the answer away) */
+function getPhoto(sp){if(sp.photo!==undefined)return Promise.resolve(sp.photo);if(photoCache[sp.wiki])return photoCache[sp.wiki];
   const title=decodeURIComponent(sp.wiki).replace(/_/g,' ');
   const u='https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&redirects=1&prop=pageimages&piprop=thumbnail%7Cname&pithumbsize=900&pilicense=free&titles='+encodeURIComponent(title);
   return photoCache[sp.wiki]=fetch(u).then(r=>r.json()).then(async j=>{const pg=j.query&&j.query.pages&&j.query.pages[0];if(!pg||!pg.thumbnail)return null;
@@ -218,40 +324,70 @@ function getPhoto(sp){if(photoCache[sp.wiki])return photoCache[sp.wiki];
       const m=c.query.pages[0].imageinfo[0].extmetadata;out.artist=stripHtml(m.Artist&&m.Artist.value);out.license=(m.LicenseShortName&&m.LicenseShortName.value)||'';out.licUrl=(m.LicenseUrl&&m.LicenseUrl.value)||''}catch(e){}
     return out}).catch(()=>null)}
 function showPhoto(sp,revealed){const img=$('img'),msg=$('photoMsg');img.classList.remove('ok');img.removeAttribute('src');msg.textContent='Loading photo…';$('credit').textContent='';
-  getPhoto(sp).then(ph=>{if(SP[order[round]]!==sp&&!finished)return;
+  getPhoto(sp).then(ph=>{if(items[round]!==sp&&!finished)return;
     if(!ph){msg.textContent='No free photo found for this one. Go by the name!';return}
     img.onload=()=>{img.classList.add('ok');msg.textContent=''};img.onerror=()=>{msg.textContent='Photo failed to load.'};img.src=ph.src;
     creditLine(ph,revealed)})}
 function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):'Unknown author';const lic=ph.license?(ph.licUrl?`<a href="${esc(ph.licUrl)}" target="_blank" rel="noopener">${esc(ph.license)}</a>`:esc(ph.license)):'free license';
   $('credit').innerHTML=`Photo: ${who}, ${lic}, via `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`:'Wikimedia Commons')}
 
-/* ---------- game ---------- */
-let mode='daily',order=[],round=0,results=[],usedHint=false,finished=false,locked=false;
-const canPin=()=>!locked&&!finished&&SP.length>0;
+/* ---------- data: species.json in the browser for now, the daily API once it's deployed ---------- */
 const fmt=n=>Math.round(n).toLocaleString();
-const blurred=t=>esc(t).replace(/\[\[(.+?)\]\]/g,'<span class="blur" aria-label="hidden place name">$1</span>');
 const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
-function start(m){mode=m;finished=false;order=pick(m==='daily'?dayNum:Math.floor(Math.random()*1e9));round=0;results=[];
-  $('label').textContent=m==='daily'?'Daily #'+puzzleNo:'Practice';$('end').style.display='none';$('card').style.display='block';
-  order.forEach(i=>getPhoto(SP[i]));
-  const saved=store.get('ht2-day');if(m==='daily'&&saved&&saved.day===dayNum&&saved.results.length===5){results=saved.results;finish();return}show()}
-function dots(){$('dots').innerHTML=order.map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
-function show(){const sp=SP[order[round]];pin=null;target=null;usedHint=false;locked=false;
+let spLoad=null;
+const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
+const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki}};
+const data=API?{
+  day:d=>fetch(`${API}/day?d=${d}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
+  practice:()=>fetch(`${API}/practice`).then(r=>{if(!r.ok)throw 0;return r.json()}),
+  guess:(d,i,p,hint)=>fetch(`${API}/guess`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({d,i,lat:p[0],lon:p[1],hint})}).then(r=>{if(!r.ok)throw 0;return r.json()})
+}:{
+  day:async d=>{await loadSP();return{day:d,items:pick(d).map(fromSP)}},
+  practice:async()=>{await loadSP();return{day:null,items:pick(Math.floor(Math.random()*1e9)).map(fromSP)}},
+  guess:async(d,i,p,hint,it)=>{const sp=SP[it._i],dk=km(p,[sp.lat,sp.lon]);let score=scoreFor(dk);if(hint)score=Math.max(0,score-20);return{sp,km:dk,score}}
+};
+
+/* ---------- game ---------- */
+let mode='daily',items=[],playDay=dayNum,round=0,results=[],usedHint=false,finished=false,locked=true;
+const canPin=()=>!locked&&!finished&&items.length>0;
+const blurred=t=>esc(t).replace(/\[\[(.+?)\]\]/g,'<span class="blur" aria-label="hidden place name">$1</span>');
+const labelText=()=>mode==='daily'?'Daily #'+puzzleNo:mode==='archive'?`Daily #${noFor(playDay)} (replay)`:'Practice';
+const shareTag=()=>mode==='daily'?'#'+puzzleNo:mode==='archive'?`#${noFor(playDay)} (replay)`:'(practice)';
+async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];items=[];pin=null;target=null;
+  $('label').textContent=labelText();$('end').style.display='none';$('card').style.display='';$('card').classList.remove('open');
+  $('res').style.display='none';$('acts').style.display='none';$('kind').textContent='Loading…';$('name').innerHTML='&nbsp;';$('sci').textContent='';dots();
+  let pack;try{pack=m==='practice'?await data.practice():await data.day(m==='daily'?dayNum:d)}
+  catch(e){$('kind').textContent='Couldn’t load the species. Check your connection and refresh.';return}
+  items=pack.items;playDay=pack.day??d??dayNum;$('label').textContent=labelText();
+  items.forEach(it=>getPhoto(it));
+  if(m==='daily'){const saved=store.get('ht2-day');if(saved&&saved.day===dayNum&&saved.results.length===5){results=saved.results;finish();return}
+    const p=store.get('ht2-progress');if(p&&p.day===dayNum&&p.results.length&&p.results.length<5){results=p.results;round=results.length}}
+  track('play_start',{mode,puzzle:mode==='practice'?0:noFor(playDay),resumed:round>0});show()}
+function dots(){$('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
+function show(){const sp=items[round];pin=null;target=null;usedHint=false;locked=false;$('card').classList.remove('open');
   $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').innerHTML=blurred(sp.display);$('sci').innerHTML=blurred(sp.sci_display);
   $('hint').hidden=true;$('hint').textContent='Hint: '+sp.region;$('hintBtn').hidden=false;$('hintBtn').disabled=false;
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
-$('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hintBtn').disabled=true};
-$('go').onclick=()=>{if(!pin||locked)return;locked=true;const sp=SP[order[round]];target=[sp.lat,sp.lon];tlabel=sp.place.length>40?sp.place.slice(0,38)+'…':sp.place;const d=km(pin,target);
-  let score=scoreFor(d);if(usedHint)score=Math.max(0,score-20);results.push({i:order[round],score,d:Math.round(d),hint:usedHint});
+$('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hintBtn').disabled=true;track('hint',{mode,round:round+1})};
+$('photo').onclick=()=>{if(narrow())$('card').classList.toggle('open')};
+$('go').onclick=async()=>{if(!pin||locked)return;locked=true;const it=items[round];$('go').disabled=true;$('go').textContent='Checking…';
+  let r;try{r=await data.guess(playDay,round,pin,usedHint,it)}catch(e){locked=false;$('go').disabled=false;$('go').textContent='Couldn’t check. Try again';return}
+  const sp=r.sp,d=r.km,score=r.score;target=[sp.lat,sp.lon];tlabel=sp.place.length>40?sp.place.slice(0,38)+'…':sp.place;
+  if(it.photo&&sp.photoPage)it.photo.page=sp.photoPage;
+  results.push({i:it._i??null,name:sp.common_name,score,d:Math.round(d),hint:usedHint});
   if(mode==='daily')store.set('ht2-progress',{day:dayNum,results});
-  $('acts').style.display='none';$('res').style.display='block';
+  $('acts').style.display='none';$('res').style.display='block';$('card').classList.add('open');
+  /* phones: keep the globe (your pin vs. the real spot) on screen; the story is just above */
+  if(narrow())requestAnimationFrame(()=>{const r=box.getBoundingClientRect(),bar=$('nextActs').offsetHeight||70;scrollBy({top:r.bottom-(innerHeight-bar-8),behavior:reduce?'auto':'smooth'})});
   $('name').textContent=sp.common_name;$('sci').textContent=sp.scientific_name;
   $('pts').innerHTML=`${score}<small>points${usedHint?', with 20 off for the hint':''}</small>`;
   $('dist').textContent=d<1?'Right on it!':`${fmt(d*0.621371)} mi (${fmt(d)} km) away`;
+  $('mscore').innerHTML=`${score} pts<small>${d<1?'right on it':fmt(d*0.621371)+' mi away'}</small>`;
   $('place').textContent=sp.place;$('why').textContent=sp.why_here;$('fact').textContent=sp.fun_fact;
   $('wiki').href='https://en.wikipedia.org/wiki/'+sp.wiki;$('next').textContent=round===4?'See results':'Next species';
-  getPhoto(sp).then(ph=>{if(ph)creditLine(ph,true)});
+  getPhoto(it).then(ph=>{if(ph)creditLine(ph,true)});
+  track('guess',{mode,round:round+1,score,km:Math.round(d),hint:usedHint});
   const mid=d3.geoInterpolate([pin[1],pin[0]],[sp.lon,sp.lat])(.5),th=d3.geoDistance([pin[1],pin[0]],[sp.lon,sp.lat]);
   flyTo(mid[1],mid[0],Math.max(1,Math.min(14,0.5/Math.sin(Math.min(th/2+0.03,1.5)))));dots()};
 $('next').onclick=()=>{round++;if(round>=5)finish();else show();scrollTo({top:0,behavior:reduce?'auto':'smooth'})};
@@ -259,23 +395,35 @@ const sq=n=>n>=90?'🟩':n>=60?'🟨':n>=30?'🟧':'🟥';
 function finish(){finished=true;locked=true;round=5;$('card').style.display='none';$('end').style.display='block';pin=null;target=null;
   const t=results.reduce((a,r)=>a+r.score,0);dots();
   $('endScore').innerHTML=t+'<small> / 500</small>';$('endTitle').textContent=t>=420?'Field biologist':t>=300?'Seasoned naturalist':t>=180?'Promising explorer':'Lost in the wilderness';
-  $('rows').innerHTML=results.map(r=>{const s=SP[r.i];return `<div class="row"><span><b>${esc(s.common_name)}</b><small>${fmt(r.d*0.621371)} mi away${r.hint?', hint used':''}</small></span><div class="bar"><i style="width:${r.score}%"></i></div><span class="n">${r.score}</span></div>`}).join('');
-  if(mode==='daily'){const prev=store.get('ht2-day');if(!prev||prev.day!==dayNum){const st=store.get('ht2-streak')||{last:0,n:0};st.n=st.last===dayNum-1?st.n+1:1;st.last=dayNum;store.set('ht2-streak',st);store.set('ht2-day',{day:dayNum,results})}
-    const st=store.get('ht2-streak');$('streak').textContent=st?`Daily streak: ${st.n} day${st.n===1?'':'s'}. New species tomorrow.`:'New species tomorrow.'}
-  else $('streak').textContent='Practice rounds don’t count toward your streak.';
-  draw()}
-$('share').onclick=()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`Habitap ${mode==='daily'?'#'+puzzleNo:'(practice)'} ${t}/500\n${results.map(r=>sq(r.score)).join('')}\n${location.href.split('#')[0]}`;
-  const ok=()=>{$('toast').textContent='Copied!'};const no=()=>{$('toast').textContent=txt};
+  $('rows').innerHTML=results.map(r=>{const n=r.name||(SP[r.i]&&SP[r.i].common_name)||'';return `<div class="row"><span><b>${esc(n)}</b><small>${fmt(r.d*0.621371)} mi away${r.hint?', hint used':''}</small></span><div class="bar"><i style="width:${r.score}%"></i></div><span class="n">${r.score}</span></div>`}).join('');
+  if(mode==='daily'){const prev=store.get('ht2-day');if(!prev||prev.day!==dayNum){const st=store.get('ht2-streak')||{last:0,n:0};st.n=st.last===dayNum-1?st.n+1:1;st.last=dayNum;store.set('ht2-streak',st);store.set('ht2-day',{day:dayNum,results});track('daily_complete',{puzzle:puzzleNo,total:t,streak:st.n})}
+    const st=store.get('ht2-streak');$('streak').textContent=st?`Daily streak: ${st.n} day${st.n===1?'':'s'}.`:''}
+  else{$('streak').textContent=mode==='archive'?'Replays don’t count toward your streak.':'Practice rounds don’t count toward your streak.';track(mode+'_complete',{total:t})}
+  $('backDaily').hidden=mode==='daily';$('toast').textContent='';tick();fillArchive();draw()}
+function tick(){const n=new Date();if(Math.floor(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())/864e5)!==dayNum){$('countdown').innerHTML='A new daily is ready. <a href="">Play it</a>';return}
+  const ms=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1)-n,h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4);
+  $('countdown').textContent=`Next daily in ${h}h ${m}m, at midnight your time.`}
+setInterval(()=>{if(finished)tick()},30000);
+function fillArchive(){const opts=[];for(let d=dayNum-1;d>=EPOCH;d--)opts.push(`<option value="${d}">#${noFor(d)}, ${dateFor(d)}</option>`);
+  $('archiveBox').hidden=!opts.length;$('archive').innerHTML='<option value="">Choose a day</option>'+opts.join('')}
+$('archive').onchange=e=>{const d=+e.target.value;if(d){track('archive_open',{puzzle:noFor(d)});start('archive',d);scrollTo({top:0})}};
+const canSheet=touch&&!!navigator.share;if(canSheet)$('share').textContent='Share result';
+if(touch)$('tip').textContent='Drag to spin, pinch to zoom, and tap to drop your pin.';
+$('share').onclick=async()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`Habitap ${shareTag()} ${t}/500\n${results.map(r=>sq(r.score)).join('')}\n${location.href.split(/[?#]/)[0]}`;
+  if(canSheet){try{await navigator.share({text:txt});track('share',{method:'sheet',mode});return}catch(e){if(e&&e.name==='AbortError')return}}
+  const ok=()=>{$('toast').textContent='Copied!';track('share',{method:'copy',mode})};const no=()=>{$('toast').textContent=txt;track('share',{method:'shown',mode})};
   try{navigator.clipboard.writeText(txt).then(ok,no)}catch(e){no()}};
-$('practice').onclick=()=>start('practice');
+$('practice').onclick=()=>{start('practice');scrollTo({top:0})};
+$('backDaily').onclick=()=>{start('daily');scrollTo({top:0})};
+addEventListener('appinstalled',()=>track('app_installed'));
+if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 
 /* ---------- boot ---------- */
 const ATLAS=['https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json','https://unpkg.com/world-atlas@2.0.2/countries-50m.json','https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json'];
 async function loadLand(){for(const u of ATLAS){try{const t=await fetch(u).then(r=>{if(!r.ok)throw 0;return r.json()});land=topoToGeo(t,'land');borders=topoMesh(t,'countries');$('status').textContent='';draw();loadStates();return}catch(e){}}$('status').textContent='Coastlines failed to load. Check your connection and refresh.'}
 function loadStates(){const U=['https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@v5.1.2/geojson/ne_50m_admin_1_states_provinces_lines.geojson','https://unpkg.com/world-atlas@2.0.2/countries-50m.json'];fetch(U[0]).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{const lines=[];for(const f of j.features){const g=f.geometry;if(!g)continue;if(g.type==='LineString')lines.push(g.coordinates);else if(g.type==='MultiLineString')lines.push(...g.coordinates)}states={type:'MultiLineString',coordinates:lines};draw()}).catch(()=>{})}
 loadLand();
-fetch('species.json').then(r=>r.json()).then(d=>{SP=d;const p=store.get('ht2-progress');start('daily');
-  if(p&&p.day===dayNum&&p.results.length&&p.results.length<5&&!finished){results=p.results;round=results.length;show()}}).catch(()=>{$('kind').textContent='Could not load species list.'});
+start('daily');
 }
 </script>
 </body>
