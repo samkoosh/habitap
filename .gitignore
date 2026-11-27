@@ -1,0 +1,5 @@
+node_modules/
+.wrangler/
+.DS_Store
+# The private species list for the API. Never commit it: anything in this public repo is public.
+api-worker/data/

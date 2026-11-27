@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="sea" cx="38%" cy="34%" r="70%"><stop offset="0" stop-color="#86adb6"/><stop offset="1" stop-color="#4a717c"/></radialGradient>
+    <clipPath id="g"><circle cx="256" cy="268" r="168"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#557046"/>
+  <circle cx="256" cy="268" r="168" fill="url(#sea)"/>
+  <g clip-path="url(#g)" fill="#ece5c8" stroke="#7d704c" stroke-width="4">
+    <path d="M118 196c28-30 70-44 104-32 22 8 20 34 44 40 30 8 40-18 70-10 26 7 34 38 22 58-12 22-46 18-58 40-12 24 6 52-14 70-22 20-60 6-74-20-12-22 2-48-16-64-20-18-56-6-76-28-14-16-10-38-2-54z"/>
+    <path d="M330 360c20-8 46 0 56 18 8 16-4 36-24 40-22 4-44-8-48-26-2-14 4-26 16-32z"/>
+  </g>
+  <g clip-path="url(#g)" fill="none" stroke="rgba(243,244,236,.28)" stroke-width="3">
+    <ellipse cx="256" cy="268" rx="84" ry="168"/><path d="M88 268h336M100 196h312M100 340h312"/>
+  </g>
+  <circle cx="256" cy="268" r="168" fill="none" stroke="rgba(29,46,40,.35)" stroke-width="4"/>
+  <g transform="translate(300 250)">
+    <ellipse cx="0" cy="6" rx="22" ry="8" fill="rgba(0,0,0,.3)"/>
+    <path d="M0 0C-34-42-28-84 0-84S34-42 0 0z" fill="#c08a2b" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+    <circle cx="0" cy="-56" r="11" fill="#fff"/>
+  </g>
+</svg>
