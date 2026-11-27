@@ -1,0 +1,14 @@
+// Habitap site on Cloudflare Workers (static assets only, no server code).
+// Connect this repo in the Cloudflare dashboard (Workers & Pages → Create → Import a repository).
+// Every branch push gets a preview URL; pushes to main go to production.
+{
+  "name": "habitap",
+  "compatibility_date": "2025-06-01",
+  "preview_urls": true,
+  "workers_dev": true,
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
