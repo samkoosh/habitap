@@ -56,10 +56,10 @@
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ground:#111915;--paper:#1a2420;--ink:#e6ece5;--soft:#a3b2a8;--rule:#34433b;--moss:#9cc077;--ochre:#d9a441;--ochre-ink:#e6bd62;--btn:#212c27;--btn-line:#3a4a41;--card-line:#2b3832;--chip:#25352b;--photo-bg:#27332d;--bar-bg:rgba(26,36,32,.97);--accent:#5f7f4c;--accent-hover:#6b8d57;--hover:rgba(230,236,229,.08);--glow:rgba(160,190,170,.10);color-scheme:dark}}
 :root[data-theme=dark]{--ground:#111915;--paper:#1a2420;--ink:#e6ece5;--soft:#a3b2a8;--rule:#34433b;--moss:#9cc077;--ochre:#d9a441;--ochre-ink:#e6bd62;--btn:#212c27;--btn-line:#3a4a41;--card-line:#2b3832;--chip:#25352b;--photo-bg:#27332d;--bar-bg:rgba(26,36,32,.97);--accent:#5f7f4c;--accent-hover:#6b8d57;--hover:rgba(230,236,229,.08);--glow:rgba(160,190,170,.10);color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
-html{background:var(--ground)}
+html{background:var(--ground);-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.55 "Nunito",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2{font-family:"Nunito",system-ui,sans-serif;font-weight:800;line-height:1.1;margin:0}
-.wrap{max-width:1200px;margin:0 auto;padding:18px max(3vw,14px) 40px}
+.wrap{max-width:1200px;margin:0 auto;padding:18px max(3vw,14px,env(safe-area-inset-right)) 40px max(3vw,14px,env(safe-area-inset-left))}
 header{display:flex;flex-direction:column;align-items:center;gap:6px;padding-bottom:12px;margin-bottom:18px;border-bottom:1px solid var(--rule);text-align:center}
 header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color:var(--moss)}
 .meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--soft);font-size:15px}
@@ -80,7 +80,7 @@ header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color
 .sci{font-style:italic;font-weight:600;font-size:16px;color:var(--soft)}
 .hint{margin-top:10px;font-size:15px;color:var(--moss)}
 .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.b{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--btn-line);background:var(--btn);color:var(--ink);font:800 15px "Nunito",sans-serif;cursor:pointer;transition:transform .08s}
+.b{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--btn-line);background:var(--btn);color:var(--ink);font:800 15px "Nunito",sans-serif;cursor:pointer;transition:transform .08s;touch-action:manipulation}
 .b:active{transform:scale(.97)}
 .b:hover{background:var(--hover)}
 .b.p{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -95,7 +95,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--ochre);outline-offs
 .res p{margin:10px 0}
 .res .lbl{font-size:13px;font-weight:800;color:var(--soft);display:block;margin-bottom:1px}
 .res a{color:var(--ink)}
-.globebox{position:relative;touch-action:none;user-select:none;background:radial-gradient(closest-side,var(--glow),transparent 100%)}
+.globebox{position:relative;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;background:radial-gradient(closest-side,var(--glow),transparent 100%)}
 canvas{display:block;width:100%;cursor:grab}
 canvas.dragging{cursor:grabbing}
 .zoom{position:absolute;right:6px;top:6px;display:flex;flex-direction:column;gap:6px}
@@ -122,7 +122,7 @@ canvas.dragging{cursor:grabbing}
 .foot a{color:var(--soft)}
 .mscore{display:none}
 .archive{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--soft)}
-.archive select{min-height:40px;border-radius:999px;border:2px solid var(--btn-line);background:var(--btn);color:var(--ink);font:700 14px "Nunito",sans-serif;padding:0 12px}
+.archive select{min-height:44px;touch-action:manipulation;border-radius:999px;border:2px solid var(--btn-line);background:var(--btn);color:var(--ink);font:700 14px "Nunito",sans-serif;padding:0 12px}
 .about{margin-top:34px;max-width:78ch}
 .about h2{font-size:22px;margin:22px 0 6px}
 .about p,.about li{color:var(--ink)}
@@ -155,9 +155,10 @@ canvas.dragging{cursor:grabbing}
 /* juice */
 header{position:relative}
 .tools{position:absolute;right:0;top:2px;display:flex;gap:6px}
-.snd{width:40px;height:40px;border-radius:50%;border:2px solid var(--btn-line);background:var(--btn);color:var(--soft);display:grid;place-items:center;cursor:pointer;padding:0}
+.snd{position:relative;width:40px;height:40px;border-radius:50%;border:2px solid var(--btn-line);background:var(--btn);color:var(--soft);display:grid;place-items:center;cursor:pointer;padding:0;touch-action:manipulation}
+.snd::after{content:"";position:absolute;inset:-4px;border-radius:50%}
 .snd svg{width:20px;height:20px}.snd[aria-pressed="false"]{opacity:.65}
-.fx{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:40}
+.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
 .num{display:inline-block}
 @keyframes pop{0%{transform:scale(.55);opacity:.2}55%{transform:scale(1.2);opacity:1}100%{transform:scale(1)}}
 .pop{animation:pop .45s cubic-bezier(.3,1.4,.5,1) both}
@@ -167,7 +168,35 @@ header{position:relative}
 .rise{animation:rise .4s ease both}
 .bar i{transition:width .65s cubic-bezier(.2,.8,.2,1)}
 @media(max-width:820px){.tools{top:0;gap:4px}.snd{width:36px;height:36px}}
+/* iOS zooms the page into any form control under 16px when it gets focus */
+@media(pointer:coarse){.archive select{font-size:16px}}
+@media(max-width:340px){.row{grid-template-columns:36px minmax(0,1fr) 44px 26px;gap:8px}.thumb,.thumbw{width:36px;height:36px}}
+/* phones on their side (and short windows): one header row, card beside the globe, buttons back in the card */
+@media(orientation:landscape) and (max-height:500px){
+  body{padding-bottom:0}
+  header{flex-direction:row;justify-content:center;gap:16px;margin-bottom:8px;padding-bottom:6px}header h1{font-size:24px}
+  .game{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.tipwrap{grid-column:2}
+  .globebox{position:sticky;top:8px}.tools{z-index:1}
+  .card:not(.open){display:grid;grid-template-columns:40% minmax(0,1fr);align-items:start}
+  .card:not(.open) .photo{grid-column:1;grid-row:1;aspect-ratio:1;margin:10px 0 0 10px;cursor:zoom-in}
+  .card:not(.open) .body{grid-column:2;grid-row:1;padding:10px 12px 12px}
+  .card:not(.open) .credit{grid-column:1/-1;grid-row:2;padding-bottom:8px}
+  .card:not(.open) .body h2{font-size:clamp(19px,2.6vw,24px)}
+  .card.open .photo{aspect-ratio:3/2;cursor:zoom-out}
+  #acts,#nextActs{position:static;padding:0;margin-top:14px;background:none;border:0;box-shadow:none;flex-wrap:wrap}#acts .b{flex:1 0 auto}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.pop,.nudge,.rise{animation:none}}
+/* compact card (phones, short windows): photo + name never move; the score and story appear underneath */
+@media(max-width:820px),(orientation:landscape) and (max-height:500px){
+  .card:not(.open) .body{display:contents}
+  .card:not(.open) .photo{grid-row:1/span 2}
+  .card:not(.open) .label{grid-column:2;grid-row:1;padding:10px 12px 0}
+  .card:not(.open) .hint{grid-column:2;grid-row:2;align-self:start;padding:0 12px;margin-top:4px}
+  .card:not(.open) .credit{grid-column:1/-1;grid-row:3}
+  .card:not(.open) .res{grid-column:1/-1;grid-row:4;margin:0;padding:6px 16px 16px}
+  .card:not(.open) .res .big{font-size:44px}
+}
+@media(orientation:landscape) and (max-height:500px){.card:not(.open) #acts{grid-column:1/-1;grid-row:5;padding:0 12px 12px}}
 </style>
 </head>
 <body>
@@ -268,7 +297,7 @@ const now=new Date(),dayNum=Math.floor(Date.UTC(now.getFullYear(),now.getMonth()
 const EPOCH=Math.floor(Date.UTC(2026,10,26)/864e5),noFor=d=>d-EPOCH+1,puzzleNo=noFor(dayNum);
 const dateFor=d=>new Date(d*864e5).toLocaleDateString(undefined,{month:'short',day:'numeric',timeZone:'UTC'});
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const touch=matchMedia('(pointer: coarse)').matches,narrow=()=>matchMedia('(max-width: 820px)').matches;
+const touch=matchMedia('(pointer: coarse)').matches,narrow=()=>matchMedia('(max-width: 820px)').matches,shortLand=()=>matchMedia('(orientation: landscape) and (max-height: 500px)').matches;
 /* analytics: no-op until a Plausible, Umami or GA4 snippet is added (see LAUNCH.md) */
 const track=(name,props={})=>{try{if(window.plausible)plausible(name,{props});else if(window.umami)umami.track(name,props);else if(window.gtag)gtag('event',name,props)}catch(e){}};
 function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -290,11 +319,12 @@ function topoToGeo(topo,name){const tf=topo.transform,arcs=topo.arcs.map(a=>{let
 /* ---------- globe ---------- */
 const cv=$('globe'),ctx=cv.getContext('2d'),box=$('globebox');
 const proj=d3.geoOrthographic().clipAngle(90).precision(0.3),path=d3.geoPath(proj,ctx),grat=d3.geoGraticule10();
-let land=null,borders=null,states=null,W=0,H=0,base=1,k=1,rot=[-20,-15];
+let land=null,borders=null,states=null,W=0,H=0,sdpr=0,base=1,k=1,rot=[-20,-15];
 let pin=null,target=null,pinAt=-1e9,lineAt=-1e9,loopRaf=0;const LINE_MS=900;
 /* keep redrawing the globe for a short animation (pin bounce, line, target pop) */
 function animate(ms){const end=performance.now()+ms;cancelAnimationFrame(loopRaf);const f=()=>{draw();if(performance.now()<end)loopRaf=requestAnimationFrame(f)};loopRaf=requestAnimationFrame(f)}
-function size(){const w=box.clientWidth;const h=Math.round(Math.max(300,Math.min(w,innerHeight*(narrow()?0.6:0.78),760)));const dpr=devicePixelRatio||1;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.min(w,h)/2-10;draw()}
+/* clientHeight, not innerHeight: it stays put while the iOS/Android toolbars slide, so the globe never jumps mid-drag */
+function size(){const w=box.clientWidth,vh=document.documentElement.clientHeight||innerHeight;const h=Math.round(shortLand()?Math.max(200,Math.min(w,vh-80)):Math.max(300,Math.min(w,vh*(narrow()?0.6:0.78),760)));const dpr=devicePixelRatio||1;if(w===W&&h===H&&dpr===sdpr)return;sdpr=dpr;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.min(w,h)/2-10;draw()}
 function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot);ctx.clearRect(0,0,W,H);const R=base*k,cx=W/2,cy=H/2;
   const g=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.1,cx,cy,R);g.addColorStop(0,'#86adb6');g.addColorStop(1,'#4a717c');
   ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=g;ctx.fill();
@@ -320,7 +350,7 @@ function marker(p,col,ring,dy=0,s=1){if(!visible(p))return;let [x,y]=proj([p[1],
   ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.ellipse(x,y+2,7,3,0,0,7);ctx.fill();
   ctx.fillStyle=col;ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x-11,y-14,x-9,y-27,x,y-27);ctx.bezierCurveTo(x+9,y-27,x+11,y-14,x,y);ctx.fill();ctx.stroke();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y-18,3.5,0,7);ctx.fill()}
 const KMAX=40;let tlabel='';
-function label(p,t){if(!t||!visible(p))return;const [x,y]=proj([p[1],p[0]]);ctx.font='600 13px "Nunito",sans-serif';const w=ctx.measureText(t).width;let lx=x+14,ly=y+4;if(lx+w+10>W)lx=x-14-w;ctx.fillStyle='rgba(243,244,236,.94)';ctx.beginPath();ctx.roundRect(lx-6,ly-14,w+12,22,4);ctx.fill();ctx.fillStyle='#1d2e28';ctx.fillText(t,lx,ly+1)}const setK=v=>{k=Math.max(1,Math.min(KMAX,v));draw()};
+function label(p,t){if(!t||!visible(p))return;const [x,y]=proj([p[1],p[0]]);ctx.font='600 13px "Nunito",sans-serif';const w=ctx.measureText(t).width;let lx=x+14,ly=y+4;if(lx+w+10>W)lx=x-14-w;ctx.fillStyle='rgba(243,244,236,.94)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(lx-6,ly-14,w+12,22,4);else ctx.rect(lx-6,ly-14,w+12,22);ctx.fill();ctx.fillStyle='#1d2e28';ctx.fillText(t,lx,ly+1)}const setK=v=>{k=Math.max(1,Math.min(KMAX,v));draw()};
 let anim=null;
 function flyTo(lat,lon,kk){cancelAnimationFrame(anim);const r0=rot.slice(),k0=k,r1=[-lon,-lat];let dl=r1[0]-r0[0];dl=((dl+540)%360)-180;
   if(reduce){rot=[r0[0]+dl,r1[1]];k=kk;draw();return}const t0=performance.now(),D=900;
@@ -329,17 +359,19 @@ function flyTo(lat,lon,kk){cancelAnimationFrame(anim);const r0=rot.slice(),k0=k,
 /* interaction */
 const pts=new Map();let drag=null,pinch=null;
 const pos=e=>{const r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
-cv.addEventListener('pointerdown',e=>{cancelAnimationFrame(anim);cv.setPointerCapture(e.pointerId);const p=pos(e);pts.set(e.pointerId,p);
+cv.addEventListener('pointerdown',e=>{cancelAnimationFrame(anim);try{cv.setPointerCapture(e.pointerId)}catch(_){}const p=pos(e);pts.set(e.pointerId,p);
   if(pts.size===1)drag={p,rot:rot.slice(),moved:false};else if(pts.size===2){const [a,b]=[...pts.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),k};if(drag)drag.moved=true}});
 cv.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;const p=pos(e);pts.set(e.pointerId,p);
   if(pinch&&pts.size===2){const [a,b]=[...pts.values()];setK(pinch.k*Math.hypot(a[0]-b[0],a[1]-b[1])/pinch.d);return}
   if(drag){const dx=p[0]-drag.p[0],dy=p[1]-drag.p[1];if(Math.hypot(dx,dy)>6){drag.moved=true;cv.classList.add('dragging')}
     if(drag.moved){const f=90/(base*k);rot=[drag.rot[0]+dx*f,Math.max(-90,Math.min(90,drag.rot[1]-dy*f))];draw()}}});
 function up(e){if(!pts.has(e.pointerId))return;const p=pos(e);pts.delete(e.pointerId);if(pts.size<2)pinch=null;
-  if(pts.size===0&&drag){cv.classList.remove('dragging');if(!drag.moved&&canPin()){const R=base*k;if(Math.hypot(p[0]-W/2,p[1]-H/2)<=R){const ll=proj.invert(p);if(ll){const first=!pin;pin=[ll[1],ll[0]];pinAt=performance.now();$('go').disabled=false;$('go').textContent='Lock it in';
+  if(pts.size===0&&drag){cv.classList.remove('dragging');if(!drag.moved&&e.type==='pointerup'&&canPin()){const R=base*k;if(Math.hypot(p[0]-W/2,p[1]-H/2)<=R){const ll=proj.invert(p);if(ll){const first=!pin;pin=[ll[1],ll[0]];pinAt=performance.now();$('go').disabled=false;$('go').textContent='Lock it in';
     sfx.pin();buzz(8);fx.dust(pin);animate(450);if(first&&!reduce){const g=$('go');g.classList.remove('nudge');void g.offsetWidth;g.classList.add('nudge')}}}}drag=null}}
 cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
 cv.addEventListener('wheel',e=>{e.preventDefault();setK(k*Math.exp(-e.deltaY*0.0015))},{passive:false});
+/* Safari on a Mac sends trackpad pinches as gesture events (they would zoom the whole page); iOS sends them too, but pointers already handle touch */
+let gk=1;cv.addEventListener('gesturestart',e=>{e.preventDefault();gk=k});cv.addEventListener('gesturechange',e=>{e.preventDefault();if(!touch)setK(gk*e.scale)});
 $('zin').onclick=()=>setK(k*1.6);$('zout').onclick=()=>setK(k/1.6);
 new ResizeObserver(size).observe(box);
 
@@ -354,7 +386,7 @@ const sfx=(()=>{let ac=null,out=null,on=store.get('ht-sound')!==false;
     const t=a.currentTime+.01+at,s=a.createBufferSource(),bp=a.createBiquadFilter(),g=a.createGain();s.buffer=nbuf;bp.type='bandpass';bp.Q.value=q;bp.frequency.setValueAtTime(f0,t);bp.frequency.exponentialRampToValueAtTime(f1,t+dur);
     g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+dur*.35);g.gain.exponentialRampToValueAtTime(.0001,t+dur);s.connect(bp);bp.connect(g);g.connect(out);s.start(t);s.stop(t+dur+.02)}
   const N=[523.25,587.33,659.25,783.99,880,1046.5,1174.66,1318.51];
-  return{get on(){return on},set(v){on=v;store.set('ht-sound',v);if(v)A()},unlock(){A()},
+  return{get on(){return on},set(v){on=v;store.set('ht-sound',v);if(v)A()},unlock(){const a=A();if(!a)return false;try{const s=a.createBufferSource();s.buffer=a.createBuffer(1,1,22050);s.connect(a.destination);s.start(0)}catch(e){}return a.state==='running'},
     pin(){tone(700,{dur:.1,type:'triangle',vol:.13,to:360});noise({dur:.07,vol:.04,f0:2400,f1:900,q:.8})},
     lock(){noise({dur:.8,vol:.05,f0:320,f1:2600,q:1.5});tone(392,{at:.05,dur:.3,vol:.04,to:784})},
     hint(){tone(740,{dur:.12,type:'triangle',vol:.08});tone(587,{at:.09,dur:.18,type:'triangle',vol:.08})},
@@ -386,13 +418,13 @@ applyTheme();
 if(darkMQ.addEventListener)darkMQ.addEventListener('change',applyTheme);else if(darkMQ.addListener)darkMQ.addListener(applyTheme);
 $('theme').onclick=()=>{theme=THEMES[(THEMES.indexOf(theme)+1)%3];try{if(theme==='system')localStorage.removeItem('ht-theme');else localStorage.setItem('ht-theme',theme)}catch(e){}
   applyTheme();sfx.tap();track('theme',{theme})};
-/* iOS only allows audio after a touch, so wake the synth on the first one */
-addEventListener('pointerdown',()=>sfx.unlock(),{once:true,capture:true});
+/* browsers only allow audio after a tap; touch pointerdown doesn't count (pointerup/touchend do), so keep trying until it runs */
+const UNLOCK=['pointerdown','pointerup','touchend','click','keydown'],unlock=()=>{if(sfx.unlock())UNLOCK.forEach(t=>removeEventListener(t,unlock,true))};UNLOCK.forEach(t=>addEventListener(t,unlock,true));
 
 /* ---------- particles: one overlay canvas, only runs while something is moving ---------- */
 const fx=(()=>{const c=document.createElement('canvas');c.className='fx';c.setAttribute('aria-hidden','true');document.body.appendChild(c);
   const g=c.getContext('2d');let P=[],raf=0,last=0,vw=0,vh=0;
-  function fit(){const d=devicePixelRatio||1;vw=innerWidth;vh=innerHeight;c.width=vw*d;c.height=vh*d;g.setTransform(d,0,0,d,0,0)}fit();addEventListener('resize',fit);
+  function fit(){const d=Math.min(2,devicePixelRatio||1);vw=c.clientWidth||innerWidth;vh=c.clientHeight||innerHeight;c.width=vw*d;c.height=vh*d;g.setTransform(d,0,0,d,0,0)}fit();addEventListener('resize',fit);
   const COL=['#c08a2b','#557046','#8fb36b','#e0b85a','#ece5c8','#6d97a2'];
   function where(p){if(!p.geo)return[p.x,p.y];if(!visible(p.geo))return null;const s=proj([p.geo[1],p.geo[0]]),r=cv.getBoundingClientRect();return[r.left+s[0]+p.x,r.top+s[1]+p.y]}
   function step(t){const dt=Math.min(.05,(t-last)/1000||.016);last=t;g.clearRect(0,0,vw,vh);
@@ -483,7 +515,7 @@ function show(){const sp=items[round];guessToken++;pin=null;target=null;usedHint
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
 $('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hint').classList.add('rise');$('hintBtn').disabled=true;sfx.hint();track('hint',{mode,round:round+1})};
-$('photo').onclick=()=>{if(narrow())$('card').classList.toggle('open')};
+$('photo').onclick=()=>{if(narrow()||shortLand())$('card').classList.toggle('open')};
 let guessToken=0;
 $('go').onclick=async()=>{if(!pin||locked)return;locked=true;const it=items[round];$('go').disabled=true;$('go').textContent='Checking…';sfx.lock();
   let r;try{r=await data.guess(playDay,round,pin,usedHint,it)}catch(e){locked=false;$('go').disabled=false;$('go').textContent='Couldn’t check. Try again';return}
@@ -496,9 +528,9 @@ $('go').onclick=async()=>{if(!pin||locked)return;locked=true;const it=items[roun
   if(it.photo&&sp.photoPage)it.photo.page=sp.photoPage;
   results.push({i:it._i??null,name:sp.common_name,score,d:Math.round(d),hint:usedHint});
   if(mode==='daily')store.set('ht2-progress',{day:dayNum,results});
-  $('acts').style.display='none';$('res').style.display='block';$('card').classList.add('open');
+  $('acts').style.display='none';$('res').style.display='block';
   /* phones: keep the globe (your pin vs. the real spot) on screen; the story is just above */
-  if(narrow())requestAnimationFrame(()=>{const r=box.getBoundingClientRect(),bar=$('nextActs').offsetHeight||70;scrollBy({top:r.bottom-(innerHeight-bar-8),behavior:reduce?'auto':'smooth'})});
+  if(narrow()&&!shortLand())requestAnimationFrame(()=>{const r=box.getBoundingClientRect(),bar=$('nextActs').offsetHeight||70;scrollBy({top:r.bottom-(innerHeight-bar-8),behavior:reduce?'auto':'smooth'})});
   $('name').textContent=sp.common_name;$('sci').textContent=sp.scientific_name;
   $('pts').innerHTML=`<span class="num" id="ptsN">${reduce?score:0}</span><small>points${usedHint?', with 20 off for the hint':''}</small>`;
   $('dist').textContent=d<1?'Right on it!':`${fmt(d*0.621371)} mi (${fmt(d)} km) away`;
