@@ -1,6 +1,6 @@
 /* Runs the Worker in Node with a fake KV store and a fake Wikipedia, and checks:
    - it picks the same five species per day as the browser game (which uses d3.geoDistance)
-   - /day never leaks coordinates, places, wiki titles or blurred place names
+   - /day never leaks coordinates, places, facts or wiki titles, and shows names in full
    - future days are refused, /guess scores like the game, /practice only uses finished days
    Run: node test/api.test.mjs  (from api-worker/) */
 import assert from 'node:assert/strict';
@@ -47,13 +47,13 @@ const today = Math.floor(Date.now() / 864e5);
   for (const i of pick(SP, today)) {
     const s = SP[i];
     for (const secret of [s.place, s.why_here, s.fun_fact, s.wiki, String(s.lat), String(s.lon)]) assert.ok(!txt.includes(secret), 'leaked: ' + secret);
-    for (const m of (s.display + s.sci_display).matchAll(/\[\[(.+?)\]\]/g)) assert.ok(!txt.includes(m[1]), 'leaked blurred name: ' + m[1]);
+    assert.ok(txt.includes(JSON.stringify(s.display.replace(/\[\[(.+?)\]\]/g, '$1'))), 'full name missing: ' + s.display);
   }
   assert.ok(!txt.includes('Secret_place_photo'), 'photo file name leaked');
   assert.equal(body.items[0].photo.src, `https://api.test/img/${today}/0`);
   assert.equal(body.items[0].photo.artist, 'Jane Doe');
   assert.equal(r.headers.get('access-control-allow-origin'), 'https://playhabitap.com');
-  ok('/day returns 5 masked species with no coordinates, places, facts or file names');
+  ok('/day returns 5 species with full names and no coordinates, places, facts or file names');
 }
 
 // 3. future days refused, launch boundary respected

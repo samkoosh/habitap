@@ -8,8 +8,11 @@
 <link rel="canonical" href="https://garrettarch.github.io/habitap/privacy.html">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#557046">
+<script>try{var t=localStorage.getItem("ht-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-:root{--ground:#eef3ea;--ink:#1d2e28;--soft:#4c5f56;--moss:#557046;--rule:#b9c4b0}
+:root{--ground:#eef3ea;--ink:#1d2e28;--soft:#4c5f56;--moss:#557046;--rule:#b9c4b0;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ground:#111915;--ink:#e6ece5;--soft:#a3b2a8;--moss:#9cc077;--rule:#34433b;color-scheme:dark}}
+:root[data-theme=dark]{--ground:#111915;--ink:#e6ece5;--soft:#a3b2a8;--moss:#9cc077;--rule:#34433b;color-scheme:dark}
 html{background:var(--ground)}
 body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 "Nunito",system-ui,sans-serif}
 main{max-width:70ch;margin:0 auto;padding:28px max(16px,env(safe-area-inset-left)) 48px}
