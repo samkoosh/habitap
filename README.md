@@ -1,4 +1,4 @@
-# HabitatTap
+# Habitap
 
 A daily geography game: you see a photo of a plant or animal that lives in only one small corner of the world, then you tap that spot on a 3D globe. Five species a day, the same for everyone.
 

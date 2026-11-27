@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HabitatTap</title>
+<title>Habitap</title>
 <meta name="description" content="A daily game: see a plant or animal that lives in only one tiny corner of the world, then find that spot on the globe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
@@ -80,7 +80,7 @@ canvas.dragging{cursor:grabbing}
 <body>
 <div class="wrap">
   <header>
-    <h1>Habitat<b>Tap</b></h1>
+    <h1>Habi<b>tap</b></h1>
     <div class="meta"><span id="label">Daily</span><div class="dots" id="dots"></div><span class="total" id="total">0 / 500</span></div>
   </header>
 
@@ -264,7 +264,7 @@ function finish(){finished=true;locked=true;round=5;$('card').style.display='non
     const st=store.get('ht2-streak');$('streak').textContent=st?`Daily streak: ${st.n} day${st.n===1?'':'s'}. New species tomorrow.`:'New species tomorrow.'}
   else $('streak').textContent='Practice rounds don’t count toward your streak.';
   draw()}
-$('share').onclick=()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`HabitatTap ${mode==='daily'?'#'+puzzleNo:'(practice)'} ${t}/500\n${results.map(r=>sq(r.score)).join('')}\n${location.href.split('#')[0]}`;
+$('share').onclick=()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`Habitap ${mode==='daily'?'#'+puzzleNo:'(practice)'} ${t}/500\n${results.map(r=>sq(r.score)).join('')}\n${location.href.split('#')[0]}`;
   const ok=()=>{$('toast').textContent='Copied!'};const no=()=>{$('toast').textContent=txt};
   try{navigator.clipboard.writeText(txt).then(ok,no)}catch(e){no()}};
 $('practice').onclick=()=>start('practice');
