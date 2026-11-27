@@ -160,14 +160,15 @@ function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot)
   const sh=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.2,cx,cy,R*1.02);sh.addColorStop(0,'rgba(255,255,255,.10)');sh.addColorStop(.7,'rgba(0,0,0,0)');sh.addColorStop(1,'rgba(0,0,0,.35)');
   ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=sh;ctx.fill();ctx.strokeStyle='rgba(160,210,240,.35)';ctx.lineWidth=1.5;ctx.stroke();
   if(pin&&target){ctx.beginPath();path({type:'LineString',coordinates:[[pin[1],pin[0]],[target[1],target[0]]]});ctx.setLineDash([6,5]);ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([])}
-  if(target)marker(target,'#7fe08a',true);
+  if(target){marker(target,'#7fe08a',true);label(target,tlabel)}
   if(pin)marker(pin,'#ff6a4d',false)}
 const visible=p=>d3.geoDistance([p[1],p[0]],[-rot[0],-rot[1]])<Math.PI/2-1e-3;
 function marker(p,col,ring){if(!visible(p))return;const [x,y]=proj([p[1],p[0]]);
   if(ring){ctx.beginPath();ctx.arc(x,y,11,0,7);ctx.fillStyle='rgba(127,224,138,.25)';ctx.fill();ctx.beginPath();ctx.arc(x,y,6,0,7);ctx.fillStyle=col;ctx.fill();ctx.strokeStyle='#0a1520';ctx.lineWidth=2;ctx.stroke();return}
   ctx.fillStyle='rgba(0,0,0,.35)';ctx.beginPath();ctx.ellipse(x,y+2,7,3,0,0,7);ctx.fill();
   ctx.fillStyle=col;ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x-11,y-14,x-9,y-27,x,y-27);ctx.bezierCurveTo(x+9,y-27,x+11,y-14,x,y);ctx.fill();ctx.stroke();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y-18,3.5,0,7);ctx.fill()}
-const KMAX=40;const setK=v=>{k=Math.max(1,Math.min(KMAX,v));draw()};
+const KMAX=40;let tlabel='';
+function label(p,t){if(!t||!visible(p))return;const [x,y]=proj([p[1],p[0]]);ctx.font='600 13px "Work Sans",sans-serif';const w=ctx.measureText(t).width;let lx=x+14,ly=y+4;if(lx+w+10>W)lx=x-14-w;ctx.fillStyle='rgba(10,21,32,.85)';ctx.beginPath();ctx.roundRect(lx-6,ly-14,w+12,22,6);ctx.fill();ctx.fillStyle='#7fe08a';ctx.fillText(t,lx,ly+1)}const setK=v=>{k=Math.max(1,Math.min(KMAX,v));draw()};
 let anim=null;
 function flyTo(lat,lon,kk){cancelAnimationFrame(anim);const r0=rot.slice(),k0=k,r1=[-lon,-lat];let dl=r1[0]-r0[0];dl=((dl+540)%360)-180;
   if(reduce){rot=[r0[0]+dl,r1[1]];k=kk;draw();return}const t0=performance.now(),D=900;
@@ -224,7 +225,7 @@ function show(){const sp=SP[order[round]];pin=null;target=null;usedHint=false;lo
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Tap the globe';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
 $('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hintBtn').disabled=true};
-$('go').onclick=()=>{if(!pin||locked)return;locked=true;const sp=SP[order[round]];target=[sp.lat,sp.lon];const d=km(pin,target);
+$('go').onclick=()=>{if(!pin||locked)return;locked=true;const sp=SP[order[round]];target=[sp.lat,sp.lon];tlabel=sp.place.length>40?sp.place.slice(0,38)+'…':sp.place;const d=km(pin,target);
   let score=scoreFor(d);if(usedHint)score=Math.round(score*.8);results.push({i:order[round],score,d:Math.round(d),hint:usedHint});
   if(mode==='daily')store.set('ht2-progress',{day:dayNum,results});
   $('acts').style.display='none';$('res').style.display='block';
@@ -235,7 +236,7 @@ $('go').onclick=()=>{if(!pin||locked)return;locked=true;const sp=SP[order[round]
   $('wiki').href='https://en.wikipedia.org/wiki/'+sp.wiki;$('next').textContent=round===4?'See results':'Next species';
   getPhoto(sp).then(ph=>{if(ph)creditLine(ph,true)});
   const mid=d3.geoInterpolate([pin[1],pin[0]],[sp.lon,sp.lat])(.5),th=d3.geoDistance([pin[1],pin[0]],[sp.lon,sp.lat]);
-  flyTo(mid[1],mid[0],Math.max(1,Math.min(KMAX,0.55/Math.sin(Math.min(th/2+0.004,1.5)))));dots()};
+  flyTo(mid[1],mid[0],Math.max(1,Math.min(14,0.5/Math.sin(Math.min(th/2+0.03,1.5)))));dots()};
 $('next').onclick=()=>{round++;if(round>=5)finish();else show();scrollTo({top:0,behavior:reduce?'auto':'smooth'})};
 const sq=n=>n>=90?'🟩':n>=60?'🟨':n>=30?'🟧':'🟥';
 function finish(){finished=true;locked=true;round=5;$('card').style.display='none';$('end').style.display='block';pin=null;target=null;
