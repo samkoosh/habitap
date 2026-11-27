@@ -108,8 +108,11 @@ canvas.dragging{cursor:grabbing}
 .endScore small{font-size:22px;color:var(--soft);font-weight:500}
 .end h2{font-size:26px;margin-top:6px}
 .rows{margin:18px 0;display:grid;gap:10px}
-.row{display:grid;grid-template-columns:minmax(0,1fr) 90px 36px;gap:12px;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:48px minmax(0,1fr) 90px 36px;gap:12px;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--rule)}
 .row b{font-weight:800;font-size:16px;display:block}
+.thumb{width:48px;height:48px;border-radius:10px;object-fit:cover;background:var(--photo-bg);display:block;opacity:0;transition:opacity .3s}.thumb.ok{opacity:1}
+.thumbw{width:48px;height:48px;border-radius:10px;background:var(--photo-bg);overflow:hidden}
+@media(max-width:380px){.row{grid-template-columns:40px minmax(0,1fr) 54px 28px;gap:9px}.thumb,.thumbw{width:40px;height:40px}}
 .row small{color:var(--soft);font-size:13px}
 .bar{height:8px;border-radius:4px;background:var(--rule);overflow:hidden}.bar i{display:block;height:100%;background:var(--ochre)}
 .row .n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
@@ -511,7 +514,8 @@ const sq=n=>n>=90?'🟩':n>=60?'🟨':n>=30?'🟧':'🟥';
 function finish(live){guessToken++;finished=true;locked=true;round=5;$('card').style.display='none';$('end').style.display='block';pin=null;target=null;
   const t=results.reduce((a,r)=>a+r.score,0);dots();
   const fancy=live&&!reduce;$('endScore').innerHTML=`<span class="num" id="endN">${fancy?0:t}</span><small> / 500</small>`;$('endTitle').textContent=t>=420?'Field biologist':t>=300?'Seasoned naturalist':t>=180?'Promising explorer':'Lost in the wilderness';
-  $('rows').innerHTML=results.map(r=>{const n=r.name||(SP[r.i]&&SP[r.i].common_name)||'';return `<div class="row${fancy?' rise':''}"${fancy?` style="animation-delay:${.15+results.indexOf(r)*.12}s"`:''}><span><b>${esc(n)}</b><small>${fmt(r.d*0.621371)} mi away${r.hint?', hint used':''}</small></span><div class="bar"><i style="width:${fancy?0:r.score}%" data-w="${r.score}"></i></div><span class="n">${r.score}</span></div>`}).join('');
+  $('rows').innerHTML=results.map(r=>{const n=r.name||(SP[r.i]&&SP[r.i].common_name)||'';return `<div class="row${fancy?' rise':''}"${fancy?` style="animation-delay:${.15+results.indexOf(r)*.12}s"`:''}><span class="thumbw"><img class="thumb" alt="${esc(n)}"></span><span><b>${esc(n)}</b><small>${fmt(r.d*0.621371)} mi away${r.hint?', hint used':''}</small></span><div class="bar"><i style="width:${fancy?0:r.score}%" data-w="${r.score}"></i></div><span class="n">${r.score}</span></div>`}).join('');
+  const th=$('rows').querySelectorAll('.thumb');results.forEach((r,i)=>{const it=items[i];if(it)getPhoto(it).then(ph=>{if(ph&&th[i]){th[i].onload=()=>th[i].classList.add('ok');th[i].src=ph.src}})});
   if(fancy){$('endTitle').classList.remove('rise');void $('endTitle').offsetWidth;$('endTitle').classList.add('rise');
     [...$('rows').querySelectorAll('.bar i')].forEach((b,i)=>setTimeout(()=>{b.style.width=b.dataset.w+'%';sfx.row(i)},250+i*120));
     setTimeout(()=>countUp($('endN'),t,1100,v=>sfx.tick(v/5)),300);
