@@ -84,7 +84,7 @@ canvas.dragging{cursor:grabbing}
         <div class="sci" id="sci"></div>
         <div class="hint" id="hint" hidden></div>
         <div class="acts" id="acts">
-          <button class="b" id="hintBtn">Hint (−20%)</button>
+          <button class="b" id="hintBtn">Hint (−20 pts)</button>
           <button class="b p" id="go" disabled>Tap the globe</button>
         </div>
         <div class="res" id="res">
@@ -226,11 +226,11 @@ function show(){const sp=SP[order[round]];pin=null;target=null;usedHint=false;lo
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
 $('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hintBtn').disabled=true};
 $('go').onclick=()=>{if(!pin||locked)return;locked=true;const sp=SP[order[round]];target=[sp.lat,sp.lon];tlabel=sp.place.length>40?sp.place.slice(0,38)+'…':sp.place;const d=km(pin,target);
-  let score=scoreFor(d);if(usedHint)score=Math.round(score*.8);results.push({i:order[round],score,d:Math.round(d),hint:usedHint});
+  let score=scoreFor(d);if(usedHint)score=Math.max(0,score-20);results.push({i:order[round],score,d:Math.round(d),hint:usedHint});
   if(mode==='daily')store.set('ht2-progress',{day:dayNum,results});
   $('acts').style.display='none';$('res').style.display='block';
   $('name').textContent=sp.common_name;$('sci').textContent=sp.scientific_name;
-  $('pts').innerHTML=`${score}<small>points${usedHint?' · hint used':''}</small>`;
+  $('pts').innerHTML=`${score}<small>points${usedHint?' · −20 for the hint':''}</small>`;
   $('dist').textContent=d<1?'Right on it!':`${fmt(d*0.621371)} mi (${fmt(d)} km) away`;
   $('place').textContent=sp.place;$('why').textContent=sp.why_here;$('fact').textContent=sp.fun_fact;
   $('wiki').href='https://en.wikipedia.org/wiki/'+sp.wiki;$('next').textContent=round===4?'See results':'Next species';
