@@ -139,7 +139,7 @@ canvas.dragging{cursor:grabbing}
   .game{grid-template-columns:1fr;gap:12px}.tipwrap{grid-column:auto}
   /* compact card while guessing: photo beside the name so the globe stays on screen */
   .card:not(.open){display:grid;grid-template-columns:40% minmax(0,1fr);align-items:start}
-  .card:not(.open) .photo{grid-column:1;grid-row:1;aspect-ratio:1;margin:10px 0 0 10px;cursor:zoom-in}
+  .card:not(.open) .photo{grid-column:1;grid-row:1;aspect-ratio:1;margin:10px 0 0 10px}
   .card:not(.open) .body{grid-column:2;grid-row:1;padding:10px 12px 12px}
   .card:not(.open) .credit{grid-column:1/-1;grid-row:2;padding-bottom:8px}
   .card:not(.open) .body h2{font-size:clamp(19px,5.6vw,24px)}
@@ -179,7 +179,7 @@ header{position:relative}
   .game{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.tipwrap{grid-column:2}
   .globebox{position:sticky;top:8px}.tools{z-index:1}
   .card:not(.open){display:grid;grid-template-columns:40% minmax(0,1fr);align-items:start}
-  .card:not(.open) .photo{grid-column:1;grid-row:1;aspect-ratio:1;margin:10px 0 0 10px;cursor:zoom-in}
+  .card:not(.open) .photo{grid-column:1;grid-row:1;aspect-ratio:1;margin:10px 0 0 10px}
   .card:not(.open) .body{grid-column:2;grid-row:1;padding:10px 12px 12px}
   .card:not(.open) .credit{grid-column:1/-1;grid-row:2;padding-bottom:8px}
   .card:not(.open) .body h2{font-size:clamp(19px,2.6vw,24px)}
@@ -187,14 +187,15 @@ header{position:relative}
   #acts,#nextActs{position:static;padding:0;margin-top:14px;background:none;border:0;box-shadow:none;flex-wrap:wrap}#acts .b{flex:1 0 auto}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.pop,.nudge,.rise{animation:none}}
-/* compact card (phones, short windows): photo + name never move; the score and story appear underneath */
+/* compact card (phones, short windows): photo + name never move. Clue sits under the name beside the photo,
+   the credit wraps under the photo, and the score and story appear underneath at full width */
 @media(max-width:820px),(orientation:landscape) and (max-height:500px){
   .card:not(.open) .body{display:contents}
-  .card:not(.open) .photo{grid-row:1/span 2}
+  .card:not(.open) .photo{grid-column:1;grid-row:1/span 3}
   .card:not(.open) .label{grid-column:2;grid-row:1;padding:10px 12px 0}
-  .card:not(.open) .hint{grid-column:2;grid-row:2;align-self:start;padding:0 12px;margin-top:4px}
-  .card:not(.open) .credit{grid-column:1/-1;grid-row:3}
-  .card:not(.open) .clue{grid-column:1/-1;grid-row:4;margin:2px 12px 10px;font-size:13.5px}
+  .card:not(.open) .clue{grid-column:2;grid-row:2;align-self:start;margin:8px 12px 0 12px;padding:7px 9px;font-size:13px;line-height:1.4}
+  .card:not(.open) .hint{grid-column:2;grid-row:3;align-self:start;padding:0 12px;margin-top:6px}
+  .card:not(.open) .credit{grid-column:1;grid-row:4;align-self:start;padding:4px 0 10px 10px;min-height:0}
   .card:not(.open) .res{grid-column:1/-1;grid-row:5;margin:0;padding:6px 16px 16px}
   .card:not(.open) .res .big{font-size:44px}
 }
@@ -519,7 +520,6 @@ function show(){const sp=items[round];guessToken++;pin=null;target=null;usedHint
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
 $('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hint').classList.add('rise');$('hintBtn').disabled=true;sfx.hint();track('hint',{mode,round:round+1})};
-$('photo').onclick=()=>{if(narrow()||shortLand())$('card').classList.toggle('open')};
 let guessToken=0;
 $('go').onclick=async()=>{if(!pin||locked)return;locked=true;const it=items[round];$('go').disabled=true;$('go').textContent='Checking…';sfx.lock();
   let r;try{r=await data.guess(playDay,round,pin,usedHint,it)}catch(e){locked=false;$('go').disabled=false;$('go').textContent='Couldn’t check. Try again';return}
