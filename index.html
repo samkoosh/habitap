@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HabiTap: the daily game where you find where rare species live</title>
-<meta name="description" content="HabiTap is a free daily geography game. See a plant or animal that lives in only one tiny corner of the world, then tap that spot on a 3D globe. Five new species every day.">
+<meta name="description" content="HabiTap is a free daily geography game. See a plant or animal, then tap where it lives on a 3D globe. Five species a day, with home areas that get smaller each round.">
 <!-- SITE URL: swap https://garrettarch.github.io/habitap/ for https://playhabitap.com/ everywhere in this file, sitemap.xml and robots.txt once the domain is live (see LAUNCH.md). -->
 <link rel="canonical" href="https://garrettarch.github.io/habitap/">
 <meta name="theme-color" content="#557046">
@@ -31,14 +31,14 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"WebSite","@id":"https://garrettarch.github.io/habitap/#site","name":"HabiTap","url":"https://garrettarch.github.io/habitap/","inLanguage":"en"},
- {"@type":["VideoGame","WebApplication"],"@id":"https://garrettarch.github.io/habitap/#game","name":"HabiTap","url":"https://garrettarch.github.io/habitap/","description":"A free daily geography game. Each day you see five plants and animals that live in only one small corner of the world, like a single island, lake or mountain, and tap where you think each one lives on a 3D globe.","genre":["Geography game","Daily puzzle","Educational game"],"gamePlatform":"Web browser","applicationCategory":"GameApplication","operatingSystem":"Any","playMode":"SinglePlayer","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://garrettarch.github.io/habitap/og.png","isPartOf":{"@id":"https://garrettarch.github.io/habitap/#site"}},
+ {"@type":["VideoGame","WebApplication"],"@id":"https://garrettarch.github.io/habitap/#game","name":"HabiTap","url":"https://garrettarch.github.io/habitap/","description":"A free daily geography game. Each day you see five plants and animals and tap where you think each one lives on a 3D globe, with home areas that shrink each round.","genre":["Geography game","Daily puzzle","Educational game"],"gamePlatform":"Web browser","applicationCategory":"GameApplication","operatingSystem":"Any","playMode":"SinglePlayer","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://garrettarch.github.io/habitap/og.png","isPartOf":{"@id":"https://garrettarch.github.io/habitap/#site"}},
  {"@type":"FAQPage","@id":"https://garrettarch.github.io/habitap/#faq","mainEntity":[
-  {"@type":"Question","name":"What is HabiTap?","acceptedAnswer":{"@type":"Answer","text":"HabiTap is a free daily geography game. Each day it shows you five plants and animals that live in only one small corner of the world, and you tap the spot on a 3D globe where you think each one lives."}},
-  {"@type":"Question","name":"How is my score calculated?","acceptedAnswer":{"@type":"Answer","text":"Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the hint, which circles the area, costs 20 points. The best possible daily score is 500."}},
+  {"@type":"Question","name":"What is HabiTap?","acceptedAnswer":{"@type":"Answer","text":"HabiTap is a free daily geography game. Each day it shows you five plants and animals, and you tap where you think each one lives on a 3D globe. Every species has a marked home area, and the areas get smaller each round."}},
+  {"@type":"Question","name":"How is my score calculated?","acceptedAnswer":{"@type":"Answer","text":"Each species is worth up to 100 points. Any pin inside the species' home area scores the full 100. Outside it, the score drops the farther you are from the nearest edge of the area, a little faster in the early rounds where the areas are big. Using the hint costs 20 points. The best possible daily score is 500."}},
   {"@type":"Question","name":"When does the new HabiTap puzzle come out?","acceptedAnswer":{"@type":"Answer","text":"A new set of five species unlocks every day at midnight in your local time zone. Everyone gets the same five species for the same date."}},
   {"@type":"Question","name":"Is HabiTap free? Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"HabiTap is completely free and needs no account or sign-up. Your streak and progress are saved in your browser on your device."}},
-  {"@type":"Question","name":"Is HabiTap like Worldle or GeoGuessr?","acceptedAnswer":{"@type":"Answer","text":"It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a rare plant or animal lives, and you learn why it lives only there."}},
-  {"@type":"Question","name":"Which species are in HabiTap?","acceptedAnswer":{"@type":"Answer","text":"Every species is a strict endemic, meaning its whole wild range sits within about 200 miles (320 km) of one point, such as a single island, lake, cave or mountain. Examples include animals, plants, fish, birds and amphibians from every continent."}},
+  {"@type":"Question","name":"Is HabiTap like Worldle or GeoGuessr?","acceptedAnswer":{"@type":"Answer","text":"It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a plant or animal lives, and you learn why it lives there."}},
+  {"@type":"Question","name":"Which species are in HabiTap?","acceptedAnswer":{"@type":"Answer","text":"Each daily has one species per area size: huge, big, medium, small and tiny. The big areas are well-known animals and plants with wide ranges, like the emu or the okapi. The small ones are strict endemics that live on a single island, mountain or lake. Areas are drawn from the RESOLVE Ecoregions map, simplified, and the tiniest ones are circles around the known spot."}},
   {"@type":"Question","name":"Can I play past HabiTap puzzles?","acceptedAnswer":{"@type":"Answer","text":"Yes. After you finish the daily, the results screen lets you replay earlier dailies or play a practice round. Past puzzles don't affect your streak."}},
   {"@type":"Question","name":"How do I share my HabiTap score?","acceptedAnswer":{"@type":"Answer","text":"When you finish, tap Share result. On a phone it opens your share sheet, and on a computer it copies a short emoji summary of your five guesses with a link to the game."}},
   {"@type":"Question","name":"Can I play HabiTap on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. HabiTap works in any modern phone browser. You can also add it to your home screen so it opens like an app."}},
@@ -284,21 +284,22 @@ header{position:relative}
 
   <section class="about" aria-labelledby="whatis">
     <h2 id="whatis">What is HabiTap?</h2>
-    <p>HabiTap is a free daily geography game about the world's most local wildlife. Every species in it lives in one small corner of the world, like a single island, lake, cave or mountain. Each day you get five of them, the same five for everyone, and you tap where you think each one lives on a 3D globe.</p>
+    <p>HabiTap is a free daily geography game about where plants and animals live. Each day you get five species, the same five for everyone, and you tap where you think each one lives on a 3D globe. Every species has a marked home area, and the areas get smaller each round: round 1 might be a whole continent's outback, round 5 a single mountain or island.</p>
     <h2>How to play</h2>
     <ol>
       <li>Look at the photo and the species name.</li>
-      <li>Spin and zoom the globe, then tap to drop your pin where you think the species lives.</li>
-      <li>Tap <b>Lock it in</b>. You score up to 100 points, depending on how close you land, and learn why it lives only there.</li>
-      <li>Stuck? A hint circles the area where it lives, for 20 points off.</li>
+      <li>Spin and zoom the globe, then tap to drop your pin anywhere inside its home area.</li>
+      <li>Tap <b>Lock it in</b>. Inside the area scores 100. Outside, you lose points the farther you are from its edge. Then the area is shaded in and you learn why it lives there.</li>
+      <li>Each round's area is smaller than the last, from huge to tiny, so the game gets harder as you go.</li>
+      <li>Stuck? A hint draws a circle that overlaps the area, for 20 points off.</li>
       <li>After five species, share your score and come back tomorrow to keep your streak going.</li>
     </ol>
     <h2>FAQ</h2>
-    <details><summary>How is my score calculated?</summary><p>Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the hint, which circles the area, costs 20 points. The best possible daily score is 500.</p></details>
+    <details><summary>How is my score calculated?</summary><p>Each species is worth up to 100 points. Any pin inside the species' home area scores the full 100. Outside it, the score drops the farther you are from the nearest edge of the area, a little faster in the early rounds where the areas are big. Using the hint costs 20 points. The best possible daily score is 500.</p></details>
     <details><summary>When does the new puzzle come out?</summary><p>A new set of five species unlocks every day at midnight in your local time zone. Everyone gets the same five species for the same date.</p></details>
     <details><summary>Is HabiTap free? Do I need an account?</summary><p>HabiTap is completely free and needs no account or sign-up. Your streak and progress are saved in your browser on your device.</p></details>
-    <details><summary>Is HabiTap like Worldle or GeoGuessr?</summary><p>It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a rare plant or animal lives, and you learn why it lives only there.</p></details>
-    <details><summary>Which species are in HabiTap?</summary><p>Every species is a strict endemic, meaning its whole wild range sits within about 200 miles (320 km) of one point, such as a single island, lake, cave or mountain. Examples include animals, plants, fish, birds and amphibians from every continent.</p></details>
+    <details><summary>Is HabiTap like Worldle or GeoGuessr?</summary><p>It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a plant or animal lives, and you learn why it lives there.</p></details>
+    <details><summary>Which species are in HabiTap?</summary><p>Each daily has one species per area size: huge, big, medium, small and tiny. The big areas are well-known animals and plants with wide ranges, like the emu or the okapi. The small ones are strict endemics that live on a single island, mountain or lake. Areas are drawn from the RESOLVE Ecoregions map, simplified, and the tiniest ones are circles around the known spot.</p></details>
     <details><summary>Can I play past puzzles?</summary><p>Yes. After you finish the daily, the results screen lets you replay earlier dailies or play a practice round. Past puzzles don't affect your streak.</p></details>
     <details><summary>How do I share my score?</summary><p>When you finish, tap Share result. On a phone it opens your share sheet, and on a computer it copies a short emoji summary of your five guesses with a link to the game.</p></details>
     <details><summary>Can I play on my phone?</summary><p>Yes. HabiTap works in any modern phone browser. You can also add it to your home screen so it opens like an app.</p></details>
@@ -306,7 +307,7 @@ header{position:relative}
     <details><summary>Who made HabiTap?</summary><p>HabiTap was made for fun by two cousins who love maps, nature and daily puzzle games.</p></details>
   </section>
 
-  <footer class="foot">Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas. Habitat areas: <a href="https://ecoregions.appspot.com" target="_blank" rel="noopener">RESOLVE Ecoregions 2017</a> (Dinerstein et al. 2017, CC BY 4.0), simplified. Species facts were compiled from Wikipedia and other sources; some points are approximate.
+  <footer class="foot">Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas. Habitat areas: <a href="https://ecoregions.appspot.com" target="_blank" rel="noopener">RESOLVE Ecoregions 2017</a> (Dinerstein et al. 2017, CC BY 4.0), simplified. Species facts were compiled from Wikipedia and other sources; areas are simplified and approximate.
     <nav><a href="privacy.html">Privacy</a></nav></footer>
 </div>
 
