@@ -307,6 +307,11 @@ header{position:relative}
     <nav><a href="privacy.html">Privacy</a></nav></footer>
 </div>
 
+<dialog class="lightbox" id="lightbox" aria-label="Species photo">
+  <button type="button" class="lbclose" id="lbClose" aria-label="Close photo">×</button>
+  <img id="lbImg" alt="">
+  <p class="lbcred" id="lbCred"></p>
+</dialog>
 <script src="d3.min.js"></script>
 <script>
 {
@@ -630,10 +635,5 @@ loadLand();
 start('daily');
 }
 </script>
-<dialog class="lightbox" id="lightbox" aria-label="Species photo">
-  <button type="button" class="lbclose" id="lbClose" aria-label="Close photo">×</button>
-  <img id="lbImg" alt="">
-  <p class="lbcred" id="lbCred"></p>
-</dialog>
 </body>
 </html>
