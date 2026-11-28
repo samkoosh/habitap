@@ -1,4 +1,4 @@
-/* Habitap daily puzzle API (Cloudflare Worker)
+/* HabiTap daily puzzle API (Cloudflare Worker)
 
    Keeps the species list and every answer on the server:
    GET  /day?d=<dayNumber>  today's five species, with place names masked and no coordinates
@@ -16,7 +16,7 @@
 const DAY = 864e5;
 export const EPOCH = Math.floor(Date.UTC(2026, 10, 26) / DAY); // puzzle #1
 const PHOTO_TTL = 7 * 86400;
-const UA = 'HabitapGame/1.0 (daily geography game; photo credits via Wikimedia Commons)';
+const UA = 'HabiTapGame/1.0 (daily geography game; photo credits via Wikimedia Commons)';
 
 /* ---------- same picking and scoring as the game ---------- */
 export function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }

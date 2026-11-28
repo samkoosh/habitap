@@ -1,10 +1,10 @@
-# Habitap launch checklist
+# HabiTap launch checklist
 
 What's already done in code, and the steps that need one of us at a keyboard with an account. Work top to bottom; each step takes 5 to 15 minutes.
 
 ## Already in the code
 
-- **Search and AI answer engines:** a descriptive title and meta description, a canonical URL, Open Graph and Twitter share tags with a share image (`og.png`), and JSON-LD structured data (WebSite, VideoGame and FAQPage). There's also a visible "What is Habitap?", "How to play" and 10-question FAQ, in plain HTML that crawlers can read. `robots.txt`, `sitemap.xml` and `privacy.html` are in place.
+- **Search and AI answer engines:** a descriptive title and meta description, a canonical URL, Open Graph and Twitter share tags with a share image (`og.png`), and JSON-LD structured data (WebSite, VideoGame and FAQPage). There's also a visible "What is HabiTap?", "How to play" and 10-question FAQ, in plain HTML that crawlers can read. `robots.txt`, `sitemap.xml` and `privacy.html` are in place.
 - **Phones:**
   - While guessing, the photo sits beside the name, so the globe stays on screen. Tap the photo to enlarge it.
   - The Hint, Lock it in and Next buttons sit in a bar pinned to the bottom of the screen, within thumb reach.

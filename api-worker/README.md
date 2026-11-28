@@ -1,4 +1,4 @@
-# Habitap daily puzzle API
+# HabiTap daily puzzle API
 
 A small Cloudflare Worker that serves one day's puzzle at a time and only reveals an answer after a guess. With it live, the game page no longer needs `species.json`, so the answer list and future puzzles stay off the public site.
 

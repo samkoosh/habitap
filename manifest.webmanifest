@@ -1,6 +1,6 @@
 {
-  "name": "Habitap",
-  "short_name": "Habitap",
+  "name": "HabiTap",
+  "short_name": "HabiTap",
   "description": "A free daily geography game: find where the world's rarest plants and animals live.",
   "start_url": "./",
   "scope": "./",

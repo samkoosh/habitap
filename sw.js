@@ -1,4 +1,4 @@
-/* Habitap service worker: makes the game open fast and survive flaky connections.
+/* HabiTap service worker: makes the game open fast and survive flaky connections.
    - Page and species list: network first, cached copy if offline (so new dailies always show up).
    - Static files and map data: cached copy first, refreshed in the background.
    - The daily puzzle API is never cached here (the Worker sets its own cache headers). */
