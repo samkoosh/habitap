@@ -63,6 +63,12 @@ h1,h2{font-family:"Nunito",system-ui,sans-serif;font-weight:800;line-height:1.1;
 header{display:flex;flex-direction:column;align-items:center;gap:6px;padding-bottom:12px;margin-bottom:18px;border-bottom:1px solid var(--rule);text-align:center}
 header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color:var(--moss)}
 .meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--soft);font-size:15px}
+.meta .dots{display:none}
+.steps{display:flex;align-items:center;padding:14px 16px 0}
+.st{width:16px;height:16px;flex:0 0 auto;border-radius:50%;border:2px solid var(--rule);background:var(--paper);box-sizing:border-box;transition:background .3s,border-color .3s,box-shadow .3s}
+.st.on{border-color:var(--ochre);box-shadow:0 0 0 4px rgba(192,138,43,.2)}
+.st.done{border-color:transparent}.st.s4{background:#5f9a4a}.st.s3{background:#d9b23c}.st.s2{background:#d9823c}.st.s1{background:#c2543f}
+.seg{flex:1;height:3px;margin:0 5px;border-radius:2px;background:var(--rule);transition:background .3s}.seg.done{background:var(--moss)}
 .dots{display:flex;gap:7px}.dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--soft);background:transparent}
 .dot.on{border-color:var(--ochre);box-shadow:0 0 0 3px rgba(192,138,43,.18)}.dot.done{background:var(--ochre);border-color:var(--ochre)}
 .total{font-weight:800;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums lining-nums}
@@ -70,7 +76,13 @@ header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color
 .card,.end{background:var(--paper);border-radius:18px;border:1px solid var(--card-line);box-shadow:0 6px 18px -12px rgba(29,46,40,.35)}
 .photo{position:relative;margin:12px 12px 0;aspect-ratio:4/3;background:var(--photo-bg);display:grid;place-items:center;color:var(--soft);font-size:14px;text-align:center;padding:0 16px;border-radius:12px;overflow:hidden}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
-.photo img.ok{opacity:1}
+.photo img.ok{opacity:1}.photo:has(img.ok){cursor:zoom-in}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:94vh;overflow:visible;color:#e6ece5}
+.lightbox::backdrop{background:rgba(8,13,10,.86);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.lightbox img{display:block;max-width:min(94vw,1100px);max-height:80vh;width:auto;height:auto;margin:0 auto;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lbcred{margin:12px auto 0;max-width:60ch;text-align:center;font-size:13px;line-height:1.45;color:#cfd8d0}.lbcred a{color:#fff}
+.lbclose{position:absolute;right:-6px;top:-50px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font:400 26px/40px system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
+.lightbox[open]{animation:pop .3s cubic-bezier(.3,1.3,.5,1)}
 .credit{font-size:11px;color:var(--soft);padding:6px 14px 0;min-height:22px;line-height:1.4;opacity:.45;transition:opacity .2s}.credit:hover,.credit:focus-within,.credit.open{opacity:1}
 .credbtn{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:2px;touch-action:manipulation}.credbtn:focus-visible{outline:2px solid var(--moss);outline-offset:2px;border-radius:3px}
 .credit .credfull{display:none}.credit.open .credfull{display:block;margin-top:2px}.credit.open .credbtn{display:none}
@@ -193,15 +205,17 @@ header{position:relative}
    the credit wraps under the photo, and the score and story appear underneath at full width */
 @media(max-width:820px),(orientation:landscape) and (max-height:500px){
   .card:not(.open) .body{display:contents}
-  .card:not(.open) .media{grid-column:1;grid-row:1/span 3;align-self:start;margin:10px 0 10px 10px}
-  .card:not(.open) .label{grid-column:2;grid-row:1;padding:10px 12px 0}
-  .card:not(.open) .clue{grid-column:2;grid-row:2;align-self:start;margin:8px 12px 0 12px;padding:7px 9px;font-size:13px;line-height:1.4}
-  .card:not(.open) .hint{grid-column:2;grid-row:3;align-self:start;padding:0 12px;margin-top:6px}
+  .card:not(.open) .steps{grid-column:1/-1;grid-row:1;padding:12px 14px 0}
+  .card:not(.open) .media{grid-column:1;grid-row:2/span 3;align-self:start;margin:12px 0 10px 12px}
+  .card:not(.open) .label{grid-column:2;grid-row:2;padding:12px 12px 0;margin:0}
+  .card:not(.open) .body h2{margin:-4px 0 2px;line-height:1.1}
+  .card:not(.open) .clue{grid-column:2;grid-row:3;align-self:start;margin:8px 12px 0 12px;padding:7px 9px;font-size:13px;line-height:1.4}
+  .card:not(.open) .hint{grid-column:2;grid-row:4;align-self:start;padding:0 12px;margin-top:6px}
   .card:not(.open) .credit{padding:4px 0 0;min-height:0}
-  .card:not(.open) .res{grid-column:1/-1;grid-row:5;margin:0;padding:6px 16px 16px}
+  .card:not(.open) .res{grid-column:1/-1;grid-row:6;margin:0;padding:6px 16px 16px}
   .card:not(.open) .res .big{font-size:44px}
 }
-@media(orientation:landscape) and (max-height:500px){.card:not(.open) #acts{grid-column:1/-1;grid-row:6;padding:0 12px 12px}}
+@media(orientation:landscape) and (max-height:500px){.card:not(.open) #acts{grid-column:1/-1;grid-row:7;padding:0 12px 12px}}
 </style>
 </head>
 <body>
@@ -214,6 +228,7 @@ header{position:relative}
 
   <div class="game">
     <section class="panel card" id="card">
+      <div class="steps" id="steps" role="img" aria-label="Round 1 of 5"></div>
       <div class="media"><div class="photo" id="photo"><span id="photoMsg">Loading photo…</span><img id="img" alt=""></div>
       <div class="credit" id="credit"></div></div>
       <div class="body">
@@ -479,6 +494,7 @@ function getPhoto(sp){if(sp.photo!==undefined)return Promise.resolve(sp.photo);i
     try{const c=await fetch('https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&prop=imageinfo&iiprop=extmetadata&titles='+encodeURIComponent('File:'+pg.pageimage)).then(r=>r.json());
       const m=c.query.pages[0].imageinfo[0].extmetadata;out.artist=stripHtml(m.Artist&&m.Artist.value);out.license=(m.LicenseShortName&&m.LicenseShortName.value)||'';out.licUrl=(m.LicenseUrl&&m.LicenseUrl.value)||''}catch(e){}
     return out}).catch(()=>null)}
+let lastCredit='';
 function showPhoto(sp,revealed){const img=$('img'),msg=$('photoMsg');img.classList.remove('ok');img.removeAttribute('src');msg.textContent='Loading photo…';$('credit').textContent='';
   getPhoto(sp).then(ph=>{if(items[round]!==sp&&!finished)return;
     if(!ph){msg.textContent='No free photo found for this one. Go by the name!';return}
@@ -486,7 +502,7 @@ function showPhoto(sp,revealed){const img=$('img'),msg=$('photoMsg');img.classLi
     creditLine(ph,revealed)})}
 function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):'Unknown author';const lic=ph.license?(ph.licUrl?`<a href="${esc(ph.licUrl)}" target="_blank" rel="noopener">${esc(ph.license)}</a>`:esc(ph.license)):'free license';
   /* short form: author · license · source (what CC licenses require), so it wraps neatly under the photo */
-  const full=`© ${who} · ${lic} · `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener" title="Wikimedia Commons">Commons</a>`:'<span title="Wikimedia Commons">Commons</span>');
+  const full=lastCredit=`© ${who} · ${lic} · `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener" title="Wikimedia Commons">Commons</a>`:'<span title="Wikimedia Commons">Commons</span>');
   /* just a 'Photo credit' link; tapping it opens the full credit in place (stays on the page, fine for every CC version) */
   const open=$('credit').classList.contains('open');
   $('credit').innerHTML=`<button type="button" class="credbtn" aria-expanded="${open}">ⓘ Photo credit</button><span class="credfull">${full}</span>`;
@@ -494,8 +510,7 @@ function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):
 
 /* ---------- data: species.json in the browser for now, the daily API once it's deployed ---------- */
 const fmt=n=>Math.round(n).toLocaleString();
-/* soft curve: 100 within 10 km, steep near the spot, tapering so almost any guess earns a point (0 only at the exact antipode) */
-const scoreFor=d=>d<=10?100:Math.max(0,Math.ceil(100*Math.pow(Math.max(0,1-d/20015),7)));
+const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
 let spLoad=null;
 const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
 const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki,clue:s.clue||''}};
@@ -528,7 +543,11 @@ async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];i
   if(m==='daily'){const saved=store.get('ht2-day');if(saved&&saved.day===dayNum&&saved.results.length===5){results=saved.results;finish(false);return}
     const p=store.get('ht2-progress');if(p&&p.day===dayNum&&p.results.length&&p.results.length<5){results=p.results;round=results.length}}
   track('play_start',{mode,puzzle:mode==='practice'?0:noFor(playDay),resumed:round>0});show()}
-function dots(popIdx=-1){$('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
+function dots(popIdx=-1){const n=items.length||5,cur=finished?n:round;
+  $('steps').innerHTML=Array.from({length:n},(_,i)=>{const r=results[i],c=r?'done s'+(r.score>=90?4:r.score>=60?3:r.score>=30?2:1):i===cur?'on':'';
+    return (i?`<i class="seg${i<=results.length?' done':''}"></i>`:'')+`<b class="st ${c}${i===popIdx?' pop':''}"${r?` title="Round ${i+1}: ${r.score} pts"`:''}></b>`}).join('');
+  $('steps').setAttribute('aria-label',finished?'All 5 rounds done':`Round ${Math.min(cur+1,n)} of ${n}`);
+  $('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
 function show(){const sp=items[round];guessToken++;pin=null;target=null;hintC=null;$('credit').classList.remove('open');usedHint=false;locked=false;$('card').classList.remove('open');
   $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
   $('clue').hidden=!sp.clue;$('clue').innerHTML=sp.clue?'<b>Clue</b>'+esc(sp.clue):'';
@@ -586,6 +605,12 @@ setInterval(()=>{if(finished)tick()},30000);
 function fillArchive(){const opts=[];for(let d=dayNum-1;d>=EPOCH;d--)opts.push(`<option value="${d}">#${noFor(d)}, ${dateFor(d)}</option>`);
   $('archiveBox').hidden=!opts.length;$('archive').innerHTML='<option value="">Choose a day</option>'+opts.join('')}
 $('archive').onchange=e=>{const d=+e.target.value;if(d){track('archive_open',{puzzle:noFor(d)});start('archive',d);scrollTo({top:0})}};
+/* tap the photo: full-size pop-out with the credit underneath */
+$('photo').onclick=()=>{const im=$('img');if(!im.classList.contains('ok')||!$('lightbox').showModal)return;const lb=$('lbImg'),src=im.currentSrc||im.src;
+  lb.onerror=()=>{lb.onerror=null;lb.src=src};lb.src=/\/\d+px-/.test(src)?src.replace(/\/\d+px-/,'/1600px-'):src;lb.alt=$('name').textContent;
+  $('lbCred').innerHTML=lastCredit;$('lightbox').showModal();sfx.tap();track('photo_open',{mode})};
+$('lbClose').onclick=()=>$('lightbox').close();
+$('lightbox').onclick=e=>{if(e.target===$('lightbox')||e.target===$('lbImg'))$('lightbox').close()};
 const canSheet=touch&&!!navigator.share;if(canSheet)$('share').textContent='Share result';
 if(touch)$('tip').textContent='Drag to spin, pinch to zoom, and tap to drop your pin.';
 $('share').onclick=async()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`Habitap ${shareTag()} ${t}/500\n${results.map(r=>sq(r.score)).join('')}\n${location.href.split(/[?#]/)[0]}`;
@@ -605,5 +630,10 @@ loadLand();
 start('daily');
 }
 </script>
+<dialog class="lightbox" id="lightbox" aria-label="Species photo">
+  <button type="button" class="lbclose" id="lbClose" aria-label="Close photo">×</button>
+  <img id="lbImg" alt="">
+  <p class="lbcred" id="lbCred"></p>
+</dialog>
 </body>
 </html>
