@@ -1,0 +1,538 @@
+[
+ {
+  "common_name": "Shea tree",
+  "scientific_name": "Vitellaria paradoxa",
+  "kind": "Plant",
+  "wiki": "Vitellaria",
+  "place": "The Sudanian belt",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "West Sudanian savanna",
+    "East Sudanian savanna",
+    "Northern Congolian Forest-Savanna"
+   ]
+  },
+  "why_here": "Shea grows wild in the long band of wooded grassland from Senegal to Uganda, where farmers leave the trees standing in their fields.",
+  "fun_fact": "A shea tree can take 15 years or more to bear its first fruit, and it may keep fruiting for two centuries.",
+  "clue": "Its nuts give a creamy butter used in skin creams and chocolate."
+ },
+ {
+  "common_name": "Abyssinian ground hornbill",
+  "scientific_name": "Bucorvus abyssinicus",
+  "kind": "Bird",
+  "wiki": "Abyssinian_ground_hornbill",
+  "place": "The Sahel and Sudanian belt",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Sahelian Acacia savanna",
+    "West Sudanian savanna",
+    "East Sudanian savanna"
+   ]
+  },
+  "why_here": "It strides across the open grassy country south of the Sahara, from Senegal to Ethiopia, hunting on foot.",
+  "fun_fact": "It does almost all its hunting on the ground, catching lizards, snakes and even small mammals with its huge bill.",
+  "clue": "A big black bird that walks rather than flies, with a casque on its bill and bare blue skin."
+ },
+ {
+  "common_name": "Sable antelope",
+  "scientific_name": "Hippotragus niger",
+  "kind": "Mammal",
+  "wiki": "Sable_antelope",
+  "place": "The miombo woodlands",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Dry miombo woodlands",
+    "Central Zambezian wet miombo woodlands",
+    "Angolan wet miombo woodlands"
+   ]
+  },
+  "why_here": "Sable are specialists of the miombo woodlands, grazing in grassy clearings close to water and cover.",
+  "fun_fact": "The giant sable, a rare form found only in Angola, is a national symbol there.",
+  "clue": "Glossy black males carry long horns that sweep back like scimitars."
+ },
+ {
+  "common_name": "Grey parrot",
+  "scientific_name": "Psittacus erithacus",
+  "kind": "Bird",
+  "wiki": "Grey_parrot",
+  "place": "The Guinea and Congo forests",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Nigerian lowland forests",
+    "Cross-Niger transition forests",
+    "Niger Delta swamp forests",
+    "Cross-Sanaga-Bioko coastal forests",
+    "Congolian coastal forests",
+    "Northwest Congolian lowland forests",
+    "Northeast Congolian lowland forests",
+    "Central Congolian lowland forests",
+    "Western Congolian swamp forests",
+    "Eastern Congolian swamp forests"
+   ]
+  },
+  "why_here": "Grey parrots live in the lowland forests of the Congo Basin and the Gulf of Guinea, roosting in big noisy flocks.",
+  "fun_fact": "A grey parrot named Alex learned over 100 words and could name colours and shapes.",
+  "clue": "A grey bird with a bright red tail, famous for copying human speech."
+ },
+ {
+  "common_name": "Meerkat",
+  "scientific_name": "Suricata suricatta",
+  "kind": "Mammal",
+  "wiki": "Meerkat",
+  "place": "The Kalahari and Karoo",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Kalahari xeric savanna",
+    "Nama Karoo shrublands",
+    "Gariep Karoo",
+    "Succulent Karoo xeric shrublands"
+   ]
+  },
+  "why_here": "Meerkats need open dry ground with firm soil for digging burrows, which the Kalahari and Karoo have in plenty.",
+  "fun_fact": "Meerkats are fairly resistant to scorpion venom and teach their pups how to handle stinging prey.",
+  "clue": "One stands up on its back legs as a lookout while the rest of the gang digs for food."
+ },
+ {
+  "common_name": "Gemsbok",
+  "scientific_name": "Oryx gazella",
+  "kind": "Mammal",
+  "wiki": "Gemsbok",
+  "place": "The Kalahari and Namib",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Kalahari xeric savanna",
+    "Nama Karoo shrublands",
+    "Namibian savanna woodlands",
+    "Namib Desert",
+    "Kaokoveld desert",
+    "Gariep Karoo"
+   ]
+  },
+  "why_here": "Gemsbok can go for long spells without drinking, so they roam the driest parts of Namibia, Botswana and South Africa.",
+  "fun_fact": "A gemsbok can let its body heat up during the day instead of sweating, which saves precious water.",
+  "clue": "Straight horns up to a metre long and a bold black and white face mask."
+ },
+ {
+  "common_name": "Gerenuk",
+  "scientific_name": "Litocranius walleri",
+  "kind": "Mammal",
+  "wiki": "Gerenuk",
+  "place": "The Horn of Africa bushlands",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Somali Acacia-Commiphora bushlands and thickets",
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Horn of Africa xeric bushlands"
+   ]
+  },
+  "why_here": "The gerenuk browses the thorny bush of Somalia, Ethiopia, Kenya and northern Tanzania, where few grazers can compete with it.",
+  "fun_fact": "Gerenuks get almost all their water from the leaves they eat and may never need to drink.",
+  "clue": "This long-necked antelope stands up on its hind legs to nibble leaves out of reach."
+ },
+ {
+  "common_name": "Saharan horned viper",
+  "scientific_name": "Cerastes cerastes",
+  "kind": "Reptile",
+  "wiki": "Cerastes_cerastes",
+  "place": "The Sahara",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "North Saharan Xeric Steppe and Woodland",
+    "West Sahara desert",
+    "South Sahara desert",
+    "East Sahara Desert"
+   ]
+  },
+  "why_here": "This viper lives across the sand seas and stony plains of the Sahara, hiding in the sand by day.",
+  "fun_fact": "It shuffles itself into loose sand until only its eyes and horns poke out, then waits for prey.",
+  "clue": "A sidewinding snake with a little spike over each eye."
+ },
+ {
+  "common_name": "Western lowland gorilla",
+  "scientific_name": "Gorilla gorilla gorilla",
+  "kind": "Mammal",
+  "wiki": "Western_lowland_gorilla",
+  "place": "The western Congo Basin",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Northwest Congolian lowland forests",
+    "Congolian coastal forests",
+    "Western Congolian swamp forests"
+   ]
+  },
+  "why_here": "These gorillas live in the lowland and swamp forests of Gabon, Cameroon, Congo and nearby countries.",
+  "fun_fact": "Almost all gorillas in zoos are western lowland gorillas.",
+  "clue": "A great ape whose family troops are led by a big male with a silver back."
+ },
+ {
+  "common_name": "Thick-billed raven",
+  "scientific_name": "Corvus crassirostris",
+  "kind": "Bird",
+  "wiki": "Thick-billed_raven",
+  "place": "The Ethiopian Highlands",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Ethiopian montane grasslands and woodlands"
+   ]
+  },
+  "why_here": "This raven is found only in the highlands of Ethiopia and Eritrea, often around farms and villages.",
+  "fun_fact": "It is one of the biggest songbirds in the world, rivalling the common raven in size.",
+  "clue": "A huge black bird with a deep, arched bill and a white patch on the back of its neck."
+ },
+ {
+  "common_name": "Fossa",
+  "scientific_name": "Cryptoprocta ferox",
+  "kind": "Mammal",
+  "wiki": "Fossa_(animal)",
+  "place": "Madagascar's forests",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Madagascar humid forests",
+    "Madagascar dry deciduous forests",
+    "Madagascar spiny thickets",
+    "Madagascar succulent woodlands"
+   ]
+  },
+  "why_here": "The fossa hunts in forests all around Madagascar, the only place it lives.",
+  "fun_fact": "It looks like a cat but is more closely related to mongooses.",
+  "clue": "A sleek hunter that climbs trees head first and preys on lemurs."
+ },
+ {
+  "common_name": "Verreaux's sifaka",
+  "scientific_name": "Propithecus verreauxi",
+  "kind": "Mammal",
+  "wiki": "Verreaux's_sifaka",
+  "place": "Southwest Madagascar",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Madagascar spiny thickets",
+    "Madagascar succulent woodlands"
+   ]
+  },
+  "why_here": "This sifaka lives in the dry spiny and gallery forests of southern and southwestern Madagascar.",
+  "fun_fact": "On the ground it moves by bouncing sideways on its back legs, which looks like dancing.",
+  "clue": "A white leaper with a dark cap that crosses open ground in sideways hops."
+ },
+ {
+  "common_name": "Blesbok",
+  "scientific_name": "Damaliscus pygargus phillipsi",
+  "kind": "Mammal",
+  "wiki": "Blesbok",
+  "place": "The Highveld",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Highveld grasslands"
+   ]
+  },
+  "why_here": "Blesbok are grazers of the open high grasslands of South Africa's interior plateau.",
+  "fun_fact": "Its name comes from the Afrikaans word for the white blaze down its face.",
+  "clue": "A reddish antelope with a white stripe running down its whole face."
+ },
+ {
+  "common_name": "Southern bald ibis",
+  "scientific_name": "Geronticus calvus",
+  "kind": "Bird",
+  "wiki": "Southern_bald_ibis",
+  "place": "The Drakensberg grasslands",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Drakensberg grasslands"
+   ]
+  },
+  "why_here": "It feeds in short, often burnt high grassland in South Africa, Lesotho and Eswatini, and nests on cliffs nearby.",
+  "fun_fact": "It likes freshly burnt grass because insects are easy to spot there.",
+  "clue": "A glossy green-black bird with a bare white face and a bright red crown."
+ },
+ {
+  "common_name": "Hartmann's mountain zebra",
+  "scientific_name": "Equus zebra hartmannae",
+  "kind": "Mammal",
+  "wiki": "Hartmann's_mountain_zebra",
+  "place": "Namibia's escarpment and Namib edge",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Namibian savanna woodlands",
+    "Kaokoveld desert",
+    "Namib Desert"
+   ]
+  },
+  "why_here": "It lives on the rugged hills and gravel plains along the edge of the Namib in Namibia and southwest Angola.",
+  "fun_fact": "It can dig holes in dry riverbeds to reach water, which other animals then use.",
+  "clue": "A striped horse with a white belly, a fold of skin on its throat and nimble hooves for rocks."
+ },
+ {
+  "common_name": "Nile lechwe",
+  "scientific_name": "Kobus megaceros",
+  "kind": "Mammal",
+  "wiki": "Nile_lechwe",
+  "place": "The Sudd",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Sudd flooded grasslands"
+   ]
+  },
+  "why_here": "The Nile lechwe lives only in the great Sudd marshes of South Sudan and the nearby Machar marshes.",
+  "fun_fact": "Males turn dark chocolate brown with a bright white patch on the shoulders.",
+  "clue": "An antelope that wades into knee-deep water to graze, with long backswept horns."
+ },
+ {
+  "common_name": "Thomson's gazelle",
+  "scientific_name": "Eudorcas thomsonii",
+  "kind": "Mammal",
+  "wiki": "Thomson's_gazelle",
+  "place": "The Serengeti and Mara",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Serengeti volcanic grasslands"
+   ]
+  },
+  "why_here": "Tommies live on the short grass plains of Kenya and northern Tanzania, following the rains with the big herds.",
+  "fun_fact": "When chased, it leaps stiff-legged into the air, a move called stotting.",
+  "clue": "A small, fast gazelle with a bold black stripe along each side."
+ },
+ {
+  "common_name": "Pygmy hippopotamus",
+  "scientific_name": "Choeropsis liberiensis",
+  "kind": "Mammal",
+  "wiki": "Pygmy_hippopotamus",
+  "place": "The Upper Guinean forests",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Western Guinean lowland forests"
+   ]
+  },
+  "why_here": "Pygmy hippos live along streams in the lowland forests of Liberia, Sierra Leone, Guinea and Ivory Coast.",
+  "fun_fact": "A baby pygmy hippo named Moo Deng became an internet star in 2024.",
+  "clue": "A shy, pig-sized cousin of a much bigger river animal."
+ },
+ {
+  "common_name": "White-necked rockfowl",
+  "scientific_name": "Picathartes gymnocephalus",
+  "kind": "Bird",
+  "wiki": "White-necked_rockfowl",
+  "place": "The Upper Guinean forests",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Western Guinean lowland forests",
+    "Eastern Guinean forests"
+   ]
+  },
+  "why_here": "It nests on boulders and rock overhangs in the forests of Guinea, Sierra Leone, Liberia, Ivory Coast and Ghana.",
+  "fun_fact": "It glues its cup-shaped mud nest straight onto the face of a rock.",
+  "clue": "A bald bird with a bright yellow head that hops about rocks instead of flying far."
+ },
+ {
+  "common_name": "Veiled chameleon",
+  "scientific_name": "Chamaeleo calyptratus",
+  "kind": "Reptile",
+  "wiki": "Veiled_chameleon",
+  "place": "The Yemen and Asir highlands",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Southwest Arabian Escarpment shrublands and woodlands",
+    "Southwest Arabian montane woodlands and grasslands",
+    "Southwest Arabian highland xeric scrub"
+   ]
+  },
+  "why_here": "It lives on the mountain slopes of Yemen and southwest Saudi Arabia, where seasonal rains keep plants green.",
+  "fun_fact": "It drinks by lapping up dew and raindrops from leaves rather than from standing water.",
+  "clue": "A popular pet lizard with a tall crest on its head shaped like a helmet."
+ },
+ {
+  "common_name": "Parson's chameleon",
+  "scientific_name": "Calumma parsonii",
+  "kind": "Reptile",
+  "wiki": "Parson's_chameleon",
+  "place": "Eastern Madagascar",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Madagascar humid forests"
+   ]
+  },
+  "why_here": "It lives in the humid forests of eastern and northern Madagascar.",
+  "fun_fact": "It is one of the heaviest chameleons in the world and can live for decades.",
+  "clue": "One of the biggest of its kind, about the length of a forearm, with a green or turquoise body."
+ },
+ {
+  "common_name": "Radiated tortoise",
+  "scientific_name": "Astrochelys radiata",
+  "kind": "Reptile",
+  "wiki": "Radiated_tortoise",
+  "place": "Madagascar's spiny forest",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Madagascar spiny thickets"
+   ]
+  },
+  "why_here": "It lives only in the dry spiny forest of southern Madagascar.",
+  "fun_fact": "Tu'i Malila, said to be a gift from Captain Cook to Tonga's royal family, was a radiated tortoise and lived to about 188.",
+  "clue": "Each plate of its high-domed shell has yellow lines bursting out like a star."
+ },
+ {
+  "common_name": "Spekboom",
+  "scientific_name": "Portulacaria afra",
+  "kind": "Plant",
+  "wiki": "Portulacaria_afra",
+  "place": "The Albany thicket",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Albany thickets"
+   ]
+  },
+  "why_here": "It forms dense thickets in the Eastern Cape of South Africa, where it is the main plant of the Albany thicket.",
+  "fun_fact": "Elephants love to eat it, and people plant it to soak up carbon.",
+  "clue": "A succulent shrub with small round leaves, a favourite snack of elephants."
+ },
+ {
+  "common_name": "African wild ass",
+  "scientific_name": "Equus africanus",
+  "kind": "Mammal",
+  "wiki": "African_wild_ass",
+  "place": "The Danakil",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Djibouti xeric shrublands"
+   ]
+  },
+  "why_here": "The last wild asses live in the hot, rocky Danakil lowlands of Eritrea and Ethiopia, near the Horn of Africa.",
+  "fun_fact": "It is the wild ancestor of the domestic donkey.",
+  "clue": "A tough grey wild horse relative with zebra-like stripes on its legs."
+ },
+ {
+  "common_name": "Fog-basking beetle",
+  "scientific_name": "Onymacris unguicularis",
+  "kind": "Insect",
+  "wiki": "Onymacris_unguicularis",
+  "place": "The Namib",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Namib Desert"
+   ]
+  },
+  "why_here": "It lives on the dunes of the Namib, where morning fog rolls in from the cold sea.",
+  "fun_fact": "It climbs a dune crest, tips its head down and lets fog collect on its back and run into its mouth.",
+  "clue": "This beetle does a headstand on misty mornings to drink."
+ },
+ {
+  "common_name": "Drill",
+  "scientific_name": "Mandrillus leucophaeus",
+  "kind": "Mammal",
+  "wiki": "Drill_(animal)",
+  "place": "The Cross River and Bioko",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Cross-Sanaga-Bioko coastal forests"
+   ]
+  },
+  "why_here": "Drills live only in the forests between the Cross River in Nigeria and the Sanaga River in Cameroon, plus Bioko.",
+  "fun_fact": "Drill groups sometimes join together into gatherings of more than 100 animals.",
+  "clue": "A short-tailed monkey with a black face and a bright red lower lip."
+ },
+ {
+  "common_name": "Sclater's guenon",
+  "scientific_name": "Cercopithecus sclateri",
+  "kind": "Mammal",
+  "wiki": "Sclater's_guenon",
+  "place": "Southeast Nigeria",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Cross-Niger transition forests"
+   ]
+  },
+  "why_here": "This monkey lives only between the Niger and Cross rivers in southeastern Nigeria.",
+  "fun_fact": "Some villages treat the monkeys as sacred and protect them in their groves.",
+  "clue": "A rare little monkey with a white spot on its nose and a pale throat."
+ },
+ {
+  "common_name": "Beira",
+  "scientific_name": "Dorcatragus megalotis",
+  "kind": "Mammal",
+  "wiki": "Beira_(antelope)",
+  "place": "The Somali highlands",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Somali montane xeric woodlands"
+   ]
+  },
+  "why_here": "The beira lives on dry, rocky hills in northern Somalia and nearby Djibouti and Ethiopia.",
+  "fun_fact": "It gets most of its water from plants and can go without drinking.",
+  "clue": "A small, sure-footed antelope with very large ears for its size."
+ },
+ {
+  "common_name": "Rock firefinch",
+  "scientific_name": "Lagonosticta sanguinodorsalis",
+  "kind": "Bird",
+  "wiki": "Rock_firefinch",
+  "place": "The Jos Plateau",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Jos Plateau forest-grassland"
+   ]
+  },
+  "why_here": "It lives among rocky outcrops on the Jos Plateau of central Nigeria.",
+  "fun_fact": "It was only described as a new species in 1998.",
+  "clue": "A tiny red finch that went unnoticed by science until the late 1990s."
+ },
+ {
+  "common_name": "Niger Delta red colobus",
+  "scientific_name": "Piliocolobus epieni",
+  "kind": "Mammal",
+  "wiki": "Niger_Delta_red_colobus",
+  "place": "The Niger Delta",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Niger Delta swamp forests"
+   ]
+  },
+  "why_here": "This monkey is found only in the swamp forests of the Niger Delta in Nigeria.",
+  "fun_fact": "It eats mostly leaves and has a stomach with several chambers to digest them.",
+  "clue": "A leaf-eating monkey with no thumbs and a rusty red coat."
+ },
+ {
+  "common_name": "Octopus tree",
+  "scientific_name": "Didierea madagascariensis",
+  "kind": "Plant",
+  "wiki": "Didierea_madagascariensis",
+  "place": "Madagascar's spiny forest",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Madagascar spiny thickets"
+   ]
+  },
+  "why_here": "It grows in the dry spiny forest of southwestern Madagascar, the only place it lives.",
+  "fun_fact": "It belongs to the Didiereaceae, a plant family found only on Madagascar.",
+  "clue": "A spiny plant whose thorny arms reach up and wave like tentacles."
+ }
+]

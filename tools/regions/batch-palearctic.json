@@ -1,0 +1,482 @@
+[
+ {
+  "common_name": "Tibetan antelope",
+  "scientific_name": "Pantholops hodgsonii",
+  "kind": "Mammal",
+  "wiki": "Tibetan_antelope",
+  "place": "The Chang Tang and Kunlun plateaus",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Central Tibetan Plateau alpine steppe",
+    "North Tibetan Plateau-Kunlun Mountains alpine desert",
+    "Karakoram-West Tibetan Plateau alpine steppe"
+   ]
+  },
+  "why_here": "It grazes the cold, high grasslands of the Chang Tang and Hoh Xil, mostly above 4,000 metres, where few people live.",
+  "fun_fact": "Its underfur, called shahtoosh, led to heavy poaching because one shawl needed the wool of several animals.",
+  "clue": "Its wool is so fine that a whole shawl made from it can be pulled through a ring."
+ },
+ {
+  "common_name": "Dahurian larch",
+  "scientific_name": "Larix gmelinii",
+  "kind": "Plant",
+  "wiki": "Larix_gmelinii",
+  "place": "Eastern Siberia",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "East Siberian taiga",
+    "Northeast Siberian taiga",
+    "Da Hinggan-Dzhagdy Mountains conifer forests"
+   ]
+  },
+  "why_here": "It is the main tree of the huge forests east of the Yenisei, rooting in the thin layer of soil above permafrost.",
+  "fun_fact": "It is one of the most northerly trees on Earth, growing past 72°N on the Taimyr Peninsula.",
+  "clue": "A conifer that drops all its needles each autumn and grows on ground frozen year-round."
+ },
+ {
+  "common_name": "Western capercaillie",
+  "scientific_name": "Tetrao urogallus",
+  "kind": "Bird",
+  "wiki": "Western_capercaillie",
+  "place": "The taiga from Scandinavia to the Yenisei",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Scandinavian and Russian taiga",
+    "Urals montane forest and taiga",
+    "West Siberian taiga"
+   ]
+  },
+  "why_here": "This big grouse needs old conifer forest with a berry-rich floor, which runs unbroken across northern Europe and western Siberia.",
+  "fun_fact": "In winter it lives almost entirely on pine needles.",
+  "clue": "The world's largest grouse. Males click, pop and gurgle at dawn displays called leks."
+ },
+ {
+  "common_name": "Sable",
+  "scientific_name": "Martes zibellina",
+  "kind": "Mammal",
+  "wiki": "Sable",
+  "place": "The Siberian taiga",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "West Siberian taiga",
+    "East Siberian taiga",
+    "Northeast Siberian taiga",
+    "Okhotsk-Manchurian taiga"
+   ]
+  },
+  "why_here": "It hunts voles and eats pine nuts and berries in the dense conifer forests that cover Siberia from the Urals to the Pacific.",
+  "fun_fact": "The hunt for its fur drove Russia's push east across Siberia in the 1600s.",
+  "clue": "Its silky fur was once paid as tax to the tsars."
+ },
+ {
+  "common_name": "European beech",
+  "scientific_name": "Fagus sylvatica",
+  "kind": "Plant",
+  "wiki": "Fagus_sylvatica",
+  "place": "Western and central Europe",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Western European broadleaf forests",
+    "European Atlantic mixed forests",
+    "Alps conifer and mixed forests",
+    "Carpathian montane forests",
+    "Dinaric Mountains mixed forests"
+   ]
+  },
+  "why_here": "It thrives where summers are mild and rain falls all year, from France and Germany into the Alps, Carpathians and Dinaric hills.",
+  "fun_fact": "Its shade is so deep that few plants can grow on the floor of an old beech wood.",
+  "clue": "Smooth grey bark, and nuts called mast that feed boars and jays in bumper years."
+ },
+ {
+  "common_name": "Russian tortoise",
+  "scientific_name": "Testudo horsfieldii",
+  "kind": "Reptile",
+  "wiki": "Russian_tortoise",
+  "place": "The deserts of Central Asia",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Central Asian southern desert",
+    "Central Asian riparian woodlands",
+    "Badghyz and Karabil semi-desert"
+   ]
+  },
+  "why_here": "It digs burrows in the dry clay and sand plains of Turkmenistan and Uzbekistan to escape the heat and the cold.",
+  "fun_fact": "It may be active for only about three months a year, spending the rest asleep in its burrow.",
+  "clue": "Two of these were among the first animals to fly around the Moon, in 1968."
+ },
+ {
+  "common_name": "Tarbagan marmot",
+  "scientific_name": "Marmota sibirica",
+  "kind": "Mammal",
+  "wiki": "Tarbagan_marmot",
+  "place": "The Mongolian grasslands",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Mongolian-Manchurian grassland",
+    "Selenge-Orkhon forest steppe",
+    "Daurian forest steppe"
+   ]
+  },
+  "why_here": "It digs big burrow colonies in the open grasslands of Mongolia, Inner Mongolia and Transbaikalia.",
+  "fun_fact": "In Mongolia it is traditionally cooked by filling its body with hot stones, a dish called boodog.",
+  "clue": "A chunky burrower that whistles alarms, sometimes cooked with hot stones inside it."
+ },
+ {
+  "common_name": "Alpine ibex",
+  "scientific_name": "Capra ibex",
+  "kind": "Mammal",
+  "wiki": "Alpine_ibex",
+  "place": "The Alps",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Alps conifer and mixed forests"
+   ]
+  },
+  "why_here": "It lives on steep, rocky slopes above the tree line across the Alps, from France to Austria.",
+  "fun_fact": "By the early 1800s only about 100 were left, in Italy's Gran Paradiso, and all of today's ibex descend from them.",
+  "clue": "Huge curved horns, and it climbs near-vertical dam walls to lick the salt."
+ },
+ {
+  "common_name": "Spanish imperial eagle",
+  "scientific_name": "Aquila adalberti",
+  "kind": "Bird",
+  "wiki": "Spanish_imperial_eagle",
+  "place": "Central and southwest Iberia",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Iberian sclerophyllous and semi-deciduous forests",
+    "Southwest Iberian Mediterranean sclerophyllous and mixed forests"
+   ]
+  },
+  "why_here": "It nests in big trees in the open oak woodlands and scrub of central and southwestern Spain and Portugal, where rabbits are plentiful.",
+  "fun_fact": "It fell to about 30 pairs in the 1960s and has since recovered to several hundred pairs.",
+  "clue": "Bright white shoulder patches, and a diet that is mostly rabbit."
+ },
+ {
+  "common_name": "Pyrenean desman",
+  "scientific_name": "Galemys pyrenaicus",
+  "kind": "Mammal",
+  "wiki": "Pyrenean_desman",
+  "place": "The Pyrenees and northern Iberia",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Pyrenees conifer and mixed forests",
+    "Cantabrian mixed forests",
+    "Northwest Iberian montane forests"
+   ]
+  },
+  "why_here": "It needs cold, fast, clean mountain streams, found in the Pyrenees and the mountains of northern Spain and Portugal.",
+  "fun_fact": "It finds prey underwater by touch, using a long, bendy snout covered in sensitive organs.",
+  "clue": "A tiny swimmer with a trunk-like snout, a close cousin of moles."
+ },
+ {
+  "common_name": "Korean pine",
+  "scientific_name": "Pinus koraiensis",
+  "kind": "Plant",
+  "wiki": "Pinus_koraiensis",
+  "place": "Manchuria and the Russian Far East",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Manchurian mixed forests",
+    "Ussuri broadleaf and mixed forests",
+    "Changbai Mountains mixed forests"
+   ]
+  },
+  "why_here": "It is the key tree of the mixed forests of northeast China, Primorye and North Korea.",
+  "fun_fact": "Its big seeds are one of the main kinds of pine nut sold around the world.",
+  "clue": "Its cones never open, so nutcrackers, squirrels and boars break in for the seeds."
+ },
+ {
+  "common_name": "Lebanon cedar",
+  "scientific_name": "Cedrus libani",
+  "kind": "Plant",
+  "wiki": "Cedrus_libani",
+  "place": "The Taurus and Lebanon mountains",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Southern Anatolian montane conifer and deciduous forests",
+    "Eastern Mediterranean conifer-broadleaf forests"
+   ]
+  },
+  "why_here": "It grows on cool, snowy mountain slopes from Turkey's Taurus range south to Mount Lebanon.",
+  "fun_fact": "It is the tree shown on the flag of Lebanon.",
+  "clue": "A tree on a national flag, prized in ancient times for temples and ships."
+ },
+ {
+  "common_name": "Kiang",
+  "scientific_name": "Equus kiang",
+  "kind": "Mammal",
+  "wiki": "Kiang",
+  "place": "The western Tibetan Plateau",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Central Tibetan Plateau alpine steppe",
+    "Karakoram-West Tibetan Plateau alpine steppe",
+    "Yarlung Zanbo arid steppe"
+   ]
+  },
+  "why_here": "It grazes the high, dry grasslands of the Tibetan Plateau, from Ladakh across the Chang Tang.",
+  "fun_fact": "It is the largest of the wild asses, standing about 1.4 metres at the shoulder.",
+  "clue": "The biggest wild ass, grazing at over 4,000 metres."
+ },
+ {
+  "common_name": "Golden snub-nosed monkey",
+  "scientific_name": "Rhinopithecus roxellana",
+  "kind": "Mammal",
+  "wiki": "Golden_snub-nosed_monkey",
+  "place": "The Qinling and Minshan mountains",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Qionglai-Minshan conifer forests",
+    "Qin Ling Mountains deciduous forests"
+   ]
+  },
+  "why_here": "It lives in cold mountain forests of central China, getting through snowy winters on lichen and bark.",
+  "fun_fact": "It has a bright blue face and a nose so short it is little more than two nostrils.",
+  "clue": "Blue face, golden fur, and a nose turned up so far it seems to be missing."
+ },
+ {
+  "common_name": "Brant's oak",
+  "scientific_name": "Quercus brantii",
+  "kind": "Plant",
+  "wiki": "Quercus_brantii",
+  "place": "The Zagros Mountains",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Zagros Mountains forest steppe"
+   ]
+  },
+  "why_here": "It is the main tree of the open oak woodlands that cover the Zagros Mountains of Iran and Iraq.",
+  "fun_fact": "Villagers in the Zagros once ground its acorns into flour for bread.",
+  "clue": "Mountain villagers once baked bread from the acorns of this tree."
+ },
+ {
+  "common_name": "Wild apple",
+  "scientific_name": "Malus sieversii",
+  "kind": "Plant",
+  "wiki": "Malus_sieversii",
+  "place": "The Tian Shan",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Tian Shan montane steppe and meadows"
+   ]
+  },
+  "why_here": "It forms wild fruit forests on the slopes of the Tian Shan in Kazakhstan, Kyrgyzstan and Xinjiang.",
+  "fun_fact": "It is the main wild ancestor of the apples sold in shops today.",
+  "clue": "The wild ancestor of the fruit in your lunchbox, still growing in mountain forests."
+ },
+ {
+  "common_name": "Alpine salamander",
+  "scientific_name": "Salamandra atra",
+  "kind": "Amphibian",
+  "wiki": "Alpine_salamander",
+  "place": "The Alps and Dinaric mountains",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Alps conifer and mixed forests",
+    "Dinaric Mountains mixed forests"
+   ]
+  },
+  "why_here": "It lives in cool, damp mountain meadows and forests of the Alps and the Dinaric ranges, where there is little open water.",
+  "fun_fact": "It gives birth to fully formed young, so it never needs a pond.",
+  "clue": "Jet black, it gives birth to live young after a pregnancy of two to four years."
+ },
+ {
+  "common_name": "Olm",
+  "scientific_name": "Proteus anguinus",
+  "kind": "Amphibian",
+  "wiki": "Olm",
+  "place": "The Dinaric karst",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Dinaric Mountains mixed forests"
+   ]
+  },
+  "why_here": "It lives only in flooded caves of the limestone karst running from Slovenia through Croatia to Bosnia and Herzegovina.",
+  "fun_fact": "It can live for over 100 years and survive for years without eating.",
+  "clue": "A blind, pink cave amphibian once thought to be a baby dragon."
+ },
+ {
+  "common_name": "Persian ironwood",
+  "scientific_name": "Parrotia persica",
+  "kind": "Plant",
+  "wiki": "Parrotia_persica",
+  "place": "The Hyrcanian forests",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Caspian Hyrcanian mixed forests"
+   ]
+  },
+  "why_here": "It grows wild only in the damp Hyrcanian forests along the southern Caspian shore of Iran and Azerbaijan.",
+  "fun_fact": "Its leaves turn red, orange and gold in autumn, so it is planted in gardens around the world.",
+  "clue": "A witch-hazel cousin with flaking bark and some of the best autumn colour of any tree."
+ },
+ {
+  "common_name": "Arabian tahr",
+  "scientific_name": "Arabitragus jayakari",
+  "kind": "Mammal",
+  "wiki": "Arabian_tahr",
+  "place": "The Hajar Mountains",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Al-Hajar foothill xeric woodlands and shrublands",
+    "Al-Hajar montane woodlands and shrublands"
+   ]
+  },
+  "why_here": "It lives only on the steep, rocky slopes of the Hajar Mountains of Oman and the UAE.",
+  "fun_fact": "It needs to drink often, so it stays within reach of mountain springs.",
+  "clue": "A small wild goat cousin that clambers over sheer, sun-baked rock."
+ },
+ {
+  "common_name": "Golden-striped salamander",
+  "scientific_name": "Chioglossa lusitanica",
+  "kind": "Amphibian",
+  "wiki": "Golden-striped_salamander",
+  "place": "Northwest Iberia",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Northwest Iberian montane forests",
+    "Cantabrian mixed forests"
+   ]
+  },
+  "why_here": "It lives along shady, mossy streams in the wet hills of Galicia, northern Portugal and Asturias.",
+  "fun_fact": "Like a lizard, it can drop its tail to escape a predator.",
+  "clue": "A slim amphibian with two gold back stripes that drops its tail like a lizard."
+ },
+ {
+  "common_name": "Pyrenean brook salamander",
+  "scientific_name": "Calotriton asper",
+  "kind": "Amphibian",
+  "wiki": "Pyrenean_brook_salamander",
+  "place": "The Pyrenees",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Pyrenees conifer and mixed forests"
+   ]
+  },
+  "why_here": "It lives in cold, clear mountain streams and lakes of the Pyrenees in France, Spain and Andorra.",
+  "fun_fact": "During courtship the male wraps his tail around the female to hold her.",
+  "clue": "A rough-skinned newt of icy streams; males hug their mates with their tails."
+ },
+ {
+  "common_name": "Argan",
+  "scientific_name": "Argania spinosa",
+  "kind": "Plant",
+  "wiki": "Argania",
+  "place": "Southwest Morocco",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Mediterranean Acacia-Argania dry woodlands and succulent thickets"
+   ]
+  },
+  "why_here": "It grows on the dry plains and hills of southwest Morocco, where its deep roots survive long droughts.",
+  "fun_fact": "Goats climb high into its branches to eat the fruit.",
+  "clue": "Goats climb into its branches to eat the fruit, and its kernels give a prized oil."
+ },
+ {
+  "common_name": "Kri-kri",
+  "scientific_name": "Capra aegagrus creticus",
+  "kind": "Mammal",
+  "wiki": "Kri-kri",
+  "place": "Crete",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Crete Mediterranean forests"
+   ]
+  },
+  "why_here": "This wild goat lives in the rugged mountains and gorges of Crete, such as the Samaria Gorge.",
+  "fun_fact": "Its ancestors may have been goats brought by early farmers thousands of years ago.",
+  "clue": "A shy wild goat of rocky gorges, shown in ancient Minoan art."
+ },
+ {
+  "common_name": "Cyprus mouflon",
+  "scientific_name": "Ovis gmelini ophion",
+  "kind": "Mammal",
+  "wiki": "Cyprus_mouflon",
+  "place": "Cyprus",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Cyprus Mediterranean forests"
+   ]
+  },
+  "why_here": "This wild sheep lives in the forested Troodos and Paphos hills of Cyprus.",
+  "fun_fact": "It appears on the Cypriot 1, 2 and 5 cent euro coins.",
+  "clue": "A wild sheep pictured on the smallest coins of its home."
+ },
+ {
+  "common_name": "Wild yak",
+  "scientific_name": "Bos mutus",
+  "kind": "Mammal",
+  "wiki": "Wild_yak",
+  "place": "The northern Tibetan Plateau",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Central Tibetan Plateau alpine steppe",
+    "North Tibetan Plateau-Kunlun Mountains alpine desert",
+    "Tibetan Plateau alpine shrublands and meadows"
+   ]
+  },
+  "why_here": "It roams the cold, empty high plateau of northern Tibet and Qinghai, where its thick coat handles temperatures far below freezing.",
+  "fun_fact": "A big bull can stand about 2 metres at the shoulder and weigh around a tonne.",
+  "clue": "A shaggy wild ox whose long skirt of hair nearly sweeps the ground."
+ },
+ {
+  "common_name": "European ground squirrel",
+  "scientific_name": "Spermophilus citellus",
+  "kind": "Mammal",
+  "wiki": "European_ground_squirrel",
+  "place": "The Pannonian Basin and Balkans",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Pannonian mixed forests",
+    "Balkan mixed forests"
+   ]
+  },
+  "why_here": "It digs burrows in short grassland on the plains of Hungary, Serbia, Romania and Bulgaria and nearby lowlands.",
+  "fun_fact": "It hibernates for up to six months a year in its burrow.",
+  "clue": "A sandy-coloured burrower that stands upright to watch for hawks, then whistles."
+ },
+ {
+  "common_name": "Scottish wildcat",
+  "scientific_name": "Felis silvestris silvestris",
+  "kind": "Mammal",
+  "wiki": "Scottish_wildcat",
+  "place": "The Scottish Highlands",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Caledon conifer forests"
+   ]
+  },
+  "why_here": "Britain's last wildcats hang on in the forest edges and moors of the Scottish Highlands, after being wiped out further south.",
+  "fun_fact": "It looks like a big tabby, but its thick tail has blunt black rings and a rounded black tip.",
+  "clue": "Looks like a chunky tabby, but its bushy tail ends in a blunt black tip. Untameable."
+ }
+]

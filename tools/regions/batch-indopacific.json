@@ -1,0 +1,624 @@
+[
+ {
+  "common_name": "Red kangaroo",
+  "scientific_name": "Osphranter rufus",
+  "kind": "Mammal",
+  "wiki": "Red_kangaroo",
+  "place": "Inland Australia",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Great Sandy-Tanami desert",
+    "Gibson desert",
+    "Great Victoria desert",
+    "Simpson desert",
+    "Tirari-Sturt stony desert",
+    "Western Australian Mulga shrublands",
+    "Eastern Australia mulga shrublands",
+    "Mitchell Grass Downs",
+    "Central Ranges xeric scrub",
+    "Nullarbor Plains xeric shrublands",
+    "Pilbara shrublands",
+    "Murray-Darling woodlands and mallee"
+   ]
+  },
+  "why_here": "Red kangaroos live across the dry open plains of inland Australia, where they graze on grass that springs up after rain.",
+  "fun_fact": "It is the largest living marsupial, and a big male can clear about eight metres in a single bound.",
+  "clue": "The biggest pouched animal alive, it can't walk backwards and uses its tail as a fifth leg."
+ },
+ {
+  "common_name": "Laughing kookaburra",
+  "scientific_name": "Dacelo novaeguineae",
+  "kind": "Bird",
+  "wiki": "Laughing_kookaburra",
+  "place": "Eastern Australia",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Eastern Australian temperate forests",
+    "Southeast Australia temperate forests",
+    "Southeast Australia temperate savanna",
+    "Brigalow tropical savanna",
+    "Queensland tropical rain forests",
+    "Einasleigh upland savanna",
+    "Naracoorte woodlands",
+    "Flinders-Lofty montane woodlands"
+   ]
+  },
+  "why_here": "Kookaburras need open woodland with big old trees for nest hollows, which runs down the whole east of Australia.",
+  "fun_fact": "Its loud call, often heard at dawn, sounds so much like human laughter that it is used in old jungle films.",
+  "clue": "A giant kingfisher that eats snakes and lizards, and whose call sounds like loud laughter."
+ },
+ {
+  "common_name": "Frilled lizard",
+  "scientific_name": "Chlamydosaurus kingii",
+  "kind": "Reptile",
+  "wiki": "Frill-necked_lizard",
+  "place": "Northern Australia",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Kimberly tropical savanna",
+    "Victoria Plains tropical savanna",
+    "Arnhem Land tropical savanna",
+    "Carpentaria tropical savanna",
+    "Cape York Peninsula tropical savanna",
+    "Einasleigh upland savanna"
+   ]
+  },
+  "why_here": "Frilled lizards live in the warm, grassy woodlands across the top of Australia, spending most of their time up trees.",
+  "fun_fact": "When scared it opens a wide frill around its head, hisses, then runs away on its back legs.",
+  "clue": "When scared it flares a huge collar of skin, gapes its mouth, then sprints off on two legs."
+ },
+ {
+  "common_name": "Central bearded dragon",
+  "scientific_name": "Pogona vitticeps",
+  "kind": "Reptile",
+  "wiki": "Central_bearded_dragon",
+  "place": "Australia's dry heartland",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Murray-Darling woodlands and mallee",
+    "Eastern Australia mulga shrublands",
+    "Tirari-Sturt stony desert",
+    "Brigalow tropical savanna",
+    "Flinders-Lofty montane woodlands",
+    "Eyre and York mallee",
+    "Mitchell Grass Downs",
+    "Southeast Australia temperate savanna"
+   ]
+  },
+  "why_here": "This dragon basks on logs and fence posts across the dry woodland and scrub of inland eastern and southern Australia.",
+  "fun_fact": "It waves one arm in a slow circle to signal that it is not a threat to a bigger lizard.",
+  "clue": "A spiky-chinned lizard that puffs out a dark throat when cross, and is a popular pet worldwide."
+ },
+ {
+  "common_name": "Indian peafowl",
+  "scientific_name": "Pavo cristatus",
+  "kind": "Bird",
+  "wiki": "Indian_peafowl",
+  "place": "The Indian subcontinent",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Aravalli west thorn scrub forests",
+    "Central Deccan Plateau dry deciduous forests",
+    "Chhota-Nagpur dry deciduous forests",
+    "Deccan thorn scrub forests",
+    "East Deccan dry-evergreen forests",
+    "East Deccan moist deciduous forests",
+    "Khathiar-Gir dry deciduous forests",
+    "Lower Gangetic Plains moist deciduous forests",
+    "Narmada Valley dry deciduous forests",
+    "North Deccan dry deciduous forests",
+    "North Western Ghats moist deciduous forests",
+    "North Western Ghats montane rain forests",
+    "Orissa semi-evergreen forests",
+    "South Deccan Plateau dry deciduous forests",
+    "South Western Ghats moist deciduous forests",
+    "South Western Ghats montane rain forests",
+    "Malabar Coast moist forests",
+    "Upper Gangetic Plains moist deciduous forests",
+    "Terai-Duar savanna and grasslands"
+   ]
+  },
+  "why_here": "Peafowl live in the open forests, farmland and scrub found almost everywhere across the plains and plateaus of India.",
+  "fun_fact": "The male's long train is not his tail but very long back feathers, each with an eye pattern.",
+  "clue": "The male fans out about 200 shimmering feathers covered in eye spots to impress females."
+ },
+ {
+  "common_name": "Chital",
+  "scientific_name": "Axis axis",
+  "kind": "Mammal",
+  "wiki": "Chital",
+  "place": "The forests of India",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Central Deccan Plateau dry deciduous forests",
+    "Chhota-Nagpur dry deciduous forests",
+    "East Deccan moist deciduous forests",
+    "Narmada Valley dry deciduous forests",
+    "North Deccan dry deciduous forests",
+    "South Deccan Plateau dry deciduous forests",
+    "Upper Gangetic Plains moist deciduous forests",
+    "Terai-Duar savanna and grasslands",
+    "North Western Ghats moist deciduous forests",
+    "South Western Ghats moist deciduous forests",
+    "Khathiar-Gir dry deciduous forests"
+   ]
+  },
+  "why_here": "Chital graze in the open deciduous forests and grassy clearings that cover much of India.",
+  "fun_fact": "Chital often follow troops of langur monkeys, eating fruit they drop and listening for their alarm calls.",
+  "clue": "A deer with a coat of white spots it keeps all its life, and a favourite meal of tigers."
+ },
+ {
+  "common_name": "Platypus",
+  "scientific_name": "Ornithorhynchus anatinus",
+  "kind": "Mammal",
+  "wiki": "Platypus",
+  "place": "Eastern Australia and Tasmania",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Eastern Australian temperate forests",
+    "Southeast Australia temperate forests",
+    "Australian Alps montane grasslands",
+    "Tasmanian Central Highland forests",
+    "Tasmanian temperate forests",
+    "Tasmanian temperate rain forests"
+   ]
+  },
+  "why_here": "Platypuses need clean rivers and creeks with banks to dig burrows in, found along the wet eastern side of Australia and in Tasmania.",
+  "fun_fact": "It finds food with its eyes shut, sensing the tiny electric signals from the muscles of shrimp and worms.",
+  "clue": "An egg-laying mammal with a duck-like bill and venom spurs on the male's back legs."
+ },
+ {
+  "common_name": "Superb lyrebird",
+  "scientific_name": "Menura novaehollandiae",
+  "kind": "Bird",
+  "wiki": "Superb_lyrebird",
+  "place": "Southeast Australian forests",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Southeast Australia temperate forests",
+    "Eastern Australian temperate forests"
+   ]
+  },
+  "why_here": "Lyrebirds scratch for insects in the damp leaf litter of the tall wet forests from Victoria to southern Queensland.",
+  "fun_fact": "It can copy almost any sound it hears, from other birds to camera shutters and chainsaws.",
+  "clue": "A ground bird famous for perfectly mimicking other birds, car alarms and even chainsaws."
+ },
+ {
+  "common_name": "Boab",
+  "scientific_name": "Adansonia gregorii",
+  "kind": "Plant",
+  "wiki": "Adansonia_gregorii",
+  "place": "The Kimberley and Victoria River",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Kimberly tropical savanna",
+    "Victoria Plains tropical savanna"
+   ]
+  },
+  "why_here": "The boab grows on the rocky plains and sandy soils of the Kimberley and nearby Victoria River country, where wet and dry seasons alternate.",
+  "fun_fact": "One hollow old boab near Derby is said to have been used as a lockup for prisoners.",
+  "clue": "Its fat bottle-shaped trunk stores water, and it loses all its leaves in the dry season."
+ },
+ {
+  "common_name": "King of Saxony bird-of-paradise",
+  "scientific_name": "Pteridophora alberti",
+  "kind": "Bird",
+  "wiki": "King_of_Saxony_bird-of-paradise",
+  "place": "The New Guinea highlands",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Central Range Papuan montane rain forests"
+   ]
+  },
+  "why_here": "It lives only in the cool, mossy mountain forests along New Guinea's central range.",
+  "fun_fact": "The male's two head plumes can be twice as long as his body and are worn in local headdresses.",
+  "clue": "The male grows two head plumes longer than his body, each lined with little blue flags."
+ },
+ {
+  "common_name": "Victoria crowned pigeon",
+  "scientific_name": "Goura victoria",
+  "kind": "Bird",
+  "wiki": "Victoria_crowned_pigeon",
+  "place": "Northern New Guinea lowlands",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Northern New Guinea lowland rain and freshwater swamp forests"
+   ]
+  },
+  "why_here": "It walks the floor of the lowland and swamp forests along the north of New Guinea.",
+  "fun_fact": "It is about the size of a turkey, making it one of the largest pigeons in the world.",
+  "clue": "A turkey-sized pigeon wearing a lacy crest of blue feathers tipped with white."
+ },
+ {
+  "common_name": "Sumatran tiger",
+  "scientific_name": "Panthera tigris sondaica",
+  "kind": "Mammal",
+  "wiki": "Sumatran_tiger",
+  "place": "Sumatra",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Sumatran lowland rain forests",
+    "Sumatran montane rain forests",
+    "Sumatran peat swamp forests",
+    "Sumatran freshwater swamp forests"
+   ]
+  },
+  "why_here": "The last tigers of the Sunda islands hunt in Sumatra's forests, from coastal peat swamps up into the mountains.",
+  "fun_fact": "It is the smallest living tiger, with darker fur and narrower stripes than tigers on the mainland.",
+  "clue": "The smallest of its kind, with stripes so close together they sometimes merge."
+ },
+ {
+  "common_name": "Malayan tiger",
+  "scientific_name": "Panthera tigris tigris",
+  "kind": "Mammal",
+  "wiki": "Malayan_tiger",
+  "place": "The Malay Peninsula",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Peninsular Malaysian rain forests",
+    "Peninsular Malaysian montane rain forests"
+   ]
+  },
+  "why_here": "These tigers roam the forests of Peninsular Malaysia and the far south of Thailand.",
+  "fun_fact": "It appears on Malaysia's coat of arms and is the national animal.",
+  "clue": "A big striped cat that stands on a national coat of arms, though fewer than 200 are left."
+ },
+ {
+  "common_name": "Blackbuck",
+  "scientific_name": "Antilope cervicapra",
+  "kind": "Mammal",
+  "wiki": "Blackbuck",
+  "place": "Western and central India",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Deccan thorn scrub forests",
+    "Khathiar-Gir dry deciduous forests",
+    "Central Deccan Plateau dry deciduous forests",
+    "Narmada Valley dry deciduous forests"
+   ]
+  },
+  "why_here": "Blackbuck graze the open grasslands and dry scrub of western and peninsular India.",
+  "fun_fact": "Blackbuck can run at about 80 km per hour and leap high into the air while fleeing.",
+  "clue": "The male is nearly black on top with long spiral horns, and can sprint at 80 km per hour."
+ },
+ {
+  "common_name": "North Island brown kiwi",
+  "scientific_name": "Apteryx mantelli",
+  "kind": "Bird",
+  "wiki": "North_Island_brown_kiwi",
+  "place": "New Zealand's North Island",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "New Zealand North Island temperate forests",
+    "Northland temperate kauri forests"
+   ]
+  },
+  "why_here": "This kiwi probes the soft forest floor for worms and grubs across the native forests of New Zealand's North Island.",
+  "fun_fact": "Its egg is about a fifth of the mother's body weight, one of the largest eggs for a bird its size.",
+  "clue": "A flightless night bird with nostrils at the tip of its long bill, laying a giant egg."
+ },
+ {
+  "common_name": "Maleo",
+  "scientific_name": "Macrocephalon maleo",
+  "kind": "Bird",
+  "wiki": "Maleo",
+  "place": "Sulawesi",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Sulawesi lowland rain forests",
+    "Sulawesi montane rain forests"
+   ]
+  },
+  "why_here": "Maleos live in the lowland and hill forests of Sulawesi and walk to warm beaches or volcanic soil to lay their eggs.",
+  "fun_fact": "Chicks hatch fully feathered, dig themselves out of the sand and can fly the same day.",
+  "clue": "Buries its eggs in sun-warmed sand or hot volcanic soil, then leaves the heat to hatch them."
+ },
+ {
+  "common_name": "Great Indian bustard",
+  "scientific_name": "Ardeotis nigriceps",
+  "kind": "Bird",
+  "wiki": "Great_Indian_bustard",
+  "place": "The Thar",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Thar desert"
+   ]
+  },
+  "why_here": "Nearly all the remaining birds live on the dry open grasslands of the Thar in Rajasthan.",
+  "fun_fact": "It is one of the heaviest flying birds, and power lines are now one of its biggest dangers.",
+  "clue": "One of the heaviest birds that can still fly, standing about a metre tall."
+ },
+ {
+  "common_name": "Bornean bristlehead",
+  "scientific_name": "Pityriasis gymnocephala",
+  "kind": "Bird",
+  "wiki": "Bornean_bristlehead",
+  "place": "Lowland Borneo",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Borneo lowland rain forests"
+   ]
+  },
+  "why_here": "It travels in noisy groups through the tall lowland forests of Borneo, the only place it lives.",
+  "fun_fact": "It is so unusual that scientists place it in a bird family all of its own.",
+  "clue": "A crow-sized bird with a bare red head topped by stiff bristles, the only one in its family."
+ },
+ {
+  "common_name": "Nilgiri tahr",
+  "scientific_name": "Nilgiritragus hylocrius",
+  "kind": "Mammal",
+  "wiki": "Nilgiri_tahr",
+  "place": "The southern Western Ghats",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "South Western Ghats montane rain forests"
+   ]
+  },
+  "why_here": "Nilgiri tahr graze the high grassy hilltops and cliffs of the southern Western Ghats.",
+  "fun_fact": "Eravikulam National Park in Kerala holds the largest herd, and they are often seen beside the road.",
+  "clue": "A stocky wild goat that lives on steep cliffs, the only one of its kind in its home country."
+ },
+ {
+  "common_name": "Indian rhinoceros",
+  "scientific_name": "Rhinoceros unicornis",
+  "kind": "Mammal",
+  "wiki": "Indian_rhinoceros",
+  "place": "Assam's Brahmaputra Valley",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Brahmaputra Valley semi-evergreen forests"
+   ]
+  },
+  "why_here": "Most of these rhinos live on the grassy floodplains of the Brahmaputra in Assam, with Kaziranga holding the largest herd.",
+  "fun_fact": "Its thick skin has folds that make it look like it is wearing a suit of armour.",
+  "clue": "A one-horned giant whose folded skin looks like plates of armour."
+ },
+ {
+  "common_name": "Indian wild ass",
+  "scientific_name": "Equus hemionus khur",
+  "kind": "Mammal",
+  "wiki": "Indian_wild_ass",
+  "place": "The Rann of Kutch",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Rann of Kutch seasonal salt marsh"
+   ]
+  },
+  "why_here": "The wild ass lives on the flat salt plains of the Little Rann of Kutch and grazes on the grassy patches around it.",
+  "fun_fact": "It can run at about 70 km per hour and keep up a fast pace over long distances.",
+  "clue": "A sandy-coloured wild relative of the donkey that grazes on salt flats in the heat."
+ },
+ {
+  "common_name": "Javan gibbon",
+  "scientific_name": "Hylobates moloch",
+  "kind": "Mammal",
+  "wiki": "Silvery_gibbon",
+  "place": "Western Java",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Western Java rain forests",
+    "Western Java montane rain forests"
+   ]
+  },
+  "why_here": "This gibbon lives only in the remaining forests of western and central Java, high in the canopy.",
+  "fun_fact": "Females sing the loud morning songs that mark the family's territory.",
+  "clue": "A silvery-grey ape that swings arm over arm through the canopy and sings at dawn."
+ },
+ {
+  "common_name": "Saola",
+  "scientific_name": "Pseudoryx nghetinhensis",
+  "kind": "Mammal",
+  "wiki": "Saola",
+  "place": "The Annamite Mountains",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Northern Annamites rain forests"
+   ]
+  },
+  "why_here": "Saola live only in the wet forests of the Annamite Mountains on the border of Laos and Vietnam.",
+  "fun_fact": "It was unknown to science until 1992 and has been photographed in the wild only a handful of times.",
+  "clue": "A shy forest ox nicknamed a unicorn, first described by scientists only in 1992."
+ },
+ {
+  "common_name": "Taiwan blue magpie",
+  "scientific_name": "Urocissa caerulea",
+  "kind": "Bird",
+  "wiki": "Taiwan_blue_magpie",
+  "place": "Taiwan",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Taiwan subtropical evergreen forests"
+   ]
+  },
+  "why_here": "This magpie lives in the broadleaf forests on Taiwan's hills and low mountains.",
+  "fun_fact": "Family groups help raise each brood, and they will dive at people who come too close to a nest.",
+  "clue": "A long-tailed blue bird with a red bill that was voted a national bird in 2007."
+ },
+ {
+  "common_name": "Kauri",
+  "scientific_name": "Agathis australis",
+  "kind": "Plant",
+  "wiki": "Agathis_australis",
+  "place": "Northland, New Zealand",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Northland temperate kauri forests"
+   ]
+  },
+  "why_here": "Kauri grows only in the warm north of New Zealand's North Island, north of about 38 degrees south.",
+  "fun_fact": "The largest living kauri, Tāne Mahuta, has a trunk over 4 metres wide.",
+  "clue": "A giant conifer with column-like trunks, whose old fossil gum was dug up for varnish."
+ },
+ {
+  "common_name": "Tasmanian native-hen",
+  "scientific_name": "Tribonyx mortierii",
+  "kind": "Bird",
+  "wiki": "Tasmanian_nativehen",
+  "place": "Tasmania",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Tasmanian Central Highland forests",
+    "Tasmanian temperate forests",
+    "Tasmanian temperate rain forests"
+   ]
+  },
+  "why_here": "This flightless bird lives on grassy ground near water across Tasmania.",
+  "fun_fact": "It can run at about 50 km per hour, using its short wings for balance.",
+  "clue": "A flightless chicken-sized bird with a lime-green bill that can sprint fast."
+ },
+ {
+  "common_name": "Kagu",
+  "scientific_name": "Rhynochetos jubatus",
+  "kind": "Bird",
+  "wiki": "Kagu",
+  "place": "New Caledonia",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "New Caledonia rain forests"
+   ]
+  },
+  "why_here": "The kagu lives on the floor of the humid forests of Grande Terre in New Caledonia.",
+  "fun_fact": "It has flaps covering its nostrils, which no other bird has, to keep out dirt while it digs.",
+  "clue": "A pale grey, nearly flightless bird that raises a big crest and barks like a dog."
+ },
+ {
+  "common_name": "Salmon-crested cockatoo",
+  "scientific_name": "Cacatua moluccensis",
+  "kind": "Bird",
+  "wiki": "Salmon-crested_cockatoo",
+  "place": "Seram",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Seram rain forests"
+   ]
+  },
+  "why_here": "This cockatoo lives in the lowland forests of Seram and a few small nearby islands in the Moluccas.",
+  "fun_fact": "It has one of the loudest calls of any parrot, and its bite can crack big nuts.",
+  "clue": "A pale peach parrot with a big salmon-pink crest it fans out when excited."
+ },
+ {
+  "common_name": "Sumba hornbill",
+  "scientific_name": "Rhyticeros everetti",
+  "kind": "Bird",
+  "wiki": "Sumba_hornbill",
+  "place": "Sumba",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Sumba deciduous forests"
+   ]
+  },
+  "why_here": "It lives only in the remaining forest on Sumba, where it eats figs and other fruit.",
+  "fun_fact": "Like other hornbills, the female is sealed inside a tree hole with mud while she nests.",
+  "clue": "A big black bird with a ridged bill that nests in tree holes sealed with mud."
+ },
+ {
+  "common_name": "Palawan peacock-pheasant",
+  "scientific_name": "Polyplectron napoleonis",
+  "kind": "Bird",
+  "wiki": "Palawan_peacock-pheasant",
+  "place": "Palawan",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Palawan rain forests"
+   ]
+  },
+  "why_here": "It lives on the floor of the lowland forests of Palawan in the Philippines.",
+  "fun_fact": "The male shows off by spreading his tail and tilting it so the blue eye spots catch the light.",
+  "clue": "The male has a metallic blue crest, a white eyebrow and a tail full of eye spots."
+ },
+ {
+  "common_name": "Karri",
+  "scientific_name": "Eucalyptus diversicolor",
+  "kind": "Plant",
+  "wiki": "Eucalyptus_diversicolor",
+  "place": "Southwest Western Australia",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Jarrah-Karri forest and shrublands"
+   ]
+  },
+  "why_here": "Karri needs deep soil and high rainfall, found only in the far southwest corner of Western Australia.",
+  "fun_fact": "Some karri trees once had fire lookout platforms built near the top, which visitors can still climb.",
+  "clue": "One of the tallest hardwood trees on Earth, with smooth bark that peels to pale cream."
+ },
+ {
+  "common_name": "Takahē",
+  "scientific_name": "Porphyrio hochstetteri",
+  "kind": "Bird",
+  "wiki": "Takahē",
+  "place": "Fiordland",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Fiordland temperate forests"
+   ]
+  },
+  "why_here": "The last wild takahē were found in the Murchison Mountains of Fiordland, where they graze on alpine tussock.",
+  "fun_fact": "It was thought to be extinct until it was rediscovered in 1948.",
+  "clue": "A chunky flightless bird with a huge red bill, thought extinct until 1948."
+ },
+ {
+  "common_name": "Great spotted kiwi",
+  "scientific_name": "Apteryx haastii",
+  "kind": "Bird",
+  "wiki": "Great_spotted_kiwi",
+  "place": "Northwest South Island",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Nelson Coast temperate forests"
+   ]
+  },
+  "why_here": "It lives in the wet forests and tussock high country of northwest Nelson, the northwest of New Zealand's South Island.",
+  "fun_fact": "It is the largest kiwi and can live in cold, snowy places up to 1,500 metres.",
+  "clue": "The biggest of its kind, a flightless night bird of cold, snowy hills."
+ },
+ {
+  "common_name": "Sri Lanka blue magpie",
+  "scientific_name": "Urocissa ornata",
+  "kind": "Bird",
+  "wiki": "Sri_Lanka_blue_magpie",
+  "place": "Sri Lanka's wet zone",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Sri Lanka lowland rain forests",
+    "Sri Lanka montane rain forests"
+   ]
+  },
+  "why_here": "It lives only in the wet forests of southwest Sri Lanka, from the lowlands into the hills.",
+  "fun_fact": "It often joins mixed flocks of other birds as they move through the forest.",
+  "clue": "A bright blue bird with a chestnut head and a red bill and eye ring."
+ }
+]

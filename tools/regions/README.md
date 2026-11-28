@@ -1,7 +1,7 @@
 # Region ladder data
 
 `regions.json` (repo root) is built by `build.mjs` from:
-- `new-species.json`: wide-ranging species, each listed with the RESOLVE ecoregions that make up its home area
+- `new-species.json` and `batch-*.json` (one per realm): wide-ranging species, each listed with the RESOLVE ecoregions that make up its home area
 - `species.json`: the original small-range species. Each one gets its ecoregion when it sits in a small (3k–40k km²) ecoregion that honestly matches its range, otherwise a 25 km circle
 
 Tiers come from area: 1 huge (≥1M km²), 2 big (≥110k), 3 medium (≥20k), 4 small (≥2.5k), 5 tiny. Each daily plays one per tier, biggest first.

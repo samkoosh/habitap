@@ -1,0 +1,515 @@
+[
+ {
+  "common_name": "Canada lynx",
+  "scientific_name": "Lynx canadensis",
+  "kind": "Mammal",
+  "wiki": "Canada_lynx",
+  "place": "The northern boreal forest",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Interior Alaska-Yukon lowland taiga",
+    "Northwest Territories taiga",
+    "Muskwa-Slave Lake taiga",
+    "Mid-Canada Boreal Plains forests",
+    "Midwest Canadian Shield forests",
+    "Central Canadian Shield forests",
+    "Southern Hudson Bay taiga",
+    "Eastern Canadian forests",
+    "Eastern Canadian Shield taiga",
+    "Northern Canadian Shield taiga",
+    "Northern Cordillera forests",
+    "Watson Highlands taiga"
+   ]
+  },
+  "why_here": "It follows the snowshoe hare, which lives across the spruce forests of Canada and Alaska.",
+  "fun_fact": "Its numbers rise and crash on a roughly ten-year cycle that tracks the hares it eats.",
+  "clue": "Its huge furry paws work like snowshoes, and it lives mostly on one kind of hare."
+ },
+ {
+  "common_name": "American bison",
+  "scientific_name": "Bison bison",
+  "kind": "Mammal",
+  "wiki": "American_bison",
+  "place": "The Great Plains",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Northern Shortgrass prairie",
+    "Western shortgrass prairie",
+    "Central-Southern US mixed grasslands",
+    "Central Tallgrass prairie",
+    "Northern Tallgrass prairie",
+    "Nebraska Sand Hills mixed grasslands",
+    "Flint Hills tallgrass prairie",
+    "Canadian Aspen forests and parklands"
+   ]
+  },
+  "why_here": "Tens of millions once grazed the grasslands of the Great Plains, from Alberta down to Texas.",
+  "fun_fact": "It is the national mammal of the United States and can run at about 55 km/h.",
+  "clue": "The heaviest land animal of its home range, it rolls in dust baths called wallows."
+ },
+ {
+  "common_name": "Black-tailed prairie dog",
+  "scientific_name": "Cynomys ludovicianus",
+  "kind": "Mammal",
+  "wiki": "Black-tailed_prairie_dog",
+  "place": "The western Great Plains",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Northern Shortgrass prairie",
+    "Western shortgrass prairie",
+    "Central-Southern US mixed grasslands"
+   ]
+  },
+  "why_here": "It needs short grass where it can see predators coming, so it digs its towns across the dry western plains.",
+  "fun_fact": "One colony in Texas was said to cover about 65,000 square kilometres and hold millions of animals.",
+  "clue": "This chubby squirrel lives in burrow 'towns' and greets family with a kiss."
+ },
+ {
+  "common_name": "Sugar maple",
+  "scientific_name": "Acer saccharum",
+  "kind": "Plant",
+  "wiki": "Acer_saccharum",
+  "place": "The northeastern hardwood forests",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "New England-Acadian forests",
+    "Eastern Great Lakes lowland forests",
+    "Southern Great Lakes forests",
+    "Western Great Lakes forests",
+    "Eastern Canadian Forest-Boreal transition",
+    "Allegheny Highlands forests",
+    "Appalachian mixed mesophytic forests",
+    "Appalachian-Blue Ridge forests",
+    "Gulf of St. Lawrence lowland forests",
+    "Upper Midwest US forest-savanna transition"
+   ]
+  },
+  "why_here": "It thrives in the cold winters and rich soils of the Great Lakes, New England and the St. Lawrence valley.",
+  "fun_fact": "It takes about 40 litres of sap to boil down to one litre of syrup.",
+  "clue": "Its sap becomes pancake syrup, and its leaf is on a famous red and white flag."
+ },
+ {
+  "common_name": "American alligator",
+  "scientific_name": "Alligator mississippiensis",
+  "kind": "Reptile",
+  "wiki": "American_alligator",
+  "place": "The Gulf and southern Atlantic coastal plain",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Southeast US conifer savannas",
+    "Mississippi lowland forests",
+    "Piney Woods",
+    "Western Gulf coastal grasslands",
+    "Mid-Atlantic US coastal savannas",
+    "East Central Texas forests"
+   ]
+  },
+  "why_here": "It needs warm, slow fresh water, which the swamps and rivers of the southeastern coastal plain have plenty of.",
+  "fun_fact": "The temperature of the nest decides whether the eggs hatch as males or females.",
+  "clue": "Its snout is broad and U-shaped, and it can go through thousands of teeth in a lifetime."
+ },
+ {
+  "common_name": "Greater roadrunner",
+  "scientific_name": "Geococcyx californianus",
+  "kind": "Bird",
+  "wiki": "Greater_roadrunner",
+  "place": "The Chihuahuan, Sonoran and Mojave deserts",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Chihuahuan desert",
+    "Sonoran desert",
+    "Mojave desert",
+    "Tamaulipan mezquital",
+    "Edwards Plateau savanna",
+    "Meseta Central matorral"
+   ]
+  },
+  "why_here": "It hunts lizards, snakes and insects across the hot, dry scrublands of the US Southwest and northern Mexico.",
+  "fun_fact": "It can run at about 30 km/h and will kill and eat rattlesnakes.",
+  "clue": "A ground-running cuckoo that a cartoon made famous for saying 'beep beep'."
+ },
+ {
+  "common_name": "Longleaf pine",
+  "scientific_name": "Pinus palustris",
+  "kind": "Plant",
+  "wiki": "Longleaf_pine",
+  "place": "The southeastern coastal plain",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Southeast US conifer savannas",
+    "Mid-Atlantic US coastal savannas"
+   ]
+  },
+  "why_here": "It grows on the sandy, fire-swept coastal plain from Virginia to Florida and the Gulf.",
+  "fun_fact": "Young trees spend years in a 'grass stage' that looks like a tuft of grass and survives fire.",
+  "clue": "Frequent fires help this tree, and it once covered about 360,000 square kilometres."
+ },
+ {
+  "common_name": "Gopher tortoise",
+  "scientific_name": "Gopherus polyphemus",
+  "kind": "Reptile",
+  "wiki": "Gopher_tortoise",
+  "place": "The southeastern pine flatwoods",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Southeast US conifer savannas"
+   ]
+  },
+  "why_here": "It digs its burrows in the deep sandy soils under the longleaf pines of the Southeast.",
+  "fun_fact": "Its burrows give shelter to more than 350 other kinds of animals.",
+  "clue": "Its burrow can be 3 m deep and 12 m long, and hundreds of species move in."
+ },
+ {
+  "common_name": "Gila monster",
+  "scientific_name": "Heloderma suspectum",
+  "kind": "Reptile",
+  "wiki": "Gila_monster",
+  "place": "The Sonoran Desert",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Sonoran desert",
+    "Sonoran-Sinaloan subtropical dry forest"
+   ]
+  },
+  "why_here": "It spends most of its life underground in the Sonoran Desert, coming out mainly after spring and summer rains.",
+  "fun_fact": "A compound from its saliva led to a diabetes drug called exenatide.",
+  "clue": "A slow, beaded orange and black lizard with a venomous bite and a fat tail."
+ },
+ {
+  "common_name": "Mojave desert tortoise",
+  "scientific_name": "Gopherus agassizii",
+  "kind": "Reptile",
+  "wiki": "Desert_tortoise",
+  "place": "The Mojave Desert",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Mojave desert"
+   ]
+  },
+  "why_here": "It survives the Mojave's heat by spending most of the year in burrows.",
+  "fun_fact": "It can store water in its bladder and go a year or more without drinking.",
+  "clue": "It can live 50 years or more and spends up to 95% of its life underground."
+ },
+ {
+  "common_name": "Greater sage-grouse",
+  "scientific_name": "Centrocercus urophasianus",
+  "kind": "Bird",
+  "wiki": "Greater_sage-grouse",
+  "place": "The sagebrush steppe",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Great Basin shrub steppe",
+    "Wyoming Basin shrub steppe",
+    "Snake-Columbia shrub steppe",
+    "Montana Valley and Foothill grasslands"
+   ]
+  },
+  "why_here": "It eats almost nothing but sagebrush in winter, so it lives where the sagebrush sea grows.",
+  "fun_fact": "Males puff up two yellow air sacs on their chests that pop loudly when they display.",
+  "clue": "In spring, males strut on dancing grounds called leks, popping air sacs on their chests."
+ },
+ {
+  "common_name": "Yellow-billed magpie",
+  "scientific_name": "Pica nuttalli",
+  "kind": "Bird",
+  "wiki": "Yellow-billed_magpie",
+  "place": "California's Central Valley and oak foothills",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "California Central Valley grasslands",
+    "California interior chaparral and woodlands"
+   ]
+  },
+  "why_here": "It lives only in California, in the oak savannas and farmland of the Central Valley and nearby hills.",
+  "fun_fact": "It is one of very few bird species found only in California.",
+  "clue": "A long-tailed black and white crow relative with a bright yellow bill."
+ },
+ {
+  "common_name": "Dall sheep",
+  "scientific_name": "Ovis dalli",
+  "kind": "Mammal",
+  "wiki": "Dall_sheep",
+  "place": "The mountains of Alaska and the Yukon",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Brooks-British Range tundra",
+    "Alaska-St. Elias Range tundra",
+    "Interior Yukon-Alaska alpine tundra",
+    "Ogilvie-MacKenzie alpine tundra"
+   ]
+  },
+  "why_here": "It lives on steep alpine slopes in the mountains of Alaska, the Yukon and the Mackenzie Mountains.",
+  "fun_fact": "Rams' curled horns grow a ring each year, so you can count their age.",
+  "clue": "This all-white wild sheep has amber curled horns and climbs steep cliffs to escape wolves."
+ },
+ {
+  "common_name": "Lechuguilla",
+  "scientific_name": "Agave lechuguilla",
+  "kind": "Plant",
+  "wiki": "Agave_lechuguilla",
+  "place": "The Chihuahuan Desert",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Chihuahuan desert"
+   ]
+  },
+  "why_here": "It is the signature plant of the Chihuahuan Desert, so common that its range is used to map that desert.",
+  "fun_fact": "Its tough leaf fibre, called ixtle, has long been used for brushes and rope.",
+  "clue": "Its stiff, spiky leaves can puncture tyres and boots, and its fibre makes brushes."
+ },
+ {
+  "common_name": "Colorado pinyon",
+  "scientific_name": "Pinus edulis",
+  "kind": "Plant",
+  "wiki": "Pinus_edulis",
+  "place": "The Colorado Plateau",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Colorado Plateau shrublands"
+   ]
+  },
+  "why_here": "It forms the pinyon-juniper woodlands that cover the mesas of the Colorado Plateau.",
+  "fun_fact": "Pinyon jays bury its seeds by the thousands and forget some, planting new trees.",
+  "clue": "Its tasty nuts were a key food for many Native peoples and are still gathered in autumn."
+ },
+ {
+  "common_name": "Tule elk",
+  "scientific_name": "Cervus canadensis nannodes",
+  "kind": "Mammal",
+  "wiki": "Tule_elk",
+  "place": "California's Central Valley",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "California Central Valley grasslands"
+   ]
+  },
+  "why_here": "This small elk evolved in the grasslands and tule marshes of California's Central Valley.",
+  "fun_fact": "It fell to perhaps a handful of animals in the 1870s and has recovered to several thousand.",
+  "clue": "The smallest elk of its kind, named after a marsh plant, it once nearly vanished."
+ },
+ {
+  "common_name": "Golden-cheeked warbler",
+  "scientific_name": "Setophaga chrysoparia",
+  "kind": "Bird",
+  "wiki": "Golden-cheeked_warbler",
+  "place": "The Texas Hill Country",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Edwards Plateau savanna"
+   ]
+  },
+  "why_here": "It nests only in the oak and Ashe juniper woods of central Texas, using juniper bark for its nest.",
+  "fun_fact": "It is the only bird that breeds only in Texas.",
+  "clue": "This little songbird builds its nest from strips of juniper bark and nests in one state."
+ },
+ {
+  "common_name": "Attwater's prairie chicken",
+  "scientific_name": "Tympanuchus cupido attwateri",
+  "kind": "Bird",
+  "wiki": "Attwater's_prairie_chicken",
+  "place": "The Texas Gulf coast",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Western Gulf coastal grasslands"
+   ]
+  },
+  "why_here": "It is adapted to the tall coastal grasslands along the Gulf coast of Texas and Louisiana.",
+  "fun_fact": "Only a small wild flock survives, kept going by captive breeding and releases.",
+  "clue": "Males inflate orange neck sacs and boom at dawn to win mates."
+ },
+ {
+  "common_name": "Blue oak",
+  "scientific_name": "Quercus douglasii",
+  "kind": "Plant",
+  "wiki": "Quercus_douglasii",
+  "place": "The California foothills",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "California interior chaparral and woodlands"
+   ]
+  },
+  "why_here": "It rings the Central Valley in the dry foothills of California's Coast Ranges and Sierra Nevada.",
+  "fun_fact": "In a drought it can drop all its leaves in summer to save water.",
+  "clue": "Its leaves have a bluish tint, and it can drop them in summer to survive drought."
+ },
+ {
+  "common_name": "Port Orford cedar",
+  "scientific_name": "Chamaecyparis lawsoniana",
+  "kind": "Plant",
+  "wiki": "Chamaecyparis_lawsoniana",
+  "place": "The Klamath-Siskiyou mountains",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Klamath-Siskiyou forests"
+   ]
+  },
+  "why_here": "It grows only in the wet mountains of southwest Oregon and northwest California.",
+  "fun_fact": "Its fragrant wood was so prized in Japan that logs were shipped there for temples and coffins.",
+  "clue": "Garden forms of this tree, called Lawson cypress, are planted all over the world."
+ },
+ {
+  "common_name": "Boojum tree",
+  "scientific_name": "Fouquieria columnaris",
+  "kind": "Plant",
+  "wiki": "Fouquieria_columnaris",
+  "place": "Central Baja California",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Baja California desert"
+   ]
+  },
+  "why_here": "It grows almost only in the Vizcaíno region of central Baja California.",
+  "fun_fact": "It was named after a creature in Lewis Carroll's poem 'The Hunting of the Snark'.",
+  "clue": "It looks like an upside-down carrot and is named after a creature in a Lewis Carroll poem."
+ },
+ {
+  "common_name": "Ozark hellbender",
+  "scientific_name": "Cryptobranchus alleganiensis bishopi",
+  "kind": "Amphibian",
+  "wiki": "Hellbender",
+  "place": "The Ozark Highlands",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Ozark Highlands mixed forests"
+   ]
+  },
+  "why_here": "It lives only in cold, clear, rocky streams of the Ozarks in Missouri and Arkansas.",
+  "fun_fact": "It breathes mostly through the wrinkly folds of skin along its sides.",
+  "clue": "A giant salamander up to 60 cm long, nicknamed the 'snot otter'."
+ },
+ {
+  "common_name": "Coastal California gnatcatcher",
+  "scientific_name": "Polioptila californica californica",
+  "kind": "Bird",
+  "wiki": "California_gnatcatcher",
+  "place": "Southern California's coastal sage scrub",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "California coastal sage and chaparral"
+   ]
+  },
+  "why_here": "It lives only in the coastal sage scrub of southern California and northern Baja California.",
+  "fun_fact": "Its call sounds like a kitten's mew.",
+  "clue": "This tiny grey songbird mews like a kitten and depends on coastal sage scrub."
+ },
+ {
+  "common_name": "Giant Palouse earthworm",
+  "scientific_name": "Driloleirus americanus",
+  "kind": "Other",
+  "wiki": "Driloleirus_americanus",
+  "place": "The Palouse",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Palouse prairie"
+   ]
+  },
+  "why_here": "It lives in the deep loess soils of the Palouse hills of eastern Washington and Idaho.",
+  "fun_fact": "It was long rumoured to smell like lilies, but recent finds did not back that up.",
+  "clue": "This rare pale worm can be close to a metre long and was once thought lost."
+ },
+ {
+  "common_name": "Blowout penstemon",
+  "scientific_name": "Penstemon haydenii",
+  "kind": "Plant",
+  "wiki": "Penstemon_haydenii",
+  "place": "The Nebraska Sand Hills",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Nebraska Sand Hills mixed grasslands"
+   ]
+  },
+  "why_here": "It grows in the bare, wind-carved 'blowouts' of the Nebraska Sand Hills.",
+  "fun_fact": "It was once thought to be one of the rarest plants on the Great Plains.",
+  "clue": "Its pale blue flowers smell of vanilla, and it grows in bowls blown out by wind."
+ },
+ {
+  "common_name": "Fender's blue",
+  "scientific_name": "Icaricia icarioides fenderi",
+  "kind": "Insect",
+  "wiki": "Fender's_blue",
+  "place": "The Willamette Valley",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Willamette Valley oak savanna"
+   ]
+  },
+  "why_here": "Its caterpillars feed on Kincaid's lupine, which grows in the Willamette Valley's remnant grasslands.",
+  "fun_fact": "It was thought extinct for over 50 years until it was found again in 1989.",
+  "clue": "This small blue butterfly was lost for decades and depends on one kind of lupine."
+ },
+ {
+  "common_name": "Spirit bear",
+  "scientific_name": "Ursus americanus kermodei",
+  "kind": "Mammal",
+  "wiki": "Kermode_bear",
+  "place": "The Great Bear Rainforest",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "British Columbia coastal conifer forests"
+   ]
+  },
+  "why_here": "This black bear subspecies lives in the wet coastal forests of central and northern British Columbia.",
+  "fun_fact": "In some places up to one in ten is born white thanks to a recessive gene, yet it is not an albino.",
+  "clue": "A black bear that is sometimes born creamy white, and fishes for salmon in daylight."
+ },
+ {
+  "common_name": "Ocotillo",
+  "scientific_name": "Fouquieria splendens",
+  "kind": "Plant",
+  "wiki": "Fouquieria_splendens",
+  "place": "The Sonoran and Chihuahuan deserts",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Sonoran desert",
+    "Chihuahuan desert"
+   ]
+  },
+  "why_here": "It grows on rocky slopes across the Sonoran and Chihuahuan deserts of the US Southwest and northern Mexico.",
+  "fun_fact": "It can grow a full set of leaves within days of a rain and drop them again when it dries out.",
+  "clue": "Its whip-like spiny stems look dead most of the year, then leaf out days after rain."
+ },
+ {
+  "common_name": "Mount Lyell salamander",
+  "scientific_name": "Hydromantes platycephalus",
+  "kind": "Amphibian",
+  "wiki": "Mount_Lyell_salamander",
+  "place": "The Sierra Nevada",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Sierra Nevada forests"
+   ]
+  },
+  "why_here": "It lives among granite rocks and snowmelt in the high Sierra Nevada of California.",
+  "fun_fact": "It can curl into a ball and roll downhill to escape danger.",
+  "clue": "This flat-headed salamander has webbed toes for clinging to wet granite near snowfields."
+ }
+]

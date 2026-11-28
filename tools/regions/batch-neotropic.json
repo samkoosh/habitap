@@ -1,0 +1,637 @@
+[
+ {
+  "common_name": "Greater rhea",
+  "scientific_name": "Rhea americana",
+  "kind": "Bird",
+  "wiki": "Greater_rhea",
+  "place": "The Cerrado, Chaco and Pampas",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Cerrado",
+    "Pantanal",
+    "Dry Chaco",
+    "Humid Chaco",
+    "Espinal",
+    "Humid Pampas",
+    "Uruguayan savanna"
+   ]
+  },
+  "why_here": "This big flightless bird needs wide open grassland and scrub, which stretches from central Brazil down through the Chaco to the Pampas of Argentina and Uruguay.",
+  "fun_fact": "The males build the nest, sit on eggs laid by several females, and raise the chicks alone.",
+  "clue": "A flightless giant where dads incubate up to 50 eggs from several mothers."
+ },
+ {
+  "common_name": "Guanaco",
+  "scientific_name": "Lama guanicoe",
+  "kind": "Mammal",
+  "wiki": "Guanaco",
+  "place": "Patagonia and the high southern Andes",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Patagonian steppe",
+    "Southern Andean steppe",
+    "Low Monte",
+    "High Monte",
+    "Central Andean dry puna"
+   ]
+  },
+  "why_here": "Guanacos graze dry, cold, open country, from the Patagonian plains up into the arid high Andes of Argentina, Chile, Bolivia and Peru.",
+  "fun_fact": "It is the wild ancestor of the llama and can spit when annoyed.",
+  "clue": "The wild ancestor of the llama, it can spit at rivals when annoyed."
+ },
+ {
+  "common_name": "Amazon river dolphin",
+  "scientific_name": "Inia geoffrensis",
+  "kind": "Mammal",
+  "wiki": "Amazon_river_dolphin",
+  "place": "The Amazon basin",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Napo moist forests",
+    "Ucayali moist forests",
+    "Iquitos várzea",
+    "Juruá-Purus moist forests",
+    "Purus várzea",
+    "Solimões-Japurá moist forests",
+    "Japurá-Solimões-Negro moist forests",
+    "Purus-Madeira moist forests",
+    "Negro-Branco moist forests",
+    "Madeira-Tapajós moist forests",
+    "Uatumã-Trombetas moist forests",
+    "Monte Alegre várzea",
+    "Tapajós-Xingu moist forests",
+    "Gurupa várzea",
+    "Southwest Amazon moist forests"
+   ]
+  },
+  "why_here": "It swims the rivers and seasonally flooded forests of the Amazon basin, where high water lets it hunt fish among the drowned trees.",
+  "fun_fact": "Its neck bones are not fused, so it can turn its head to steer around tree trunks.",
+  "clue": "A pink dolphin that weaves between flooded tree trunks to catch fish."
+ },
+ {
+  "common_name": "Toco toucan",
+  "scientific_name": "Ramphastos toco",
+  "kind": "Bird",
+  "wiki": "Toco_toucan",
+  "place": "The Cerrado and Pantanal",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Cerrado",
+    "Pantanal",
+    "Chiquitano dry forests",
+    "Humid Chaco"
+   ]
+  },
+  "why_here": "Unlike most toucans it likes semi-open woodland, so it thrives in the Cerrado, Pantanal and nearby dry forests of central South America.",
+  "fun_fact": "Its huge bill is light and hollow, and it helps the bird shed body heat.",
+  "clue": "The biggest of its family, with a bright orange bill that works like a radiator."
+ },
+ {
+  "common_name": "Red-legged seriema",
+  "scientific_name": "Cariama cristata",
+  "kind": "Bird",
+  "wiki": "Red-legged_seriema",
+  "place": "The Cerrado, Caatinga and Chaco",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Cerrado",
+    "Caatinga",
+    "Dry Chaco",
+    "Humid Chaco"
+   ]
+  },
+  "why_here": "It stalks open grassland and dry scrub across central and eastern South America, from the Caatinga and Cerrado to the Chaco.",
+  "fun_fact": "It kills lizards and snakes by grabbing them in its bill and smashing them on the ground.",
+  "clue": "A long-legged hunter with a loud yelping call that beats prey against rocks."
+ },
+ {
+  "common_name": "Plains vizcacha",
+  "scientific_name": "Lagostomus maximus",
+  "kind": "Mammal",
+  "wiki": "Plains_viscacha",
+  "place": "The Pampas, Chaco and Monte",
+  "target_tier": 1,
+  "eco": {
+   "names": [
+    "Humid Pampas",
+    "Espinal",
+    "Low Monte",
+    "Dry Chaco"
+   ]
+  },
+  "why_here": "Colonies dig big burrow systems in the flat grasslands and scrub of Argentina, Paraguay and southern Bolivia.",
+  "fun_fact": "It piles sticks, bones and other odd objects around the entrances of its burrows.",
+  "clue": "A chunky rodent with a striped face that decorates its burrow with collected junk."
+ },
+ {
+  "common_name": "Pygmy marmoset",
+  "scientific_name": "Cebuella pygmaea",
+  "kind": "Mammal",
+  "wiki": "Pygmy_marmoset",
+  "place": "The western Amazon",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Napo moist forests",
+    "Ucayali moist forests",
+    "Iquitos várzea"
+   ]
+  },
+  "why_here": "It lives in the wet forests of the upper Amazon in Ecuador, Peru, Colombia and far western Brazil, often near flooded river edges.",
+  "fun_fact": "It is one of the smallest monkeys in the world and weighs about as much as a stick of butter.",
+  "clue": "One of the world's tiniest monkeys, it gnaws holes in bark to drink tree sap."
+ },
+ {
+  "common_name": "Chacoan peccary",
+  "scientific_name": "Catagonus wagneri",
+  "kind": "Mammal",
+  "wiki": "Chacoan_peccary",
+  "place": "The Dry Chaco",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Dry Chaco"
+   ]
+  },
+  "why_here": "It is found only in the thorny dry scrub of the Gran Chaco in Paraguay, Bolivia and Argentina, where it eats cacti and bromeliads.",
+  "fun_fact": "Scientists knew it only from fossils until living animals were found in 1975.",
+  "clue": "Known only from fossils until living herds turned up in 1975."
+ },
+ {
+  "common_name": "Brazilian three-banded armadillo",
+  "scientific_name": "Tolypeutes tricinctus",
+  "kind": "Mammal",
+  "wiki": "Brazilian_three-banded_armadillo",
+  "place": "The Caatinga",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Caatinga"
+   ]
+  },
+  "why_here": "It lives mainly in the Caatinga, the dry thorn scrub of northeastern Brazil, and digs for ants and termites.",
+  "fun_fact": "It was the mascot of the 2014 FIFA World Cup.",
+  "clue": "It rolls into a perfect ball, and it was a World Cup mascot in 2014."
+ },
+ {
+  "common_name": "Patagonian mara",
+  "scientific_name": "Dolichotis patagonum",
+  "kind": "Mammal",
+  "wiki": "Patagonian_mara",
+  "place": "The Monte and Patagonia",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Low Monte",
+    "Patagonian steppe"
+   ]
+  },
+  "why_here": "It is found only in Argentina, in the open dry scrub of the Monte and the plains of Patagonia.",
+  "fun_fact": "Mara pairs often stay together for life.",
+  "clue": "A rodent with long legs like a small deer that hops and gallops like a hare."
+ },
+ {
+  "common_name": "Paraná pine",
+  "scientific_name": "Araucaria angustifolia",
+  "kind": "Plant",
+  "wiki": "Araucaria_angustifolia",
+  "place": "The Araucaria highlands of southern Brazil",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Araucaria moist forests"
+   ]
+  },
+  "why_here": "This conifer dominates the cool, misty highland forests of southern Brazil and nearby Argentina, which are named after it.",
+  "fun_fact": "Its big edible seeds, called pinhão, are roasted and sold as a winter snack.",
+  "clue": "Its candelabra shape and big edible seeds make it a winter snack favourite."
+ },
+ {
+  "common_name": "Yerba mate",
+  "scientific_name": "Ilex paraguariensis",
+  "kind": "Plant",
+  "wiki": "Yerba_mate",
+  "place": "The Paraná forests",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Alto Paraná Atlantic forests",
+    "Araucaria moist forests"
+   ]
+  },
+  "why_here": "This holly grows wild in the humid inland forests where Paraguay, northeast Argentina and southern Brazil meet.",
+  "fun_fact": "Its leaves are brewed into a caffeine-rich drink sipped through a metal straw.",
+  "clue": "A holly whose dried leaves are sipped from a gourd through a metal straw."
+ },
+ {
+  "common_name": "Southern pudu",
+  "scientific_name": "Pudu puda",
+  "kind": "Mammal",
+  "wiki": "Southern_pudú",
+  "place": "The Valdivian forests",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Valdivian temperate forests"
+   ]
+  },
+  "why_here": "This tiny deer hides in the dense, rainy temperate forests of southern Chile and nearby Argentina.",
+  "fun_fact": "It stands only about 40 cm tall at the shoulder.",
+  "clue": "One of the world's smallest deer, barely knee high, with tiny spiky antlers."
+ },
+ {
+  "common_name": "Degu",
+  "scientific_name": "Octodon degus",
+  "kind": "Mammal",
+  "wiki": "Common_degu",
+  "place": "Central Chile",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Chilean Matorral"
+   ]
+  },
+  "why_here": "It is found only in central Chile, living in burrow colonies in the dry shrubland between the Andes and the coast.",
+  "fun_fact": "Unlike most rodents, it is active by day and can see ultraviolet light.",
+  "clue": "A social pet rodent that is awake by day and sees ultraviolet light."
+ },
+ {
+  "common_name": "Orinoco crocodile",
+  "scientific_name": "Crocodylus intermedius",
+  "kind": "Reptile",
+  "wiki": "Orinoco_crocodile",
+  "place": "The Llanos",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Llanos"
+   ]
+  },
+  "why_here": "It lives in the rivers and lagoons of the Orinoco basin, which wind across the Llanos grasslands of Venezuela and Colombia.",
+  "fun_fact": "It is one of the largest crocodiles in the world, with males reaching over 5 m.",
+  "clue": "A huge crocodile with a long, narrow snout and one of the rarest on Earth."
+ },
+ {
+  "common_name": "Yacare caiman",
+  "scientific_name": "Caiman yacare",
+  "kind": "Reptile",
+  "wiki": "Yacare_caiman",
+  "place": "The Pantanal and Chaco wetlands",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Pantanal",
+    "Humid Chaco"
+   ]
+  },
+  "why_here": "Huge numbers gather in the seasonal wetlands of the Pantanal and the Paraguay River basin, where floods bring plenty of fish.",
+  "fun_fact": "Its jagged lower teeth poke up through holes in its top jaw, which earned it the nickname piranha caiman.",
+  "clue": "Nicknamed after a famous toothy fish because its lower teeth stick up over its lip."
+ },
+ {
+  "common_name": "Andean flamingo",
+  "scientific_name": "Phoenicoparrus andinus",
+  "kind": "Bird",
+  "wiki": "Andean_flamingo",
+  "place": "The high Andean salt lakes",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Central Andean dry puna",
+    "Central Andean puna"
+   ]
+  },
+  "why_here": "It feeds in the salty lakes of the high puna where Peru, Bolivia, Chile and Argentina meet.",
+  "fun_fact": "It is the only flamingo with yellow legs.",
+  "clue": "The only flamingo with yellow legs, it filters tiny algae from salty lakes."
+ },
+ {
+  "common_name": "Ocellated turkey",
+  "scientific_name": "Meleagris ocellata",
+  "kind": "Bird",
+  "wiki": "Ocellated_turkey",
+  "place": "The Yucatán Peninsula",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Yucatán moist forests",
+    "Yucatán dry forests"
+   ]
+  },
+  "why_here": "It lives only in the forests of the Yucatán Peninsula, including parts of Belize and northern Guatemala.",
+  "fun_fact": "Its tail feathers have blue-bronze eyespots like a peacock's.",
+  "clue": "A turkey with peacock-like eyespots on its tail and a bumpy blue head."
+ },
+ {
+  "common_name": "Guianan cock-of-the-rock",
+  "scientific_name": "Rupicola rupicola",
+  "kind": "Bird",
+  "wiki": "Guianan_cock-of-the-rock",
+  "place": "The Guiana Shield",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Guianan Highlands moist forests",
+    "Guianan piedmont moist forests",
+    "Guianan lowland moist forests"
+   ]
+  },
+  "why_here": "It nests on rocky outcrops and cliffs in the forests of the Guiana Shield, across the Guianas, southern Venezuela and northern Brazil.",
+  "fun_fact": "Males gather at display grounds called leks and show off to visiting females.",
+  "clue": "A bright orange bird with a half-moon crest that hides its own bill."
+ },
+ {
+  "common_name": "Maned sloth",
+  "scientific_name": "Bradypus torquatus",
+  "kind": "Mammal",
+  "wiki": "Maned_sloth",
+  "place": "Coastal Bahia",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Bahia coastal forests"
+   ]
+  },
+  "why_here": "It lives only in the coastal Atlantic Forest of eastern Brazil, from Bahia to Espírito Santo.",
+  "fun_fact": "It has a mane of long dark hair on its neck and shoulders.",
+  "clue": "A slow mover with a dark mane on its neck and shoulders."
+ },
+ {
+  "common_name": "Ombú",
+  "scientific_name": "Phytolacca dioica",
+  "kind": "Plant",
+  "wiki": "Phytolacca_dioica",
+  "place": "The Pampas",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Humid Pampas",
+    "Uruguayan savanna",
+    "Paraná flooded savanna"
+   ]
+  },
+  "why_here": "It is native to the Pampas of Argentina and Uruguay, where it often stands alone on the flat grassland as the only shade for miles.",
+  "fun_fact": "It is not really a tree but a giant herb with soft, spongy wood.",
+  "clue": "Looks like a huge tree, but it is really a giant herb with soft wood."
+ },
+ {
+  "common_name": "Bee hummingbird",
+  "scientific_name": "Mellisuga helenae",
+  "kind": "Bird",
+  "wiki": "Bee_hummingbird",
+  "place": "Cuba",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Cuban moist forests",
+    "Cuban dry forests",
+    "Cuban pine forests",
+    "Cuban cactus scrub",
+    "Cuban wetlands"
+   ]
+  },
+  "why_here": "It is found only on Cuba and the Isla de la Juventud.",
+  "fun_fact": "It is the smallest bird in the world, weighing less than 2 grams.",
+  "clue": "The smallest bird in the world, lighter than a dime."
+ },
+ {
+  "common_name": "Hispaniolan solenodon",
+  "scientific_name": "Solenodon paradoxus",
+  "kind": "Mammal",
+  "wiki": "Hispaniolan_solenodon",
+  "place": "Hispaniola",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Hispaniolan moist forests",
+    "Hispaniolan dry forests",
+    "Hispaniolan pine forests"
+   ]
+  },
+  "why_here": "It survives only on Hispaniola, shared by Haiti and the Dominican Republic.",
+  "fun_fact": "It is one of the few mammals with venomous saliva, delivered through grooved teeth.",
+  "clue": "A shrew-like mammal with a long snout and a venomous bite."
+ },
+ {
+  "common_name": "Southern muriqui",
+  "scientific_name": "Brachyteles arachnoides",
+  "kind": "Mammal",
+  "wiki": "Southern_muriqui",
+  "place": "The Serra do Mar",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Serra do Mar coastal forests"
+   ]
+  },
+  "why_here": "It lives in the steep coastal Atlantic Forest of the Serra do Mar in southeastern Brazil.",
+  "fun_fact": "Muriquis are famous for being peaceful and often hug each other.",
+  "clue": "The largest monkey of its region, known for hugging instead of fighting."
+ },
+ {
+  "common_name": "Strawberry poison-dart frog",
+  "scientific_name": "Oophaga pumilio",
+  "kind": "Amphibian",
+  "wiki": "Strawberry_poison-dart_frog",
+  "place": "The Caribbean side of Nicaragua, Costa Rica and Panama",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Isthmian-Atlantic moist forests"
+   ]
+  },
+  "why_here": "It lives in the wet lowland forests on the Caribbean side of Nicaragua, Costa Rica and western Panama.",
+  "fun_fact": "Mothers carry each tadpole to its own tiny pool and feed it unfertilised eggs.",
+  "clue": "A tiny red frog with blue legs, like it is wearing jeans."
+ },
+ {
+  "common_name": "Central American squirrel monkey",
+  "scientific_name": "Saimiri oerstedii",
+  "kind": "Mammal",
+  "wiki": "Central_American_squirrel_monkey",
+  "place": "The Pacific coast of Costa Rica and Panama",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Isthmian-Pacific moist forests"
+   ]
+  },
+  "why_here": "It is found only in the wet forests along the Pacific coast of Costa Rica and western Panama.",
+  "fun_fact": "Troops can have dozens of monkeys moving noisily through the trees together.",
+  "clue": "A small orange-backed monkey with a black cap and a white mask."
+ },
+ {
+  "common_name": "Red-billed streamertail",
+  "scientific_name": "Trochilus polytmus",
+  "kind": "Bird",
+  "wiki": "Red-billed_streamertail",
+  "place": "Jamaica",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Jamaican moist forests",
+    "Jamaican dry forests"
+   ]
+  },
+  "why_here": "This hummingbird lives only on Jamaica, where it is the national bird.",
+  "fun_fact": "Locals call it the doctor bird because its black crest and long tail look like an old doctor's top hat and coat.",
+  "clue": "Called the doctor bird, the male trails two long streamer tail feathers."
+ },
+ {
+  "common_name": "Common coquí",
+  "scientific_name": "Eleutherodactylus coqui",
+  "kind": "Amphibian",
+  "wiki": "Common_coquí",
+  "place": "Puerto Rico",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Puerto Rican moist forests",
+    "Puerto Rican dry forests"
+   ]
+  },
+  "why_here": "This little frog is native to Puerto Rico, where its night chorus is part of daily life.",
+  "fun_fact": "It skips the tadpole stage, and baby frogs hatch straight from the eggs.",
+  "clue": "A tiny frog named after its two-note call, \"ko-KEE\", heard all night."
+ },
+ {
+  "common_name": "Santa Marta warbler",
+  "scientific_name": "Myiothlypis basilica",
+  "kind": "Bird",
+  "wiki": "Santa_Marta_warbler",
+  "place": "The Sierra Nevada de Santa Marta",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Santa Marta montane forests",
+    "Santa Marta páramo"
+   ]
+  },
+  "why_here": "It is found only in the Sierra Nevada de Santa Marta, a lone coastal mountain range in northern Colombia.",
+  "fun_fact": "Its home mountains rise from the sea to snow peaks in only about 42 km.",
+  "clue": "A yellow songbird with a bold black-and-white striped head and a very tiny home range."
+ },
+ {
+  "common_name": "Chocó toucan",
+  "scientific_name": "Ramphastos brevis",
+  "kind": "Bird",
+  "wiki": "Chocó_toucan",
+  "place": "The Chocó of Colombia and Ecuador",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Chocó-Darién moist forests",
+    "Western Ecuador moist forests"
+   ]
+  },
+  "why_here": "It lives only in the very wet lowland and foothill forests of the Chocó, on the Pacific side of Colombia and Ecuador.",
+  "fun_fact": "It looks almost identical to the bigger yellow-throated toucan, and the two are easiest to tell apart by their calls.",
+  "clue": "A yellow-bibbed bird with a two-tone bill, best told from its lookalike cousin by its croak."
+ },
+ {
+  "common_name": "Cotton-top tamarin",
+  "scientific_name": "Saguinus oedipus",
+  "kind": "Mammal",
+  "wiki": "Cotton-top_tamarin",
+  "place": "Northwestern Colombia",
+  "target_tier": 3,
+  "eco": {
+   "names": [
+    "Magdalena-Urabá moist forests",
+    "Sinú Valley dry forests"
+   ]
+  },
+  "why_here": "It is found only in the lowland forests of northwestern Colombia, between the Atrato and Magdalena rivers.",
+  "fun_fact": "Older siblings help carry and care for the twins born in each family group.",
+  "clue": "A tiny monkey with a wild crest of white hair, like a punk rock hairdo."
+ },
+ {
+  "common_name": "Mountain tapir",
+  "scientific_name": "Tapirus pinchaque",
+  "kind": "Mammal",
+  "wiki": "Mountain_tapir",
+  "place": "The northern Andes",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Northern Andean páramo",
+    "Eastern Cordillera Real montane forests"
+   ]
+  },
+  "why_here": "It lives in the cold cloud forests and high páramo grasslands of the Andes in Colombia, Ecuador and northern Peru.",
+  "fun_fact": "It is the only tapir with a thick woolly coat, which keeps it warm at high altitude.",
+  "clue": "The only one of its kind with a thick woolly coat, plus a short bendy trunk."
+ },
+ {
+  "common_name": "Sechuran fox",
+  "scientific_name": "Lycalopex sechurae",
+  "kind": "Mammal",
+  "wiki": "Sechuran_fox",
+  "place": "Coastal Peru and southwest Ecuador",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Sechura desert",
+    "Tumbes-Piura dry forests"
+   ]
+  },
+  "why_here": "It lives in the dry coastal strip west of the Andes in Peru and southwest Ecuador, from sand dunes to dry forest.",
+  "fun_fact": "In dry spells it can get by on seeds and pods alone and may go without drinking.",
+  "clue": "The smallest of its fox family, it can survive on seed pods and very little water."
+ },
+ {
+  "common_name": "Mexican beaded lizard",
+  "scientific_name": "Heloderma horridum",
+  "kind": "Reptile",
+  "wiki": "Mexican_beaded_lizard",
+  "place": "The dry forests of western Mexico",
+  "target_tier": 2,
+  "eco": {
+   "names": [
+    "Jalisco dry forests",
+    "Balsas dry forests",
+    "Southern Pacific dry forests"
+   ]
+  },
+  "why_here": "It lives in the seasonal dry forests along Mexico's Pacific side, from Jalisco south to Oaxaca and inland in the Balsas basin.",
+  "fun_fact": "It is one of very few venomous lizards, and compounds from its relative's venom led to a diabetes drug.",
+  "clue": "A venomous lizard with bead-like scales, a close cousin of the Gila monster."
+ },
+ {
+  "common_name": "Horned guan",
+  "scientific_name": "Oreophasis derbianus",
+  "kind": "Bird",
+  "wiki": "Horned_guan",
+  "place": "The Sierra Madre de Chiapas",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Sierra Madre de Chiapas moist forests"
+   ]
+  },
+  "why_here": "It lives in the high cloud forests of the Sierra Madre de Chiapas and nearby volcanoes in Guatemala.",
+  "fun_fact": "It is the only living species in its genus and is thought to be an ancient branch of its family.",
+  "clue": "A big black bird with a bright red horn sticking straight up from its head."
+ },
+ {
+  "common_name": "Tetecho",
+  "scientific_name": "Cephalocereus columna-trajani",
+  "kind": "Plant",
+  "wiki": "Cephalocereus_columna-trajani",
+  "place": "The Tehuacán Valley",
+  "target_tier": 4,
+  "eco": {
+   "names": [
+    "Tehuacán Valley matorral"
+   ]
+  },
+  "why_here": "This giant cactus grows only in the dry Tehuacán-Cuicatlán valley of Puebla and Oaxaca in central Mexico.",
+  "fun_fact": "Near its tip it grows a woolly patch of golden hairs on one side, where the flowers appear.",
+  "clue": "A tall unbranched column cactus named after a famous carved column in Rome."
+ }
+]

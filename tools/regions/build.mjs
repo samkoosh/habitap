@@ -10,7 +10,9 @@ const dir = new URL('.', import.meta.url).pathname;
 const [, , spPath, outPath] = process.argv;
 const R = 6371;
 const eco = JSON.parse(fs.readFileSync(dir + 'ecoregions.json', 'utf8')).features.filter(f => f.properties && f.geometry);
-const fresh = JSON.parse(fs.readFileSync(dir + 'new-species.json', 'utf8'));
+const fresh = JSON.parse(fs.readFileSync(dir + 'new-species.json', 'utf8'))
+  .concat(...fs.readdirSync(dir).filter(f => /^batch-.*\.json$/.test(f)).sort().map(f => JSON.parse(fs.readFileSync(dir + f, 'utf8'))));
+{ const seen = new Set(); for (const s of fresh) { const k = s.scientific_name.toLowerCase(); if (seen.has(k)) throw new Error('duplicate ' + s.scientific_name); seen.add(k); } }
 const old = JSON.parse(fs.readFileSync(spPath, 'utf8'));
 
 const km2 = g => Math.round(geoArea(g) * R * R);
