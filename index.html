@@ -306,7 +306,7 @@ header{position:relative}
     <details><summary>Who made HabiTap?</summary><p>HabiTap was made for fun by two cousins who love maps, nature and daily puzzle games.</p></details>
   </section>
 
-  <footer class="foot">Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas. Species facts were compiled from Wikipedia and other sources; some points are approximate.
+  <footer class="foot">Photos come from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> via Wikipedia, credited on each photo. Map data: Natural Earth via world-atlas. Habitat areas: <a href="https://ecoregions.appspot.com" target="_blank" rel="noopener">RESOLVE Ecoregions 2017</a> (Dinerstein et al. 2017, CC BY 4.0), simplified. Species facts were compiled from Wikipedia and other sources; some points are approximate.
     <nav><a href="privacy.html">Privacy</a></nav></footer>
 </div>
 
@@ -342,6 +342,36 @@ function hintCircle(lat,lon,d,i){const r=rng((d|0)*31+i*7+1),R=1200,rad=Math.PI/
 function pick(seed){const r=rng(seed),idx=SP.map((_,i)=>i);for(let i=idx.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]]}
   const out=[],reg={};for(const i of idx){const s=SP[i];if((reg[s.region]||0)>=2)continue;if(out.some(j=>km([SP[j].lat,SP[j].lon],[s.lat,s.lon])<500))continue;out.push(i);reg[s.region]=(reg[s.region]||0)+1;if(out.length===5)break}return out}
 
+/* ---------- region ladder: each round is one species whose home is a marked area, biggest area first ---------- */
+const TIER_NAME=['','Huge area','Big area','Medium area','Small area','Tiny area'];
+const TIER_KM=[0,.35,.5,.7,.85,1].map(f=>f*5150);
+function pickLadder(seed){const r=rng(seed),out=[],eco=new Set();
+  for(let t=1;t<=5;t++){const pool=SP.map((s,i)=>i).filter(i=>SP[i].tier===t&&!(SP[i].eco||[]).some(e=>eco.has(e)));
+    const i=pool[Math.floor(r()*pool.length)];out.push(i);(SP[i].eco||[]).forEach(e=>eco.add(e))}return out}
+const circleGeo=c=>d3.geoCircle().center([c[0],c[1]]).radius(c[2]/6371*180/Math.PI).precision(2)();
+const areaGeo=s=>s.shape||(s._g||(s._g=circleGeo(s.circle)));
+const V=([lon,lat])=>{const l=lon*Math.PI/180,p=lat*Math.PI/180;return[Math.cos(p)*Math.cos(l),Math.cos(p)*Math.sin(l),Math.sin(p)]};
+const LL=v=>[Math.atan2(v[1],v[0])*180/Math.PI,Math.asin(Math.max(-1,Math.min(1,v[2])))*180/Math.PI];
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2],cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const nrm=a=>{const l=Math.hypot(...a);return l?a.map(x=>x/l):a},ang=(a,b)=>Math.atan2(Math.hypot(...cross(a,b)),dot(a,b));
+/* distance (km) from p=[lat,lon] to the area, 0 if inside, plus the nearest point of the area as [lat,lon] */
+function toArea(s,p){const P=[p[1],p[0]];
+  if(s.circle){const c=[s.circle[0],s.circle[1]],dc=d3.geoDistance(P,c)*6371,rk=s.circle[2];if(dc<=rk)return{km:0,near:p};const q=d3.geoInterpolate(c,P)(rk/dc);return{km:dc-rk,near:[q[1],q[0]]}}
+  const g=areaGeo(s);if(d3.geoContains(g,P))return{km:0,near:p};
+  const pv=V(P);let best=Infinity,bq=null;const polys=g.type==='Polygon'?[g.coordinates]:g.coordinates;
+  for(const poly of polys)for(const ring of poly)for(let j=0;j<ring.length-1;j++){const A=V(ring[j]),B=V(ring[j+1]);let d,q;
+    const n=nrm(cross(A,B));const sd=dot(pv,n),Q=nrm(pv.map((x,k)=>x-sd*n[k]));
+    if(Math.abs(ang(A,Q)+ang(Q,B)-ang(A,B))<1e-9){d=Math.abs(Math.asin(sd));q=Q}else{const da=ang(pv,A),db=ang(pv,B);if(da<db){d=da;q=A}else{d=db;q=B}}
+    if(d<best){best=d;bq=q}}
+  const ll=LL(bq);return{km:best*6371,near:[ll[1],ll[0]]}}
+const areaScore=(dk,t)=>dk<=0?100:Math.round(100*Math.exp(-dk/TIER_KM[t]));
+/* hint: a circle around the area's middle, wide enough to matter at each tier, off-centre so its middle isn't the answer */
+function ladderHint(s,d,i){const g=areaGeo(s),c=d3.geoCentroid(g),rad=Math.sqrt((s.area_km2||1)/Math.PI);
+  const h=hintCircle(c[1],c[0],d,i),R=Math.max([0,2600,1800,1200,900,700][s.tier],rad*1.4);
+  /* re-scale hintCircle's offset to the new radius */
+  const off=d3.geoDistance(c,[h.lon,h.lat])*6371*(R/1200),q=off?d3.geoInterpolate(c,[h.lon,h.lat])(off/(d3.geoDistance(c,[h.lon,h.lat])*6371)):c;
+  return{lat:+q[1].toFixed(3),lon:+q[0].toFixed(3),km:Math.round(R)}}
+
 /* ---------- topojson (minimal) ---------- */
 function decodeArcs(topo){const tf=topo.transform;return topo.arcs.map(a=>{let x=0,y=0;return a.map(p=>{if(tf){x+=p[0];y+=p[1];return[x*tf.scale[0]+tf.translate[0],y*tf.scale[1]+tf.translate[1]]}return p})})}
 function topoMesh(topo,name){const arcs=decodeArcs(topo),cnt=new Map();const walk=g=>{if(g.type==='GeometryCollection')return g.geometries.forEach(walk);const polys=g.type==='Polygon'?[g.arcs]:g.type==='MultiPolygon'?g.arcs:[];const seen=new Set();polys.forEach(p=>p.forEach(r=>r.forEach(id=>{const i=id<0?~id:id;if(!seen.has(i)){seen.add(i);cnt.set(i,(cnt.get(i)||0)+1)}})))};walk(topo.objects[name]);const lines=[];cnt.forEach((c,i)=>{if(c>1)lines.push(arcs[i])});return{type:'MultiLineString',coordinates:lines}}
@@ -354,11 +384,11 @@ function topoToGeo(topo,name){const tf=topo.transform,arcs=topo.arcs.map(a=>{let
 const cv=$('globe'),ctx=cv.getContext('2d'),box=$('globebox');
 const proj=d3.geoOrthographic().clipAngle(90).precision(0.3),path=d3.geoPath(proj,ctx),grat=d3.geoGraticule10();
 let land=null,borders=null,states=null,W=0,H=0,sdpr=0,base=1,k=1,rot=[-20,-15];
-let hintC=null,hintAt=-1e9,pin=null,target=null,pinAt=-1e9,lineAt=-1e9,loopRaf=0;const LINE_MS=900;
+let areaShow=null,hintC=null,hintAt=-1e9,pin=null,target=null,pinAt=-1e9,lineAt=-1e9,loopRaf=0;const LINE_MS=900;
 /* keep redrawing the globe for a short animation (pin bounce, line, target pop) */
 function animate(ms){const end=performance.now()+ms;cancelAnimationFrame(loopRaf);const f=()=>{draw();if(performance.now()<end)loopRaf=requestAnimationFrame(f)};loopRaf=requestAnimationFrame(f)}
 /* clientHeight, not innerHeight: it stays put while the iOS/Android toolbars slide, so the globe never jumps mid-drag */
-function size(){const w=box.clientWidth,vh=document.documentElement.clientHeight||innerHeight;const h=Math.round(shortLand()?Math.max(200,Math.min(w,vh-80)):Math.max(300,Math.min(w,vh*(narrow()?0.6:0.78),760)));const dpr=devicePixelRatio||1;if(w===W&&h===H&&dpr===sdpr)return;sdpr=dpr;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.min(w,h)/2-10;draw()}
+function size(){const w=box.clientWidth,vh=document.documentElement.clientHeight||innerHeight;const h=Math.round(shortLand()?Math.max(200,Math.min(w,vh-80)):Math.max(300,Math.min(w,vh*(narrow()?0.6:0.78),760)));const dpr=devicePixelRatio||1;if(w===W&&h===H&&dpr===sdpr)return;sdpr=dpr;cv.width=w*dpr;cv.height=h*dpr;cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=h;base=Math.max(20,Math.min(w,h)/2-10);draw()}
 function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot);ctx.clearRect(0,0,W,H);const R=base*k,cx=W/2,cy=H/2;
   const g=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.1,cx,cy,R);g.addColorStop(0,'#86adb6');g.addColorStop(1,'#4a717c');
   ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=g;ctx.fill();
@@ -372,10 +402,12 @@ function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot)
   if(hintC){const a=reduce?1:Math.min(1,(performance.now()-hintAt)/450);ctx.beginPath();path(d3.geoCircle().center([hintC.lon,hintC.lat]).radius(hintC.km/111.195*(.85+.15*a))());
     ctx.fillStyle=`rgba(192,138,43,${.2*a})`;ctx.fill();ctx.setLineDash([7,5]);ctx.strokeStyle=`rgba(192,138,43,${.95*a})`;ctx.lineWidth=2.5;ctx.stroke();ctx.setLineDash([])}
   const now=performance.now(),arrived=reduce||now>=lineAt+LINE_MS;
+  /* reveal: the species' home area, shaded */
+  if(areaShow){const a=reduce?1:Math.min(1,Math.max(0,(now-lineAt-LINE_MS*.6)/500));if(a>0){ctx.beginPath();path(areaShow);ctx.fillStyle=`rgba(85,112,70,${.42*a})`;ctx.fill();ctx.strokeStyle=`rgba(46,72,38,${.95*a})`;ctx.lineWidth=2;ctx.stroke()}}
   /* the guess line draws itself from your pin to the real spot */
   if(pin&&target){const a=[pin[1],pin[0]],b=[target[1],target[0]],u=arrived?1:Math.max(0,(now-lineAt)/LINE_MS),e=1-Math.pow(1-u,3);
     ctx.beginPath();path({type:'LineString',coordinates:[a,u>=1?b:d3.geoInterpolate(a,b)(e)]});ctx.setLineDash([5,5]);ctx.strokeStyle='#1d2e28';ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([])}
-  if(target&&arrived){marker(target,'#557046',true,0,reduce?1:backOut(Math.min(1,(now-lineAt-LINE_MS)/380)));label(target,tlabel)}
+  if(target&&arrived){marker(target,'#557046',true,0,reduce?1:backOut(Math.min(1,(now-lineAt-LINE_MS)/380)));label(target,tlabel)}else if(!target&&areaShow&&pin&&arrived)label(pin,tlabel)
   if(pin)marker(pin,'#c08a2b',false,reduce?0:pinDrop(now-pinAt))}
 const visible=p=>d3.geoDistance([p[1],p[0]],[-rot[0],-rot[1]])<Math.PI/2-1e-3;
 const backOut=t=>t<=0?0:1+2.4*Math.pow(t-1,3)+1.4*Math.pow(t-1,2);
@@ -526,18 +558,18 @@ let units=(()=>{try{const u=localStorage.getItem('ht-units');if(u==='km'||u==='m
 const distTxt=k=>units==='mi'?`${fmt(k*0.621371)} mi`:`${fmt(k)} km`;
 const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
 let spLoad=null;
-const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
-const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki,clue:s.clue||'',pic:s.pic||'',sci:s.scientific_name}};
+const loadSP=()=>spLoad||(spLoad=fetch('regions.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
+const fromSP=i=>{const s=SP[i];return{_i:i,tier:s.tier,kind:s.kind,display:s.display||s.common_name,sci_display:s.sci_display||s.scientific_name,wiki:s.wiki,clue:s.clue||'',pic:s.pic||'',sci:s.scientific_name}};
 const data=API?{
   day:d=>fetch(`${API}/day?d=${d}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   practice:()=>fetch(`${API}/practice`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   hint:(d,i)=>fetch(`${API}/hint?d=${d}&i=${i}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   guess:(d,i,p,hint)=>fetch(`${API}/guess`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({d,i,lat:p[0],lon:p[1],hint})}).then(r=>{if(!r.ok)throw 0;return r.json()})
 }:{
-  day:async d=>{await loadSP();return{day:d,items:pick(d).map(fromSP)}},
-  practice:async()=>{await loadSP();return{day:null,items:pick(Math.floor(Math.random()*1e9)).map(fromSP)}},
-  hint:async(d,i,it)=>{const sp=SP[it._i];return hintCircle(sp.lat,sp.lon,d,i)},
-  guess:async(d,i,p,hint,it)=>{const sp=SP[it._i],dk=km(p,[sp.lat,sp.lon]);let score=scoreFor(dk);if(hint)score=Math.max(0,score-20);return{sp,km:dk,score}}
+  day:async d=>{await loadSP();return{day:d,items:pickLadder(d).map(fromSP)}},
+  practice:async()=>{await loadSP();return{day:null,items:pickLadder(Math.floor(Math.random()*1e9)).map(fromSP)}},
+  hint:async(d,i,it)=>ladderHint(SP[it._i],d,i),
+  guess:async(d,i,p,hint,it)=>{const sp=SP[it._i],{km:dk,near}=toArea(sp,p);let score=areaScore(dk,sp.tier);if(hint)score=Math.max(0,score-20);return{sp,km:dk,near,area:areaGeo(sp),score}}
 };
 
 /* ---------- game ---------- */
@@ -547,7 +579,7 @@ const canPin=()=>!locked&&!finished&&items.length>0;
 const plain=t=>String(t??'').replace(/\[\[(.+?)\]\]/g,'$1');
 const labelText=()=>mode==='daily'?'Daily #'+puzzleNo:mode==='archive'?`Daily #${noFor(playDay)} (replay)`:'Practice';
 const shareTag=()=>mode==='daily'?'#'+puzzleNo:mode==='archive'?`#${noFor(playDay)} (replay)`:'(practice)';
-async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];items=[];pin=null;target=null;
+async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];items=[];pin=null;target=null;areaShow=null;
   $('label').textContent=labelText();$('end').style.display='none';$('card').style.display='';$('card').classList.remove('open');
   $('res').style.display='none';$('acts').style.display='none';$('kind').textContent='Loading…';$('name').textContent='Loading…';$('sci').textContent='';dots();
   let pack;try{pack=m==='practice'?await data.practice():await data.day(m==='daily'?dayNum:d)}
@@ -562,47 +594,49 @@ function dots(popIdx=-1){const n=items.length||5,cur=finished?n:round;
     return (i?`<i class="seg${i<=results.length?' done':''}"></i>`:'')+`<b class="st ${c}${i===popIdx?' pop':''}"${r?` title="Round ${i+1}: ${r.score} pts"`:''}></b>`}).join('');
   $('steps').setAttribute('aria-label',finished?'All 5 rounds done':`Round ${Math.min(cur+1,n)} of ${n}`);
   $('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
-function show(){const sp=items[round];guessToken++;pin=null;target=null;hintC=null;$('credit').classList.remove('open');usedHint=false;locked=false;$('card').classList.remove('open');
-  $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
+function show(){const sp=items[round];guessToken++;pin=null;target=null;hintC=null;areaShow=null;$('credit').classList.remove('open');usedHint=false;locked=false;$('card').classList.remove('open');
+  $('kind').textContent=`${sp.kind} · ${TIER_NAME[sp.tier]||''}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
   $('clue').hidden=!sp.clue;$('clue').innerHTML=sp.clue?'<b>Clue</b>'+esc(sp.clue):'';
   $('hint').hidden=true;$('hint').textContent='';$('hintBtn').hidden=false;$('hintBtn').disabled=false;
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
 $('hintBtn').onclick=async()=>{if(locked||usedHint)return;usedHint=true;$('hintBtn').disabled=true;const it=items[round],rd=round;
   let c;try{c=await data.hint(playDay,round,it)}catch(e){usedHint=false;$('hintBtn').disabled=false;return}
-  if(rd!==round||locked)return;hintC=c;hintAt=performance.now();$('hint').textContent='Hint: it lives somewhere inside the circle.';
+  if(rd!==round||locked)return;hintC=c;hintAt=performance.now();$('hint').textContent='Hint: its home overlaps the circle.';
   flyTo(c.lat,c.lon,Math.max(1,Math.min(14,.5/Math.sin(c.km/6371+.03))));animate(500);sfx.hint();track('hint',{mode,round:round+1})};
 let guessToken=0;
 $('go').onclick=async()=>{if(!pin||locked)return;locked=true;const it=items[round];$('go').disabled=true;$('go').textContent='Checking…';sfx.lock();
   let r;try{r=await data.guess(playDay,round,pin,usedHint,it)}catch(e){locked=false;$('go').disabled=false;$('go').textContent='Couldn’t check. Try again';return}
-  const sp=r.sp,d=r.km,score=r.score,tok=++guessToken;target=[sp.lat,sp.lon];tlabel=sp.place.length>40?sp.place.slice(0,38)+'…':sp.place;
-  lineAt=performance.now();animate(LINE_MS+450);
+  const sp=r.sp,d=r.km,score=r.score,tok=++guessToken,near=r.near||[sp.lat,sp.lon];areaShow=r.area||null;target=d>0?near:null;tlabel=sp.place.length>40?sp.place.slice(0,38)+'…':sp.place;
+  lineAt=performance.now();animate(LINE_MS+700);
   /* the payoff lands when the line reaches the real spot */
-  setTimeout(()=>{if(tok!==guessToken)return;const tgt=[sp.lat,sp.lon];sfx.score(score);buzz(score>=90?[18,40,18]:score>=60?14:0);
+  setTimeout(()=>{if(tok!==guessToken)return;const tgt=near;sfx.score(score);buzz(score>=90?[18,40,18]:score>=60?14:0);
     fx.ripple(tgt,score>=90);fx.burst(tgt,score);fx.label(tgt,score>=97?'Bullseye!':'+'+score,score>=60?'#557046':score>=30?'#8a5f14':'#4c5f56');
     countUp($('ptsN'),score,score>=60?700:450,v=>sfx.tick(v));countUp($('mscoreN'),score,score>=60?700:450);dots(results.length-1)},reduce?0:LINE_MS);
   if(it.photo&&sp.photoPage)it.photo.page=sp.photoPage;
-  results.push({i:it._i??null,name:sp.common_name,score,d:Math.round(d),hint:usedHint});
+  results.push({i:it._i??null,name:sp.common_name,score,d:Math.ceil(d),hint:usedHint});
   if(mode==='daily')store.set('ht2-progress',{day:dayNum,results});
   $('acts').style.display='none';$('res').style.display='block';
   /* phones: keep the globe (your pin vs. the real spot) on screen; the story is just above */
   if(narrow()&&!shortLand())requestAnimationFrame(()=>{const r=box.getBoundingClientRect(),bar=$('nextActs').offsetHeight||70;scrollBy({top:r.bottom-(innerHeight-bar-8),behavior:reduce?'auto':'smooth'})});
   $('name').textContent=sp.common_name;$('sci').textContent=sp.scientific_name;
   $('pts').innerHTML=`<span class="num" id="ptsN">${reduce?score:0}</span><small>points${usedHint?', with 20 off for the hint':''}</small>`;
-  lastKm=d;$('dist').textContent=d<1?'Right on it!':`${distTxt(d)} away`;
-  $('mscore').innerHTML=`<span class="num" id="mscoreN">${reduce?score:0}</span> pts<small data-km="${d}">${d<1?'right on it':distTxt(d)+' away'}</small>`;
+  lastKm=d;$('dist').textContent=d<=0?'Inside the area!':`${distTxt(d)} outside the area`;
+  $('mscore').innerHTML=`<span class="num" id="mscoreN">${reduce?score:0}</span> pts<small data-km="${d}">${d<=0?'inside':distTxt(d)+' out'}</small>`;
   $('place').textContent=sp.place;$('why').textContent=sp.why_here;$('fact').textContent=sp.fun_fact;
   $('wiki').href='https://en.wikipedia.org/wiki/'+sp.wiki;$('next').textContent=round===4?'See results':'Next species';
   getPhoto(it).then(ph=>{if(ph)creditLine(ph,true)});
   track('guess',{mode,round:round+1,score,km:Math.round(d),hint:usedHint});
-  const mid=d3.geoInterpolate([pin[1],pin[0]],[sp.lon,sp.lat])(.5),th=d3.geoDistance([pin[1],pin[0]],[sp.lon,sp.lat]);
-  flyTo(mid[1],mid[0],Math.max(1,Math.min(14,0.5/Math.sin(Math.min(th/2+0.03,1.5)))))};
+  /* frame both the pin and the whole area */
+  const bb=d3.geoBounds({type:'GeometryCollection',geometries:[r.area||{type:'Point',coordinates:[sp.lon,sp.lat]},{type:'Point',coordinates:[pin[1],pin[0]]}]}),
+    ctr=d3.geoCentroid({type:'MultiPoint',coordinates:[[bb[0][0],bb[0][1]],[bb[1][0],bb[1][1]]]}),th=Math.max(d3.geoDistance(ctr,bb[0]),d3.geoDistance(ctr,bb[1]),d3.geoDistance(ctr,[pin[1],pin[0]]));
+  flyTo(ctr[1],ctr[0],Math.max(1,Math.min(14,0.5/Math.sin(Math.min(th+0.03,1.5)))))};
 $('next').onclick=()=>{sfx.tap();round++;if(round>=5)finish(true);else show();scrollTo({top:0,behavior:reduce?'auto':'smooth'})};
 const sq=n=>n>=90?'🟩':n>=60?'🟨':n>=30?'🟧':'🟥';
-function finish(live){guessToken++;finished=true;locked=true;round=5;$('card').style.display='none';$('end').style.display='block';pin=null;target=null;
+function finish(live){guessToken++;finished=true;locked=true;round=5;$('card').style.display='none';$('end').style.display='block';pin=null;target=null;areaShow=null;
   const t=results.reduce((a,r)=>a+r.score,0);dots();
   const fancy=live&&!reduce;$('endScore').innerHTML=`<span class="num" id="endN">${fancy?0:t}</span><small> / 500</small>`;$('endTitle').textContent=t>=420?'Field biologist':t>=300?'Seasoned naturalist':t>=180?'Promising explorer':'Lost in the wilderness';
-  $('rows').innerHTML=results.map(r=>{const n=r.name||(SP[r.i]&&SP[r.i].common_name)||'';return `<div class="row${fancy?' rise':''}"${fancy?` style="animation-delay:${.15+results.indexOf(r)*.12}s"`:''}><span class="thumbw"><img class="thumb" alt="${esc(n)}"></span><span><b>${esc(n)}</b><small><span data-km="${r.d}">${distTxt(r.d)}</span> away${r.hint?', hint used':''}</small></span><div class="bar"><i style="width:${fancy?0:r.score}%" data-w="${r.score}"></i></div><span class="n">${r.score}</span></div>`}).join('');
+  $('rows').innerHTML=results.map(r=>{const n=r.name||(SP[r.i]&&SP[r.i].common_name)||'';return `<div class="row${fancy?' rise':''}"${fancy?` style="animation-delay:${.15+results.indexOf(r)*.12}s"`:''}><span class="thumbw"><img class="thumb" alt="${esc(n)}"></span><span><b>${esc(n)}</b><small>${r.d<=0?'Inside':`<span data-km="${r.d}">${distTxt(r.d)}</span> out`}${r.hint?', hint used':''}</small></span><div class="bar"><i style="width:${fancy?0:r.score}%" data-w="${r.score}"></i></div><span class="n">${r.score}</span></div>`}).join('');
   const th=$('rows').querySelectorAll('.thumb');results.forEach((r,i)=>{const it=items[i];if(it)getPhoto(it).then(ph=>{if(ph&&th[i]){th[i].onload=()=>th[i].classList.add('ok');th[i].src=ph.src}})});
   if(fancy){$('endTitle').classList.remove('rise');void $('endTitle').offsetWidth;$('endTitle').classList.add('rise');
     [...$('rows').querySelectorAll('.bar i')].forEach((b,i)=>setTimeout(()=>{b.style.width=b.dataset.w+'%';sfx.row(i)},250+i*120));
@@ -628,8 +662,8 @@ $('lightbox').onclick=e=>{if(e.target===$('lightbox')||e.target===$('lbImg'))$('
 function unitsUI(){$('units').textContent=units;$('units').setAttribute('aria-label','Distances in '+(units==='mi'?'miles':'kilometres')+'. Tap to switch.')}
 unitsUI();
 $('units').onclick=()=>{units=units==='mi'?'km':'mi';try{localStorage.setItem('ht-units',units)}catch(e){}unitsUI();sfx.tap();track('units',{units});
-  if(lastKm!=null&&$('res').style.display==='block')$('dist').textContent=lastKm<1?'Right on it!':`${distTxt(lastKm)} away`;
-  document.querySelectorAll('[data-km]').forEach(el=>{const k=+el.dataset.km;el.textContent=el.tagName==='SMALL'?(k<1?'right on it':distTxt(k)+' away'):distTxt(k)})};
+  if(lastKm!=null&&$('res').style.display==='block')$('dist').textContent=lastKm<=0?'Inside the area!':`${distTxt(lastKm)} outside the area`;
+  document.querySelectorAll('[data-km]').forEach(el=>{const k=+el.dataset.km;el.textContent=el.tagName==='SMALL'?(k<=0?'inside':distTxt(k)+' out'):distTxt(k)})};
 const canSheet=touch&&!!navigator.share;if(canSheet)$('share').textContent='Share result';
 if(touch)$('tip').textContent='Drag to spin, pinch to zoom, and tap to drop your pin.';
 $('share').onclick=async()=>{const t=results.reduce((a,r)=>a+r.score,0);const txt=`HabiTap ${shareTag()} ${t}/500\n${results.map(r=>sq(r.score)).join('')}\n${location.href.split(/[?#]/)[0]}`;

@@ -9,3 +9,4 @@ wrangler.jsonc
 .assetsignore
 .gitignore
 og-source.html
+tools/
