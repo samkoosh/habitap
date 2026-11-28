@@ -71,7 +71,8 @@ header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color
 .photo{position:relative;margin:12px 12px 0;aspect-ratio:4/3;background:var(--photo-bg);display:grid;place-items:center;color:var(--soft);font-size:14px;text-align:center;padding:0 16px;border-radius:12px;overflow:hidden}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
 .photo img.ok{opacity:1}
-.credit{font-size:12px;color:var(--soft);padding:6px 14px 0;min-height:24px;line-height:1.4}
+.credit{font-size:11px;color:var(--soft);padding:6px 14px 0;min-height:22px;line-height:1.4;opacity:.45;transition:opacity .2s}.credit:hover,.credit:focus-within{opacity:1}
+.clue{margin:12px 0 0;padding:9px 12px;border-radius:12px;background:var(--chip);font-size:14px;line-height:1.45;color:var(--ink)}.clue b{color:var(--moss);font-weight:800;margin-right:4px}
 .credit a{color:var(--soft)}
 .body{padding:8px 18px 18px}
 .label{margin:2px 0 0}
@@ -193,10 +194,11 @@ header{position:relative}
   .card:not(.open) .label{grid-column:2;grid-row:1;padding:10px 12px 0}
   .card:not(.open) .hint{grid-column:2;grid-row:2;align-self:start;padding:0 12px;margin-top:4px}
   .card:not(.open) .credit{grid-column:1/-1;grid-row:3}
-  .card:not(.open) .res{grid-column:1/-1;grid-row:4;margin:0;padding:6px 16px 16px}
+  .card:not(.open) .clue{grid-column:1/-1;grid-row:4;margin:2px 12px 10px;font-size:13.5px}
+  .card:not(.open) .res{grid-column:1/-1;grid-row:5;margin:0;padding:6px 16px 16px}
   .card:not(.open) .res .big{font-size:44px}
 }
-@media(orientation:landscape) and (max-height:500px){.card:not(.open) #acts{grid-column:1/-1;grid-row:5;padding:0 12px 12px}}
+@media(orientation:landscape) and (max-height:500px){.card:not(.open) #acts{grid-column:1/-1;grid-row:6;padding:0 12px 12px}}
 </style>
 </head>
 <body>
@@ -215,6 +217,7 @@ header{position:relative}
         <div class="label"><div class="kind" id="kind">Loading…</div>
         <h2 id="name">&nbsp;</h2>
         <div class="sci" id="sci"></div></div>
+        <p class="clue" id="clue" hidden></p>
         <div class="hint" id="hint" hidden></div>
         <div class="acts" id="acts">
           <button class="b" id="hintBtn">Hint (−20 pts)</button>
@@ -480,7 +483,7 @@ const fmt=n=>Math.round(n).toLocaleString();
 const scoreFor=d=>d<=10?100:Math.max(0,Math.ceil(100*Math.pow(Math.max(0,1-d/20015),7)));
 let spLoad=null;
 const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
-const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki}};
+const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki,clue:s.clue||''}};
 const data=API?{
   day:d=>fetch(`${API}/day?d=${d}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   practice:()=>fetch(`${API}/practice`).then(r=>{if(!r.ok)throw 0;return r.json()}),
@@ -511,6 +514,7 @@ async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];i
 function dots(popIdx=-1){$('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
 function show(){const sp=items[round];guessToken++;pin=null;target=null;usedHint=false;locked=false;$('card').classList.remove('open');
   $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
+  $('clue').hidden=!sp.clue;$('clue').innerHTML=sp.clue?'<b>Clue</b>'+esc(sp.clue):'';
   $('hint').hidden=true;$('hint').textContent='Hint: '+sp.region;$('hintBtn').hidden=false;$('hintBtn').disabled=false;
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}

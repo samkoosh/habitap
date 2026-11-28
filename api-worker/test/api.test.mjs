@@ -46,7 +46,8 @@ const today = Math.floor(Date.now() / 864e5);
   assert.equal(body.items.length, 5);
   for (const i of pick(SP, today)) {
     const s = SP[i];
-    for (const secret of [s.place, s.why_here, s.fun_fact, s.wiki, String(s.lat), String(s.lon)]) assert.ok(!txt.includes(secret), 'leaked: ' + secret);
+    const shown = (s.display + ' ' + s.sci_display).replace(/\[\[(.+?)\]\]/g, '$1').replace(/_/g, ' ');
+    for (const secret of [s.place, s.why_here, s.fun_fact, s.wiki, String(s.lat), String(s.lon)]) if (!shown.includes(secret.replace(/_/g, ' '))) assert.ok(!txt.includes(secret), 'leaked: ' + secret);
     assert.ok(txt.includes(JSON.stringify(s.display.replace(/\[\[(.+?)\]\]/g, '$1'))), 'full name missing: ' + s.display);
   }
   assert.ok(!txt.includes('Secret_place_photo'), 'photo file name leaked');

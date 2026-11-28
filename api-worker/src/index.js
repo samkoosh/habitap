@@ -92,7 +92,7 @@ async function dayPack(env, ctx, d, origin) {
   const items = await Promise.all(pick(SP, d).map(async (i, n) => {
     const s = SP[i], ph = await photoInfo(s.wiki, ctx);
     return {
-      kind: s.kind, region: s.region, display: mask(s.display), sci_display: mask(s.sci_display),
+      kind: s.kind, region: s.region, display: mask(s.display), sci_display: mask(s.sci_display), clue: s.clue || '',
       photo: ph ? { src: `${origin}/img/${d}/${n}`, artist: ph.artist, license: ph.license, licUrl: ph.licUrl } : null,
     };
   }));
