@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>HabiTap Photo Check</title>
+<style>
+:root{--ground:#eef3ea;--paper:#fff;--ink:#1d2e28;--soft:#4c5f56;--rule:#dbe3d4;--moss:#557046;--bad:#b4442f;--warn:#a26a12;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--ground:#111915;--paper:#1a2420;--ink:#e6ece5;--soft:#a3b2a8;--rule:#2b3832;--moss:#9cc077;--bad:#e2775f;--warn:#e6bd62;color-scheme:dark}}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1200px;margin:0 auto;padding:16px max(14px,env(safe-area-inset-right)) 40px max(14px,env(safe-area-inset-left))}
+h1{font-size:24px;margin:4px 0}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 16px;position:sticky;top:0;background:var(--ground);padding:8px 0;z-index:2}
+button,select{font:inherit;font-weight:700;min-height:40px;border-radius:999px;border:2px solid var(--rule);background:var(--paper);color:var(--ink);padding:0 14px}
+button.p{background:var(--moss);border-color:var(--moss);color:#fff}
+#status{color:var(--soft);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.c{background:var(--paper);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.c.flag{border:2px solid var(--bad)}
+.c img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--rule);display:block}
+.c .none{aspect-ratio:1;display:grid;place-items:center;color:var(--bad);font-weight:700;background:var(--rule)}
+.c .t{padding:7px 9px 9px;font-size:12px}
+.c .t b{display:block;font-size:13px}
+.c .f{color:var(--soft);word-break:break-all;margin-top:2px}
+.chip{display:inline-block;margin:4px 4px 0 0;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;background:var(--bad);color:#fff}
+textarea{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Photo check</h1>
+  <p id="status">Loading the species list…</p>
+  <div class="bar">
+    <select id="view" aria-label="Which photos to show"><option value="flag">Flagged first</option><option value="only">Flagged only</option><option value="all">All, in list order</option></select>
+    <button class="p" id="copy" disabled>Copy report</button>
+    <span id="copied" aria-live="polite"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+  <textarea id="buf" aria-hidden="true"></textarea>
+</main>
+<script>
+/* Loads every species' photo exactly as the game does (Wikipedia pageimages, free licence only),
+   then reads each file's Commons metadata to flag maps, diagrams, drawings, skulls and specimens. */
+const $=id=>document.getElementById(id);
+const SUSPECT=/\b(map|maps|range|distribution|locator|location|diagram|chart|graph|skull|skeleton|bones?|specimens?|holotype|type specimen|museum|herbarium|preserved|taxiderm|mounted|illustration|drawing|drawn|plate|painting|lithograph|engraving|watercolou?r|artwork|sketch|logo|stamp|coin|banknote|egg|eggs|cladogram|phylogen)\b/i;
+const chunk=(a,n)=>a.reduce((o,x,i)=>(i%n?o[o.length-1].push(x):o.push([x]),o),[]);
+const strip=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim()};
+let rows=[];
+async function api(base,params){const u=base+'?'+new URLSearchParams({format:'json',formatversion:'2',origin:'*',...params});const r=await fetch(u);if(!r.ok)throw new Error(r.status);return r.json()}
+async function run(){
+  const sp=await fetch('species.json').then(r=>r.json());
+  rows=sp.map((s,i)=>({i,name:s.common_name,wiki:s.wiki,title:decodeURIComponent(s.wiki).replace(/_/g,' '),file:null,thumb:null,mime:'',w:0,h:0,cats:'',desc:'',flags:[]}));
+  $('status').textContent=`Finding photos for ${rows.length} species…`;
+  const byTitle={};rows.forEach(r=>{byTitle[r.title]=r});
+  for(const part of chunk(rows,50)){
+    const j=await api('https://en.wikipedia.org/w/api.php',{action:'query',redirects:'1',prop:'pageimages',piprop:'thumbnail|name',pithumbsize:'400',pilicense:'free',titles:part.map(r=>r.title).join('|')});
+    const map={};(j.query.normalized||[]).forEach(n=>map[n.to]=n.from);(j.query.redirects||[]).forEach(n=>map[n.to]=map[n.from]||n.from);
+    for(const pg of j.query.pages||[]){const r=byTitle[pg.title]||byTitle[map[pg.title]]||byTitle[map[map[pg.title]]];if(!r)continue;if(pg.thumbnail){r.thumb=pg.thumbnail.source;r.file=pg.pageimage}}
+  }
+  $('status').textContent='Reading photo details from Wikimedia Commons…';
+  const withFile=rows.filter(r=>r.file);
+  for(const part of chunk(withFile,50)){
+    const j=await api('https://commons.wikimedia.org/w/api.php',{action:'query',prop:'imageinfo',iiprop:'extmetadata|mime|size',iiextmetadatafilter:'ImageDescription|Categories|ObjectName',titles:part.map(r=>'File:'+r.file).join('|')});
+    const byFile={};part.forEach(r=>byFile['File:'+r.file.replace(/_/g,' ')]=r);
+    for(const pg of j.query.pages||[]){const r=byFile[pg.title];const ii=pg.imageinfo&&pg.imageinfo[0];if(!r||!ii)continue;const m=ii.extmetadata||{};
+      r.mime=ii.mime||'';r.w=ii.width||0;r.h=ii.height||0;r.cats=strip(m.Categories&&m.Categories.value).slice(0,300);r.desc=strip(m.ImageDescription&&m.ImageDescription.value).slice(0,240)}
+  }
+  for(const r of rows){
+    if(!r.file){r.flags.push('no photo');continue}
+    const hay=[r.file,r.cats,r.desc].join(' ');const m=hay.match(SUSPECT);if(m)r.flags.push('“'+m[0].toLowerCase()+'”');
+    if(/svg|gif/.test(r.mime)||/\.svg$/i.test(r.file))r.flags.push(r.mime.split('/')[1]||'svg');
+    if(r.w&&r.h&&Math.max(r.w,r.h)<400)r.flags.push('small');
+  }
+  const n=rows.filter(r=>r.flags.length).length;
+  $('status').textContent=`${rows.length} species checked. ${n} flagged for a closer look (shown with a red border).`;
+  $('copy').disabled=false;draw();
+}
+function draw(){const v=$('view').value;let list=rows.slice();if(v!=='all')list.sort((a,b)=>(b.flags.length>0)-(a.flags.length>0)||a.i-b.i);if(v==='only')list=list.filter(r=>r.flags.length);
+  $('grid').replaceChildren(...list.map(r=>{const c=document.createElement('div');c.className='c'+(r.flags.length?' flag':'');
+    if(r.thumb){const im=document.createElement('img');im.loading='lazy';im.alt=r.name;im.src=r.thumb;c.append(im)}else{const d=document.createElement('div');d.className='none';d.textContent='No photo';c.append(d)}
+    const t=document.createElement('div');t.className='t';const b=document.createElement('b');b.textContent=`${r.i}. ${r.name}`;const f=document.createElement('div');f.className='f';f.textContent=r.file||'—';t.append(b,f);
+    r.flags.forEach(x=>{const s=document.createElement('span');s.className='chip';s.textContent=x;t.append(s)});c.append(t);return c}))}
+$('view').onchange=draw;
+$('copy').onclick=async()=>{const rep=rows.map(r=>r.flags.length?{i:r.i,name:r.name,file:r.file,mime:r.mime,size:r.w?`${r.w}x${r.h}`:'',flags:r.flags,desc:r.desc.slice(0,140),cats:r.cats.slice(0,160)}:[r.i,r.file]);
+  const txt='HABITAP PHOTO REPORT\n'+JSON.stringify(rep);
+  try{await navigator.clipboard.writeText(txt);$('copied').textContent='Copied. Paste it into the chat.'}catch(e){const t=$('buf');t.value=txt;t.select();try{document.execCommand('copy');$('copied').textContent='Copied. Paste it into the chat.'}catch(e2){$('copied').textContent='Couldn’t copy automatically.'}}};
+run().catch(e=>{$('status').textContent='Couldn’t load the photos: '+e.message+'. Check your connection and reload.'});
+</script>
+</body>
+</html>
