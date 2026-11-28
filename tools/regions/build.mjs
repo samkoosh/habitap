@@ -36,8 +36,8 @@ const centroidIn = (f, bb) => {
 };
 
 const fixed = f => rewind(f.geometry);
-async function shape(features, pct, rawKm2) {
-  const isl = Math.max(30, Math.round(rawKm2 * 0.004)), sliv = Math.max(10, Math.round(rawKm2 * 0.001));
+async function shape(features, pct, rawKm2, loose) {
+  const isl = Math.max(30, Math.round(rawKm2 * (loose ? 0.0008 : 0.004))), sliv = Math.max(10, Math.round(rawKm2 * 0.001));
   const input = { 'in.json': { type: 'FeatureCollection', features: features.map(f => ({ type: 'Feature', properties: {}, geometry: f.geometry })) } };
   const out = await mapshaper.applyCommands(
     `-i in.json -dissolve2 -simplify ${pct}% keep-shapes -filter-slivers min-area=${sliv}km2 -filter-islands min-area=${isl}km2 remove-empty -o out.json format=geojson precision=0.01`, input);
@@ -47,20 +47,21 @@ async function shape(features, pct, rawKm2) {
   return rewind({ type: 'MultiPolygon', coordinates: polys });
 }
 const size = g => JSON.stringify(g).length;
-async function fit(feats) {
+async function fit(feats, loose) {
   const raw = feats.reduce((a, f) => a + km2(fixed(f)), 0);
-  let pct = 40, g = await shape(feats, pct, raw);
-  while (size(g) > 3500 && pct > 0.5) { pct /= 1.5; g = await shape(feats, pct, raw); }
+  const max = loose ? 7000 : 3500;
+  let pct = 40, g = await shape(feats, pct, raw, loose);
+  while (size(g) > max && pct > 0.3) { pct /= 1.5; g = await shape(feats, pct, raw, loose); }
   return g;
 }
 const pickFields = s => ({ common_name: s.common_name, scientific_name: s.scientific_name, kind: s.kind, wiki: s.wiki, place: s.place,
-  why_here: s.why_here, fun_fact: s.fun_fact, clue: s.clue, ...(s.pic ? { pic: s.pic } : {}) });
+  why_here: s.why_here, fun_fact: s.fun_fact, clue: s.clue, ...(s.pic ? { pic: s.pic } : {}), ...(s.famous ? { famous: true } : {}) });
 
 const rows = [];
 for (const s of fresh) {
   const feats = s.eco.names ? eco.filter(f => s.eco.names.includes(f.properties.ECO_NAME))
     : eco.filter(f => f.properties.REALM === s.eco.realm && centroidIn(f, s.eco.bbox));
-  const g = await fit(feats);
+  const g = await fit(feats, s.famous && feats.length > 1);
   rows.push({ ...pickFields(s), shape: g, area_km2: km2(g), src: 'eco', eco: feats.map(f => f.properties.ECO_NAME) });
 }
 
@@ -80,8 +81,15 @@ for (const [i, s] of old.entries()) {
 // Tiers by area, biggest first.
 const tierOf = a => a >= 1e6 ? 1 : a >= 1.1e5 ? 2 : a >= 2e4 ? 3 : a >= 2500 ? 4 : 5;
 rows.forEach(r => r.tier = tierOf(r.area_km2));
+// Household names that already sit in the pool; with the icons batch they make up the round 1 warm-up.
+const FAMOUS = new Set(['Emu', 'Fennec fox', 'Koala', 'Meerkat', 'Red kangaroo', 'Laughing kookaburra', 'Indian peafowl', 'American bison',
+  'American alligator', 'Greater roadrunner', 'Toco toucan', 'Canada lynx', 'Amazon river dolphin', 'Frilled lizard', 'Black-tailed prairie dog',
+  'Sugar maple', 'Grey parrot', 'Springbok', 'Wild yak', 'Central bearded dragon']);
+rows.forEach(r => { if (FAMOUS.has(r.common_name)) r.famous = true; });
+// Rounds: 1 warm-up (famous, area ≥1M km²), 2 other huge and big areas, 3 medium, 4 small, 5 tiny.
+rows.forEach(r => r.round = r.famous && r.area_km2 >= 1e6 ? 1 : r.tier <= 2 ? 2 : r.tier);
 for (const r of rows) if (r.shape && geoArea(r.shape) > 2 * Math.PI) throw new Error('bad winding ' + r.common_name);
 fs.writeFileSync(outPath, JSON.stringify(rows) + '\n');
-const by = {}; rows.forEach(r => (by[r.tier] = by[r.tier] || []).push(r));
-for (const t of Object.keys(by)) console.log('T' + t, by[t].length, t < 5 ? by[t].map(r => `${r.common_name} ${Math.round(r.area_km2 / 1000)}k ${size(r.shape)}b`).join(', ') : '');
+const by = {}; rows.forEach(r => (by[r.round] = by[r.round] || []).push(r));
+for (const t of Object.keys(by)) console.log('Round ' + t, by[t].length);
 console.log('bytes', fs.statSync(outPath).size);

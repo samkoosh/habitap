@@ -1,0 +1,1039 @@
+[
+ {
+  "common_name": "Lion",
+  "scientific_name": "Panthera leo",
+  "kind": "Mammal",
+  "wiki": "Lion",
+  "place": "Africa's savannas",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Serengeti volcanic grasslands",
+    "Masai xeric grasslands and shrublands",
+    "Dry miombo woodlands",
+    "Central Zambezian wet miombo woodlands",
+    "Zambezian mopane woodlands",
+    "Zambezian Baikiaea woodlands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld",
+    "Kalahari Acacia woodlands",
+    "Kalahari xeric savanna"
+   ]
+  },
+  "why_here": "Lions need open grassland and woodland full of grazing animals, and the savannas of East and southern Africa hold the biggest herds.",
+  "fun_fact": "A lion's roar can be heard up to about 8 kilometers away.",
+  "clue": "The only big cat that lives in family groups, called prides."
+ },
+ {
+  "common_name": "Giraffe",
+  "scientific_name": "Giraffa camelopardalis",
+  "kind": "Mammal",
+  "wiki": "Giraffe",
+  "place": "Africa's savannas",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Serengeti volcanic grasslands",
+    "Masai xeric grasslands and shrublands",
+    "Zambezian mopane woodlands",
+    "Zambezian Baikiaea woodlands",
+    "Kalahari Acacia woodlands",
+    "Namibian savanna woodlands",
+    "Angolan mopane woodlands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld",
+    "Central bushveld"
+   ]
+  },
+  "why_here": "Giraffes browse the tops of acacia and other trees scattered across the open bushlands of East and southern Africa.",
+  "fun_fact": "A giraffe has seven neck bones, the same number as a human.",
+  "clue": "The tallest animal alive, with a dark tongue about half a meter long."
+ },
+ {
+  "common_name": "Plains zebra",
+  "scientific_name": "Equus quagga",
+  "kind": "Mammal",
+  "wiki": "Plains_zebra",
+  "place": "East and southern Africa's grasslands",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Serengeti volcanic grasslands",
+    "Masai xeric grasslands and shrublands",
+    "Dry miombo woodlands",
+    "Central Zambezian wet miombo woodlands",
+    "Zambezian mopane woodlands",
+    "Zambezian Baikiaea woodlands",
+    "Zambezian flooded grasslands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld",
+    "Central bushveld",
+    "Kalahari Acacia woodlands"
+   ]
+  },
+  "why_here": "Plains zebras graze tough grasses and need water nearby, which the grasslands and woodlands from Kenya to South Africa provide.",
+  "fun_fact": "No two zebras have exactly the same pattern of stripes.",
+  "clue": "A wild horse in black and white stripes, every coat one of a kind."
+ },
+ {
+  "common_name": "African bush elephant",
+  "scientific_name": "Loxodonta africana",
+  "kind": "Mammal",
+  "wiki": "African_bush_elephant",
+  "place": "Africa's savannas and woodlands",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Serengeti volcanic grasslands",
+    "Dry miombo woodlands",
+    "Central Zambezian wet miombo woodlands",
+    "Zambezian mopane woodlands",
+    "Zambezian Baikiaea woodlands",
+    "Angolan mopane woodlands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld"
+   ]
+  },
+  "why_here": "Elephants roam the woodlands and bushlands of East and southern Africa, with the largest herds in Botswana, Zimbabwe, Tanzania and Kenya.",
+  "fun_fact": "It is the largest land animal on Earth, and an adult can eat over 100 kilograms of plants a day.",
+  "clue": "The heaviest land animal, it uses its trunk to smell, drink, and say hello."
+ },
+ {
+  "common_name": "Hippopotamus",
+  "scientific_name": "Hippopotamus amphibius",
+  "kind": "Mammal",
+  "wiki": "Hippopotamus",
+  "place": "Africa's rivers and lakes",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Victoria Basin forest-savanna",
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Dry miombo woodlands",
+    "Central Zambezian wet miombo woodlands",
+    "Zambezian flooded grasslands",
+    "Zambezian mopane woodlands",
+    "Zambezian Baikiaea woodlands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld",
+    "Sudd flooded grasslands",
+    "East Sudanian savanna"
+   ]
+  },
+  "why_here": "Hippos spend the day in rivers and lakes and come out at night to graze, so they live where water meets grassland, from the Nile swamps to the Zambezi.",
+  "fun_fact": "Hippos cannot really swim; they walk or bounce along the bottom of rivers.",
+  "clue": "A huge animal that hides in water all day and comes out at night to eat grass."
+ },
+ {
+  "common_name": "Chimpanzee",
+  "scientific_name": "Pan troglodytes",
+  "kind": "Mammal",
+  "wiki": "Chimpanzee",
+  "place": "Central and West Africa's forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northwest Congolian lowland forests",
+    "Northeast Congolian lowland forests",
+    "Albertine Rift montane forests",
+    "Congolian coastal forests",
+    "Cross-Sanaga-Bioko coastal forests",
+    "Western Congolian swamp forests",
+    "Western Guinean lowland forests",
+    "Eastern Guinean forests"
+   ]
+  },
+  "why_here": "Chimps live in the forests of central and West Africa, mostly north of the Congo River, where fruit trees grow all year.",
+  "fun_fact": "Chimpanzees make and use tools, such as stripping twigs to fish termites out of mounds.",
+  "clue": "Our closest living relative, along with the bonobo. It fishes for termites with twigs."
+ },
+ {
+  "common_name": "Cheetah",
+  "scientific_name": "Acinonyx jubatus",
+  "kind": "Mammal",
+  "wiki": "Cheetah",
+  "place": "Africa's open plains",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Serengeti volcanic grasslands",
+    "Masai xeric grasslands and shrublands",
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Kalahari xeric savanna",
+    "Kalahari Acacia woodlands",
+    "Namibian savanna woodlands",
+    "Zambezian Baikiaea woodlands",
+    "Zambezian mopane woodlands",
+    "Central bushveld",
+    "Zambezian-Limpopo mixed woodlands"
+   ]
+  },
+  "why_here": "Cheetahs hunt by sprinting, so they need wide open ground, and most of the world's wild cheetahs live in Namibia, Botswana, Kenya and Tanzania.",
+  "fun_fact": "A cheetah can go from standstill to about 100 km/h in around three seconds.",
+  "clue": "The fastest land animal, with black tear marks running down its face."
+ },
+ {
+  "common_name": "Common ostrich",
+  "scientific_name": "Struthio camelus",
+  "kind": "Bird",
+  "wiki": "Common_ostrich",
+  "place": "East and southern Africa's open country",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Kalahari xeric savanna",
+    "Nama Karoo shrublands",
+    "Gariep Karoo",
+    "Namibian savanna woodlands",
+    "Kalahari Acacia woodlands",
+    "Masai xeric grasslands and shrublands",
+    "Serengeti volcanic grasslands",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Northern Acacia-Commiphora bushlands and thickets"
+   ]
+  },
+  "why_here": "Ostriches roam dry, open plains where they can see danger coming and outrun it, from the Kalahari and Karoo to the plains of Kenya and Tanzania.",
+  "fun_fact": "Its eye is bigger than its brain.",
+  "clue": "The biggest bird in the world. It cannot fly but can run about 70 km/h."
+ },
+ {
+  "common_name": "Blue wildebeest",
+  "scientific_name": "Connochaetes taurinus",
+  "kind": "Mammal",
+  "wiki": "Blue_wildebeest",
+  "place": "East and southern Africa's grasslands",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Serengeti volcanic grasslands",
+    "Masai xeric grasslands and shrublands",
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Dry miombo woodlands",
+    "Zambezian flooded grasslands",
+    "Zambezian Baikiaea woodlands",
+    "Zambezian mopane woodlands",
+    "Kalahari Acacia woodlands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld",
+    "Central bushveld"
+   ]
+  },
+  "why_here": "Wildebeest follow the rains to fresh short grass, most famously in the Serengeti and Masai Mara.",
+  "fun_fact": "Calves can stand and run within minutes of being born.",
+  "clue": "Over a million of these gnus march in a giant loop each year, chasing fresh grass."
+ },
+ {
+  "common_name": "Baobab",
+  "scientific_name": "Adansonia digitata",
+  "kind": "Plant",
+  "wiki": "Adansonia_digitata",
+  "place": "East and southern Africa's dry savannas",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Acacia-Commiphora bushlands and thickets",
+    "Southern Acacia-Commiphora bushlands and thickets",
+    "Dry miombo woodlands",
+    "Zambezian mopane woodlands",
+    "Zambezian-Limpopo mixed woodlands",
+    "Limpopo lowveld",
+    "Angolan mopane woodlands"
+   ]
+  },
+  "why_here": "Baobabs grow in hot, seasonally dry savannas, storing water in their trunks to get through the long dry season.",
+  "fun_fact": "Some baobabs have been dated at over 1,000 years old.",
+  "clue": "A tree with a fat, water-storing trunk that looks like it was planted upside down."
+ },
+ {
+  "common_name": "Asian elephant",
+  "scientific_name": "Elephas maximus",
+  "kind": "Mammal",
+  "wiki": "Asian_elephant",
+  "place": "South and Southeast Asia's forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "East Deccan moist deciduous forests",
+    "Chhota-Nagpur dry deciduous forests",
+    "South Deccan Plateau dry deciduous forests",
+    "South Western Ghats moist deciduous forests",
+    "Terai-Duar savanna and grasslands",
+    "Brahmaputra Valley semi-evergreen forests",
+    "Meghalaya subtropical forests",
+    "Himalayan subtropical broadleaf forests",
+    "Mizoram-Manipur-Kachin rain forests",
+    "Irrawaddy moist deciduous forests",
+    "Kayah-Karen montane rain forests",
+    "Tenasserim-South Thailand semi-evergreen rain forests",
+    "Central Indochina dry forests",
+    "Northern Indochina subtropical forests",
+    "Northern Thailand-Laos moist deciduous forests",
+    "Cardamom Mountains rain forests",
+    "Southern Annamites montane rain forests",
+    "Peninsular Malaysian rain forests",
+    "Northern Annamites rain forests",
+    "Southeast Indochina dry evergreen forests",
+    "Northern Triangle subtropical forests"
+   ]
+  },
+  "why_here": "Asian elephants need big forests with grass and water, found in India's hills and the forests of Myanmar, Thailand and the rest of Southeast Asia.",
+  "fun_fact": "Unlike African elephants, usually only some Asian elephant males grow tusks.",
+  "clue": "Smaller-eared than its cousins, it has worked alongside people for thousands of years."
+ },
+ {
+  "common_name": "Snow leopard",
+  "scientific_name": "Panthera uncia",
+  "kind": "Mammal",
+  "wiki": "Snow_leopard",
+  "place": "Central Asia's high mountains",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Tian Shan montane steppe and meadows",
+    "Alai-Western Tian Shan steppe",
+    "Pamir alpine desert and tundra",
+    "Karakoram-West Tibetan Plateau alpine steppe",
+    "Western Himalayan alpine shrub and meadows",
+    "Eastern Himalayan alpine shrub and meadows",
+    "Qilian Mountains subalpine meadows",
+    "Tibetan Plateau alpine shrublands and meadows",
+    "Southeast Tibet shrublands and meadows",
+    "North Tibetan Plateau-Kunlun Mountains alpine desert",
+    "Hindu Kush alpine meadow",
+    "Central Tibetan Plateau alpine steppe"
+   ]
+  },
+  "why_here": "Snow leopards hunt wild sheep and goats on steep, rocky slopes high in the Himalaya, Tibet, the Pamirs and the Tian Shan.",
+  "fun_fact": "It wraps its long, thick tail around its face like a scarf to keep warm.",
+  "clue": "A smoky-gray big cat of high cliffs that cannot roar and uses its tail as a scarf."
+ },
+ {
+  "common_name": "King cobra",
+  "scientific_name": "Ophiophagus hannah",
+  "kind": "Reptile",
+  "wiki": "King_cobra",
+  "place": "Southeast Asia's forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Indochina subtropical forests",
+    "Central Indochina dry forests",
+    "Southeast Indochina dry evergreen forests",
+    "Tenasserim-South Thailand semi-evergreen rain forests",
+    "Peninsular Malaysian rain forests",
+    "Kayah-Karen montane rain forests",
+    "Irrawaddy moist deciduous forests",
+    "Mizoram-Manipur-Kachin rain forests",
+    "Northern Thailand-Laos moist deciduous forests",
+    "Cardamom Mountains rain forests",
+    "Southern Annamites montane rain forests",
+    "Brahmaputra Valley semi-evergreen forests",
+    "Northern Annamites rain forests"
+   ]
+  },
+  "why_here": "King cobras hunt other snakes in the warm, wet forests of mainland Southeast Asia and northeast India.",
+  "fun_fact": "It is the only snake known to build a nest for its eggs.",
+  "clue": "The world's longest venomous snake. It mostly eats other snakes."
+ },
+ {
+  "common_name": "Bactrian camel",
+  "scientific_name": "Camelus bactrianus",
+  "kind": "Mammal",
+  "wiki": "Bactrian_camel",
+  "place": "The Gobi",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Eastern Gobi desert steppe",
+    "Alashan Plateau semi-desert",
+    "Gobi Lakes Valley desert steppe",
+    "Great Lakes Basin desert steppe",
+    "Junggar Basin semi-desert"
+   ]
+  },
+  "why_here": "Bactrian camels handle the Gobi's scorching summers and freezing winters, and herders across Mongolia and northern China still raise them.",
+  "fun_fact": "Its humps store fat, not water.",
+  "clue": "Two humps, a shaggy winter coat, and it can drink about 100 liters in minutes."
+ },
+ {
+  "common_name": "Dromedary",
+  "scientific_name": "Camelus dromedarius",
+  "kind": "Mammal",
+  "wiki": "Dromedary",
+  "place": "The Arabian Peninsula",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Arabian desert",
+    "Arabian sand desert",
+    "North Arabian desert",
+    "South Arabian plains and plateau desert",
+    "Red Sea-Arabian Desert shrublands"
+   ]
+  },
+  "why_here": "Dromedaries were first tamed in Arabia, and they are still part of life across its sandy and stony deserts.",
+  "fun_fact": "It can lose about a quarter of its body water and still be fine.",
+  "clue": "The one-humped camel, with bushy eyelashes and nostrils it can close against sand."
+ },
+ {
+  "common_name": "Reindeer",
+  "scientific_name": "Rangifer tarandus",
+  "kind": "Mammal",
+  "wiki": "Reindeer",
+  "place": "The Arctic tundra",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Taimyr-Central Siberian tundra",
+    "Yamal-Gydan tundra",
+    "Northwest Russian-Novaya Zemlya tundra",
+    "Northeast Siberian coastal tundra",
+    "Kola Peninsula tundra",
+    "Scandinavian Montane Birch forest and grasslands",
+    "Chukchi Peninsula tundra",
+    "Russian Bering tundra",
+    "Canadian Low Arctic tundra",
+    "Canadian Middle Arctic Tundra",
+    "Arctic coastal tundra",
+    "Arctic foothills tundra",
+    "Beringia lowland tundra"
+   ]
+  },
+  "why_here": "Reindeer, called caribou in North America, graze lichen on the cold, treeless tundra all around the Arctic, and many are herded by peoples such as the Sámi and Nenets.",
+  "fun_fact": "It is the only deer where both males and females grow antlers.",
+  "clue": "The only deer where females grow antlers too. Some pull sleighs for herders."
+ },
+ {
+  "common_name": "European hedgehog",
+  "scientific_name": "Erinaceus europaeus",
+  "kind": "Mammal",
+  "wiki": "European_hedgehog",
+  "place": "Western Europe",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Western European broadleaf forests",
+    "European Atlantic mixed forests",
+    "Celtic broadleaf forests",
+    "Baltic mixed forests",
+    "Cantabrian mixed forests",
+    "Northeast Spain and Southern France Mediterranean forests",
+    "Alps conifer and mixed forests",
+    "Iberian sclerophyllous and semi-deciduous forests"
+   ]
+  },
+  "why_here": "Hedgehogs like hedges, woodland edges and gardens full of beetles and worms, which are common across western Europe and Britain.",
+  "fun_fact": "An adult hedgehog has around 5,000 to 7,000 spines.",
+  "clue": "A small night-time garden visitor that rolls into a spiky ball when scared."
+ },
+ {
+  "common_name": "White stork",
+  "scientific_name": "Ciconia ciconia",
+  "kind": "Bird",
+  "wiki": "White_stork",
+  "place": "Europe's farmland",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Iberian sclerophyllous and semi-deciduous forests",
+    "Western European broadleaf forests",
+    "Central European mixed forests",
+    "Pannonian mixed forests",
+    "Balkan mixed forests",
+    "Baltic mixed forests",
+    "East European forest steppe",
+    "Sarmatic mixed forests"
+   ]
+  },
+  "why_here": "White storks nest on rooftops and poles in farm country across Europe, with big numbers in Spain, Poland and the Baltic states.",
+  "fun_fact": "Storks have no voice box, so they greet each other by clattering their bills.",
+  "clue": "A tall white bird that nests on chimneys and is said to deliver babies."
+ },
+ {
+  "common_name": "Eurasian red squirrel",
+  "scientific_name": "Sciurus vulgaris",
+  "kind": "Mammal",
+  "wiki": "Red_squirrel",
+  "place": "Europe and northern Asia's forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Scandinavian and Russian taiga",
+    "Sarmatic mixed forests",
+    "Central European mixed forests",
+    "Western European broadleaf forests",
+    "West Siberian taiga",
+    "Alps conifer and mixed forests",
+    "Carpathian montane forests"
+   ]
+  },
+  "why_here": "Red squirrels live in conifer and mixed forests where they can feed on pine and spruce seeds, from Spain and Britain across to Siberia.",
+  "fun_fact": "It buries food in many hidden stores and forgets some, which helps new trees grow.",
+  "clue": "A rusty-orange tree climber with tufted ears that grow longer in winter."
+ },
+ {
+  "common_name": "Pedunculate oak",
+  "scientific_name": "Quercus robur",
+  "kind": "Plant",
+  "wiki": "Quercus_robur",
+  "place": "Europe's lowland forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Western European broadleaf forests",
+    "Central European mixed forests",
+    "European Atlantic mixed forests",
+    "Celtic broadleaf forests",
+    "East European forest steppe",
+    "Pannonian mixed forests",
+    "Baltic mixed forests",
+    "Balkan mixed forests"
+   ]
+  },
+  "why_here": "This oak grows in deep, damp lowland soils across most of Europe, from Ireland and France to Ukraine.",
+  "fun_fact": "A single old oak can support hundreds of kinds of insects.",
+  "clue": "Its acorns dangle on long stalks, and its leaves have little ear-like lobes at the base."
+ },
+ {
+  "common_name": "Red deer",
+  "scientific_name": "Cervus elaphus",
+  "kind": "Mammal",
+  "wiki": "Red_deer",
+  "place": "Europe's forests and hills",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Western European broadleaf forests",
+    "Central European mixed forests",
+    "Celtic broadleaf forests",
+    "Alps conifer and mixed forests",
+    "Carpathian montane forests",
+    "Pannonian mixed forests",
+    "Balkan mixed forests",
+    "Iberian sclerophyllous and semi-deciduous forests",
+    "Baltic mixed forests"
+   ]
+  },
+  "why_here": "Red deer live in woods, moors and hills across Europe, from the Scottish Highlands and Spain to the Carpathians.",
+  "fun_fact": "A stag grows a new set of antlers every year.",
+  "clue": "In autumn the stags roar and clash antlers to win mates."
+ },
+ {
+  "common_name": "Polar bear",
+  "scientific_name": "Ursus maritimus",
+  "kind": "Mammal",
+  "wiki": "Polar_bear",
+  "place": "The Arctic coasts",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Canadian Low Arctic tundra",
+    "Canadian Middle Arctic Tundra",
+    "Arctic coastal tundra",
+    "Southern Hudson Bay taiga",
+    "Canadian High Arctic tundra",
+    "Kalaallit Nunaat High Arctic tundra",
+    "Kalaallit Nunaat Arctic steppe",
+    "Russian Arctic desert",
+    "Northeast Siberian coastal tundra",
+    "Wrangel Island Arctic desert",
+    "Novosibirsk Islands Arctic desert",
+    "Chukchi Peninsula tundra"
+   ]
+  },
+  "why_here": "Polar bears hunt seals on the sea ice and rest and den on the cold coasts and islands around the Arctic Ocean, and about two thirds of them live in Canada.",
+  "fun_fact": "Its fur looks white, but its skin underneath is black.",
+  "clue": "The largest land meat-eater. It hunts seals from floating ice."
+ },
+ {
+  "common_name": "Grizzly bear",
+  "scientific_name": "Ursus arctos horribilis",
+  "kind": "Mammal",
+  "wiki": "Grizzly_bear",
+  "place": "Western Canada and Alaska",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Interior Alaska-Yukon lowland taiga",
+    "Alaska-St. Elias Range tundra",
+    "Brooks-British Range tundra",
+    "Ogilvie-MacKenzie alpine tundra",
+    "Interior Yukon-Alaska alpine tundra",
+    "Northern Cordillera forests",
+    "Northern Rockies conifer forests",
+    "Alberta-British Columbia foothills forests",
+    "Central British Columbia Mountain forests",
+    "Arctic foothills tundra"
+   ]
+  },
+  "why_here": "Grizzlies need big wild country with berries, roots and salmon, which is why most live in Alaska, the Yukon, British Columbia and the northern Rockies.",
+  "fun_fact": "In late summer some grizzlies eat up to about 40,000 moths a day to fatten up for winter.",
+  "clue": "A brown bear with a big shoulder hump and long claws for digging."
+ },
+ {
+  "common_name": "Moose",
+  "scientific_name": "Alces alces",
+  "kind": "Mammal",
+  "wiki": "Moose",
+  "place": "North America's northern forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Mid-Canada Boreal Plains forests",
+    "Midwest Canadian Shield forests",
+    "Central Canadian Shield forests",
+    "Eastern Canadian forests",
+    "Eastern Canadian Forest-Boreal transition",
+    "Interior Alaska-Yukon lowland taiga",
+    "Northern Cordillera forests",
+    "Muskwa-Slave Lake taiga",
+    "Northwest Territories taiga",
+    "New England-Acadian forests"
+   ]
+  },
+  "why_here": "Moose browse willows and water plants in the cold northern forests and wetlands that stretch from Alaska across Canada to Maine.",
+  "fun_fact": "Moose are strong swimmers and can dive to eat plants from lake bottoms.",
+  "clue": "The biggest deer on Earth, with wide flat antlers and a flap of skin under its chin."
+ },
+ {
+  "common_name": "Bald eagle",
+  "scientific_name": "Haliaeetus leucocephalus",
+  "kind": "Bird",
+  "wiki": "Bald_eagle",
+  "place": "Alaska, Canada and the Great Lakes",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Pacific Alaskan coastal forests",
+    "British Columbia coastal conifer forests",
+    "Central British Columbia Mountain forests",
+    "Interior Alaska-Yukon lowland taiga",
+    "Northern Cordillera forests",
+    "Mid-Canada Boreal Plains forests",
+    "Midwest Canadian Shield forests",
+    "Western Great Lakes forests",
+    "Central Canadian Shield forests",
+    "Muskwa-Slave Lake taiga"
+   ]
+  },
+  "why_here": "Bald eagles catch fish, so they nest near coasts, rivers and lakes, and the biggest numbers live in Alaska, British Columbia and the lake country of Canada and the northern US.",
+  "fun_fact": "Its nest can weigh over a ton after years of being added to.",
+  "clue": "A national bird that isn't bald: its white head feathers just look that way from afar."
+ },
+ {
+  "common_name": "Raccoon",
+  "scientific_name": "Procyon lotor",
+  "kind": "Mammal",
+  "wiki": "Raccoon",
+  "place": "The eastern United States",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Appalachian mixed mesophytic forests",
+    "Appalachian-Blue Ridge forests",
+    "Appalachian Piedmont forests",
+    "Southeast US conifer savannas",
+    "Mississippi lowland forests",
+    "Central US forest-grasslands transition",
+    "Southern Great Lakes forests",
+    "Eastern Great Lakes lowland forests",
+    "Interior Plateau US Hardwood Forests",
+    "Ozark Highlands mixed forests",
+    "Central Tallgrass prairie",
+    "Piney Woods",
+    "Northeast US Coastal forests",
+    "Allegheny Highlands forests"
+   ]
+  },
+  "why_here": "Raccoons thrive in woods near water and in towns, and they are especially common in the forests and farmland of the eastern and central US.",
+  "fun_fact": "Its front paws are so sensitive that it often feels for food underwater instead of looking.",
+  "clue": "A masked, ring-tailed night raider famous for opening trash cans."
+ },
+ {
+  "common_name": "North American beaver",
+  "scientific_name": "Castor canadensis",
+  "kind": "Mammal",
+  "wiki": "North_American_beaver",
+  "place": "Canada's forests",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Eastern Canadian forests",
+    "New England-Acadian forests",
+    "Eastern Canadian Forest-Boreal transition",
+    "Central Canadian Shield forests",
+    "Midwest Canadian Shield forests",
+    "Western Great Lakes forests",
+    "Mid-Canada Boreal Plains forests",
+    "Canadian Aspen forests and parklands"
+   ]
+  },
+  "why_here": "Beavers need streams and plenty of aspen, willow and birch to eat and build with, which the forests of Canada and the northern US have in abundance.",
+  "fun_fact": "Its front teeth are orange because they contain iron, which makes them tougher.",
+  "clue": "A flat-tailed builder that dams streams to make its own ponds."
+ },
+ {
+  "common_name": "Pronghorn",
+  "scientific_name": "Antilocapra americana",
+  "kind": "Mammal",
+  "wiki": "Pronghorn",
+  "place": "The Great Plains and Great Basin",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Shortgrass prairie",
+    "Western shortgrass prairie",
+    "Wyoming Basin shrub steppe",
+    "Great Basin shrub steppe",
+    "Montana Valley and Foothill grasslands",
+    "Colorado Plateau shrublands"
+   ]
+  },
+  "why_here": "Pronghorn need wide open grass and sagebrush country where speed keeps them safe, with Wyoming at the heart of their range.",
+  "fun_fact": "It is the fastest land animal in its part of the world, able to run around 90 km/h.",
+  "clue": "Not a true antelope, yet it can outrun almost anything over long distances."
+ },
+ {
+  "common_name": "Wild turkey",
+  "scientific_name": "Meleagris gallopavo",
+  "kind": "Bird",
+  "wiki": "Wild_turkey",
+  "place": "The eastern United States",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Appalachian mixed mesophytic forests",
+    "Appalachian-Blue Ridge forests",
+    "Appalachian Piedmont forests",
+    "Southeast US conifer savannas",
+    "Mississippi lowland forests",
+    "Central US forest-grasslands transition",
+    "Interior Plateau US Hardwood Forests",
+    "Ozark Highlands mixed forests",
+    "Ozark Mountain forests",
+    "Southern Great Lakes forests",
+    "Piney Woods",
+    "Cross-Timbers savanna-woodland",
+    "Allegheny Highlands forests"
+   ]
+  },
+  "why_here": "Wild turkeys feed on acorns, nuts and seeds in the oak forests and clearings of the eastern and central US.",
+  "fun_fact": "Wild turkeys can fly short bursts at around 80 km/h and roost in trees at night.",
+  "clue": "A big bird with a bare head that changes color when it gets excited. Gobble gobble."
+ },
+ {
+  "common_name": "Coyote",
+  "scientific_name": "Canis latrans",
+  "kind": "Mammal",
+  "wiki": "Coyote",
+  "place": "The western United States",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Northern Shortgrass prairie",
+    "Western shortgrass prairie",
+    "Central-Southern US mixed grasslands",
+    "Great Basin shrub steppe",
+    "Colorado Plateau shrublands",
+    "Wyoming Basin shrub steppe",
+    "Chihuahuan desert",
+    "Sonoran desert",
+    "Mojave desert",
+    "Snake-Columbia shrub steppe"
+   ]
+  },
+  "why_here": "Coyotes do well in open plains and dry scrub, and the West's grasslands and deserts are their original heartland.",
+  "fun_fact": "Coyotes have spread so widely that they now live in big cities like Los Angeles and Chicago.",
+  "clue": "A wild dog famous for its night-time yips and howls, and for chasing a roadrunner."
+ },
+ {
+  "common_name": "Monarch butterfly",
+  "scientific_name": "Danaus plexippus",
+  "kind": "Insect",
+  "wiki": "Monarch_butterfly",
+  "place": "The central and eastern United States",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Central Tallgrass prairie",
+    "Upper Midwest US forest-savanna transition",
+    "Southern Great Lakes forests",
+    "Eastern Great Lakes lowland forests",
+    "Central US forest-grasslands transition",
+    "Appalachian mixed mesophytic forests",
+    "Interior Plateau US Hardwood Forests",
+    "Central-Southern US mixed grasslands",
+    "Northern Tallgrass prairie",
+    "Western Great Lakes forests"
+   ]
+  },
+  "why_here": "Monarch caterpillars eat only milkweed, which grows across the prairies and farm country of the US Midwest and East where monarchs breed each summer.",
+  "fun_fact": "Eastern monarchs fly up to about 4,000 km to spend winter in the mountains of central Mexico.",
+  "clue": "An orange and black butterfly that flies thousands of km south each autumn."
+ },
+ {
+  "common_name": "Jaguar",
+  "scientific_name": "Panthera onca",
+  "kind": "Mammal",
+  "wiki": "Jaguar",
+  "place": "The Amazon and Pantanal",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Southwest Amazon moist forests",
+    "Madeira-Tapajós moist forests",
+    "Tapajós-Xingu moist forests",
+    "Uatumã-Trombetas moist forests",
+    "Guianan lowland moist forests",
+    "Napo moist forests",
+    "Japurá-Solimões-Negro moist forests",
+    "Juruá-Purus moist forests",
+    "Purus-Madeira moist forests",
+    "Negro-Branco moist forests",
+    "Solimões-Japurá moist forests",
+    "Mato Grosso tropical dry forests",
+    "Pantanal"
+   ]
+  },
+  "why_here": "Jaguars hunt along rivers and wetlands in big forests, and the Amazon and the Pantanal are their strongholds.",
+  "fun_fact": "Jaguars have one of the strongest bites of any cat and often kill by biting through the skull.",
+  "clue": "A spotted big cat that loves to swim and hunts caimans."
+ },
+ {
+  "common_name": "Brown-throated sloth",
+  "scientific_name": "Bradypus variegatus",
+  "kind": "Mammal",
+  "wiki": "Brown-throated_sloth",
+  "place": "The western Amazon",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Southwest Amazon moist forests",
+    "Napo moist forests",
+    "Juruá-Purus moist forests",
+    "Japurá-Solimões-Negro moist forests",
+    "Solimões-Japurá moist forests",
+    "Purus-Madeira moist forests",
+    "Madeira-Tapajós moist forests",
+    "Ucayali moist forests",
+    "Iquitos várzea",
+    "Caqueta moist forests"
+   ]
+  },
+  "why_here": "This three-toed sloth spends its life high in the trees of the warm, wet Amazon forests, eating leaves.",
+  "fun_fact": "Algae grows in its fur and gives it a greenish tint that helps it hide.",
+  "clue": "It moves so slowly that algae grows in its fur, and it climbs down only to poop."
+ },
+ {
+  "common_name": "Green anaconda",
+  "scientific_name": "Eunectes murinus",
+  "kind": "Reptile",
+  "wiki": "Green_anaconda",
+  "place": "The Amazon and Orinoco basins",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Llanos",
+    "Apure-Villavicencio dry forests",
+    "Caqueta moist forests",
+    "Iquitos várzea",
+    "Purus várzea",
+    "Japurá-Solimões-Negro moist forests",
+    "Solimões-Japurá moist forests",
+    "Juruá-Purus moist forests",
+    "Southwest Amazon moist forests",
+    "Madeira-Tapajós moist forests",
+    "Negro-Branco moist forests",
+    "Monte Alegre várzea"
+   ]
+  },
+  "why_here": "Anacondas spend most of their time in slow rivers, swamps and flooded forests, which cover huge areas of the Amazon and the Llanos of the Orinoco.",
+  "fun_fact": "It is the heaviest snake in the world, and big females can top 100 kilograms.",
+  "clue": "The world's heaviest snake, a swamp-dwelling constrictor that can swallow a deer."
+ },
+ {
+  "common_name": "Capybara",
+  "scientific_name": "Hydrochoerus hydrochaeris",
+  "kind": "Mammal",
+  "wiki": "Capybara",
+  "place": "South America's wetlands and grasslands",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Pantanal",
+    "Cerrado",
+    "Chiquitano dry forests",
+    "Beni savanna",
+    "Humid Chaco",
+    "Paraná flooded savanna",
+    "Uruguayan savanna",
+    "Llanos"
+   ]
+  },
+  "why_here": "Capybaras graze near water and escape danger by diving in, so they gather in the wetlands of the Pantanal, the Llanos and the rivers of Brazil, Argentina and Uruguay.",
+  "fun_fact": "It can stay underwater for about five minutes to hide from predators.",
+  "clue": "The world's biggest rodent, a calm swimmer that other animals like to sit on."
+ },
+ {
+  "common_name": "Giant anteater",
+  "scientific_name": "Myrmecophaga tridactyla",
+  "kind": "Mammal",
+  "wiki": "Giant_anteater",
+  "place": "Brazil's Cerrado and Pantanal",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Cerrado",
+    "Pantanal",
+    "Chiquitano dry forests",
+    "Beni savanna",
+    "Humid Chaco",
+    "Llanos",
+    "Guianan savanna"
+   ]
+  },
+  "why_here": "Giant anteaters roam open grasslands dotted with termite mounds, which are everywhere in the Cerrado, Pantanal and Llanos.",
+  "fun_fact": "Its tongue can flick in and out about 150 times a minute.",
+  "clue": "No teeth, but a sticky tongue about 60 cm long that slurps up 30,000 ants a day."
+ },
+ {
+  "common_name": "Cacao",
+  "scientific_name": "Theobroma cacao",
+  "kind": "Plant",
+  "wiki": "Theobroma_cacao",
+  "place": "The upper Amazon",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Napo moist forests",
+    "Ucayali moist forests",
+    "Southwest Amazon moist forests",
+    "Iquitos várzea",
+    "Caqueta moist forests",
+    "Juruá-Purus moist forests",
+    "Solimões-Japurá moist forests",
+    "Japurá-Solimões-Negro moist forests"
+   ]
+  },
+  "why_here": "Wild cacao trees grow in the shade of the warm, humid forests of the upper Amazon, where the plant first evolved.",
+  "fun_fact": "Its pods grow straight out of the trunk, and each holds dozens of seeds.",
+  "clue": "Its bitter seeds, once used as money, are the start of every chocolate bar."
+ },
+ {
+  "common_name": "Brazil nut",
+  "scientific_name": "Bertholletia excelsa",
+  "kind": "Plant",
+  "wiki": "Brazil_nut",
+  "place": "The Amazon",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Madeira-Tapajós moist forests",
+    "Tapajós-Xingu moist forests",
+    "Uatumã-Trombetas moist forests",
+    "Southwest Amazon moist forests",
+    "Purus-Madeira moist forests",
+    "Xingu-Tocantins-Araguaia moist forests"
+   ]
+  },
+  "why_here": "Brazil nut trees rise above undisturbed Amazon forest, where the bees that pollinate them and the agoutis that spread their seeds live.",
+  "fun_fact": "The nuts grow inside a hard, coconut-sized pod that holds about 10 to 25 of them.",
+  "clue": "Giant trees whose nuts come packed in a pod as hard as a cannonball."
+ },
+ {
+  "common_name": "Andean condor",
+  "scientific_name": "Vultur gryphus",
+  "kind": "Bird",
+  "wiki": "Andean_condor",
+  "place": "The Andes and Patagonia",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Central Andean puna",
+    "Central Andean dry puna",
+    "Central Andean wet puna",
+    "High Monte",
+    "Southern Andean steppe",
+    "Patagonian steppe"
+   ]
+  },
+  "why_here": "Condors soar on rising winds along the Andes and over the open plains of Patagonia, searching for dead animals to eat.",
+  "fun_fact": "It can glide for hours, and one was recorded flying over 170 km without flapping.",
+  "clue": "One of the biggest flying birds, a vulture with a wingspan over 3 meters."
+ },
+ {
+  "common_name": "Eastern grey kangaroo",
+  "scientific_name": "Macropus giganteus",
+  "kind": "Mammal",
+  "wiki": "Eastern_grey_kangaroo",
+  "place": "Eastern Australia",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Brigalow tropical savanna",
+    "Southeast Australia temperate savanna",
+    "Eastern Australian temperate forests",
+    "Southeast Australia temperate forests",
+    "Einasleigh upland savanna",
+    "Murray-Darling woodlands and mallee"
+   ]
+  },
+  "why_here": "Eastern greys graze in grassy woodlands and forest edges across the wetter eastern side of Australia, from Queensland to Victoria.",
+  "fun_fact": "A big male can stand taller than an adult person.",
+  "clue": "A big hopping grazer that carries its joey in a pouch. Not the red one."
+ },
+ {
+  "common_name": "Short-beaked echidna",
+  "scientific_name": "Tachyglossus aculeatus",
+  "kind": "Mammal",
+  "wiki": "Short-beaked_echidna",
+  "place": "Eastern Australia",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Eastern Australian temperate forests",
+    "Southeast Australia temperate savanna",
+    "Southeast Australia temperate forests",
+    "Murray-Darling woodlands and mallee",
+    "Brigalow tropical savanna",
+    "Eastern Australia mulga shrublands"
+   ]
+  },
+  "why_here": "Echidnas live almost anywhere with ants and termites to eat, and they are common across the woodlands and forests of eastern Australia.",
+  "fun_fact": "A baby echidna is called a puggle.",
+  "clue": "A spiny ant-eater that lays eggs, one of only a handful of mammals that do."
+ },
+ {
+  "common_name": "Budgerigar",
+  "scientific_name": "Melopsittacus undulatus",
+  "kind": "Bird",
+  "wiki": "Budgerigar",
+  "place": "Australia's outback",
+  "famous": true,
+  "eco": {
+   "names": [
+    "Great Sandy-Tanami desert",
+    "Simpson desert",
+    "Tirari-Sturt stony desert",
+    "Central Ranges xeric scrub",
+    "Mitchell Grass Downs",
+    "Eastern Australia mulga shrublands",
+    "Western Australian Mulga shrublands"
+   ]
+  },
+  "why_here": "Wild budgies roam Australia's dry interior in big flocks, following rain to find grass seeds and water.",
+  "fun_fact": "Wild budgies are almost always green and yellow; blue and other colors come from captive breeding.",
+  "clue": "A little green and yellow parrot, wild in huge flocks, kept as a pet all over the world."
+ }
+]

@@ -344,10 +344,10 @@ function pick(seed){const r=rng(seed),idx=SP.map((_,i)=>i);for(let i=idx.length-
   const out=[],reg={};for(const i of idx){const s=SP[i];if((reg[s.region]||0)>=2)continue;if(out.some(j=>km([SP[j].lat,SP[j].lon],[s.lat,s.lon])<500))continue;out.push(i);reg[s.region]=(reg[s.region]||0)+1;if(out.length===5)break}return out}
 
 /* ---------- region ladder: each round is one species whose home is a marked area, biggest area first ---------- */
-const TIER_NAME=['','Huge area','Big area','Medium area','Small area','Tiny area'];
+const TIER_NAME=['','Warm-up','Big area','Medium area','Small area','Tiny area'];
 const TIER_KM=[0,.35,.5,.7,.85,1].map(f=>f*5150);
 function pickLadder(seed){const r=rng(seed),out=[],eco=new Set();
-  for(let t=1;t<=5;t++){const pool=SP.map((s,i)=>i).filter(i=>SP[i].tier===t&&!(SP[i].eco||[]).some(e=>eco.has(e)));
+  for(let t=1;t<=5;t++){const pool=SP.map((s,i)=>i).filter(i=>(SP[i].round||SP[i].tier)===t&&!(SP[i].eco||[]).some(e=>eco.has(e)));
     const i=pool[Math.floor(r()*pool.length)];out.push(i);(SP[i].eco||[]).forEach(e=>eco.add(e))}return out}
 const circleGeo=c=>d3.geoCircle().center([c[0],c[1]]).radius(c[2]/6371*180/Math.PI).precision(2)();
 const areaGeo=s=>s.shape||(s._g||(s._g=circleGeo(s.circle)));
@@ -365,10 +365,11 @@ function toArea(s,p){const P=[p[1],p[0]];
     if(Math.abs(ang(A,Q)+ang(Q,B)-ang(A,B))<1e-9){d=Math.abs(Math.asin(sd));q=Q}else{const da=ang(pv,A),db=ang(pv,B);if(da<db){d=da;q=A}else{d=db;q=B}}
     if(d<best){best=d;bq=q}}
   const ll=LL(bq);return{km:best*6371,near:[ll[1],ll[0]]}}
+const roundOf=s=>s.round||s.tier;
 const areaScore=(dk,t)=>dk<=0?100:Math.round(100*Math.exp(-dk/TIER_KM[t]));
 /* hint: a circle around the area's middle, wide enough to matter at each tier, off-centre so its middle isn't the answer */
 function ladderHint(s,d,i){const g=areaGeo(s),c=d3.geoCentroid(g),rad=Math.sqrt((s.area_km2||1)/Math.PI);
-  const h=hintCircle(c[1],c[0],d,i),R=Math.max([0,2600,1800,1200,900,700][s.tier],rad*1.4);
+  const h=hintCircle(c[1],c[0],d,i),R=Math.max([0,2600,1800,1200,900,700][roundOf(s)],rad*1.4);
   /* re-scale hintCircle's offset to the new radius */
   const off=d3.geoDistance(c,[h.lon,h.lat])*6371*(R/1200),q=off?d3.geoInterpolate(c,[h.lon,h.lat])(off/(d3.geoDistance(c,[h.lon,h.lat])*6371)):c;
   return{lat:+q[1].toFixed(3),lon:+q[0].toFixed(3),km:Math.round(R)}}
@@ -560,7 +561,7 @@ const distTxt=k=>units==='mi'?`${fmt(k*0.621371)} mi`:`${fmt(k)} km`;
 const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
 let spLoad=null;
 const loadSP=()=>spLoad||(spLoad=fetch('regions.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
-const fromSP=i=>{const s=SP[i];return{_i:i,tier:s.tier,kind:s.kind,display:s.display||s.common_name,sci_display:s.sci_display||s.scientific_name,wiki:s.wiki,clue:s.clue||'',pic:s.pic||'',sci:s.scientific_name}};
+const fromSP=i=>{const s=SP[i];return{_i:i,tier:roundOf(s),kind:s.kind,display:s.display||s.common_name,sci_display:s.sci_display||s.scientific_name,wiki:s.wiki,clue:s.clue||'',pic:s.pic||'',sci:s.scientific_name}};
 const data=API?{
   day:d=>fetch(`${API}/day?d=${d}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   practice:()=>fetch(`${API}/practice`).then(r=>{if(!r.ok)throw 0;return r.json()}),
@@ -570,7 +571,7 @@ const data=API?{
   day:async d=>{await loadSP();return{day:d,items:pickLadder(d).map(fromSP)}},
   practice:async()=>{await loadSP();return{day:null,items:pickLadder(Math.floor(Math.random()*1e9)).map(fromSP)}},
   hint:async(d,i,it)=>ladderHint(SP[it._i],d,i),
-  guess:async(d,i,p,hint,it)=>{const sp=SP[it._i],{km:dk,near}=toArea(sp,p);let score=areaScore(dk,sp.tier);if(hint)score=Math.max(0,score-20);return{sp,km:dk,near,area:areaGeo(sp),score}}
+  guess:async(d,i,p,hint,it)=>{const sp=SP[it._i],{km:dk,near}=toArea(sp,p);let score=areaScore(dk,roundOf(sp));if(hint)score=Math.max(0,score-20);return{sp,km:dk,near,area:areaGeo(sp),score}}
 };
 
 /* ---------- game ---------- */
