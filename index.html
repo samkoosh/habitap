@@ -476,8 +476,7 @@ function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):
 
 /* ---------- data: species.json in the browser for now, the daily API once it's deployed ---------- */
 const fmt=n=>Math.round(n).toLocaleString();
-/* soft curve: 100 within 10 km, steep near the spot, tapering so almost any guess earns a point (0 only at the exact antipode) */
-const scoreFor=d=>d<=10?100:Math.max(0,Math.ceil(100*Math.pow(Math.max(0,1-d/20015),7)));
+const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
 let spLoad=null;
 const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
 const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki}};

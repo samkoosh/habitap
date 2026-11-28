@@ -42,8 +42,7 @@ export function pick(SP, seed) {
   }
   return out;
 }
-/* soft curve: 100 within 10 km, then 100·(1 − d/20015)^7 rounded up, so almost any guess earns a point */
-export const scoreFor = d => d <= 10 ? 100 : Math.max(0, Math.ceil(100 * Math.pow(Math.max(0, 1 - d / 20015), 7)));
+export const scoreFor = d => d <= 10 ? 100 : Math.round(100 * Math.exp(-(d - 10) / 5150));
 /* species names are shown in full; strip the old [[…]] place-name markers */
 export const mask = t => String(t || '').replace(/\[\[(.+?)\]\]/g, '$1');
 
