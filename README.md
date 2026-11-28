@@ -9,7 +9,7 @@ A daily geography game: you see a photo of a plant or animal that lives in only 
 - `species_research.json`: the full research list with confidence notes.
 - Photos load at play time from Wikipedia's API (free-licensed lead images only) and are credited from Wikimedia Commons metadata.
 - Coastlines: Natural Earth (public domain) via [world-atlas](https://github.com/topojson/world-atlas). Rendering: [d3](https://d3js.org) (ISC).
-- Scoring: 100 within 10 km, then `⌈100·(1 − d/20015)^7⌉` per species (20,015 km is the farthest two points can be apart), so a close guess pays off and almost any guess earns at least a point. The hint costs 20.
+- Scoring: 100 within 10 km, then `100·e^(−(d−10)/5150)` per species. The hint costs 20.
 
 Species facts and points were compiled from Wikipedia and other sources; some points are approximate.
 
