@@ -43,6 +43,12 @@ export function pick(SP, seed) {
   return out;
 }
 /* soft curve: 100 within 10 km, then 100·(1 − d/20015)^7 rounded up, so almost any guess earns a point */
+/* hint circle: same maths as the game. 1,200 km radius, centre pushed up to 60% of the radius away from the spot */
+export function hintCircle(lat, lon, d, i) {
+  const r = rng((d | 0) * 31 + i * 7 + 1), R = 1200, rad = Math.PI / 180, brg = r() * 2 * Math.PI, off = R * .6 * Math.sqrt(r()) / 6371, p1 = lat * rad, l1 = lon * rad;
+  const p2 = Math.asin(Math.sin(p1) * Math.cos(off) + Math.cos(p1) * Math.sin(off) * Math.cos(brg)), l2 = l1 + Math.atan2(Math.sin(brg) * Math.sin(off) * Math.cos(p1), Math.cos(off) - Math.sin(p1) * Math.sin(p2));
+  return { lat: +(p2 / rad).toFixed(3), lon: +((((l2 / rad) + 540) % 360) - 180).toFixed(3), km: R };
+}
 export const scoreFor = d => d <= 10 ? 100 : Math.max(0, Math.ceil(100 * Math.pow(Math.max(0, 1 - d / 20015), 7)));
 /* species names are shown in full; strip the old [[…]] place-name markers */
 export const mask = t => String(t || '').replace(/\[\[(.+?)\]\]/g, '$1');
@@ -134,6 +140,13 @@ export default {
         if (last < EPOCH) return json({ error: 'No finished dailies to practise on yet.' }, 404, h);
         const d = EPOCH + Math.floor(Math.random() * (last - EPOCH + 1));
         return json(await dayPack(env, ctx, d, url.origin), 200, h);
+      }
+
+      if (req.method === 'GET' && url.pathname === '/hint') {
+        const d = Number(url.searchParams.get('d')), i = Number(url.searchParams.get('i'));
+        if (!dayOk(d, now) || !Number.isInteger(i) || i < 0 || i > 4) return json({ error: 'Bad request' }, 400, h);
+        const SP = await species(env), s = SP[pick(SP, d)[i]];
+        return json(hintCircle(s.lat, s.lon, d, i), 200, h, d < finishedBefore(now) ? 86400 : 600);
       }
 
       if (req.method === 'POST' && url.pathname === '/guess') {

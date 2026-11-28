@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import worker, { pick, km, scoreFor, EPOCH, latestDay, finishedBefore } from '../src/index.js';
+import worker, { pick, km, scoreFor, hintCircle, EPOCH, latestDay, finishedBefore } from '../src/index.js';
 
 const here = new URL('.', import.meta.url).pathname;
 const SP = JSON.parse(readFileSync(here + '../../species.json', 'utf8'));
@@ -75,6 +75,17 @@ ok('future and pre-launch days are refused');
   assert.equal((await call('/guess', { method: 'POST', body: JSON.stringify({ d: today, i: 7, lat: 0, lon: 0 }) })).status, 400);
   assert.equal((await call('/guess', { method: 'POST', body: '{nope' })).status, 400);
   ok('/guess scores like the game (hint penalty included) and rejects bad input');
+}
+
+// 4b. /hint: circle always contains the answer, matches the shared maths, and refuses future days
+{
+  let worst = 0;
+  for (let d = EPOCH; d < EPOCH + 400; d++) pick(SP, d).forEach((j, i) => { const s = SP[j], c = hintCircle(s.lat, s.lon, d, i); worst = Math.max(worst, km([c.lat, c.lon], [s.lat, s.lon]) / c.km); });
+  assert.ok(worst <= 0.61, 'answer too close to circle edge: ' + worst);
+  const s = SP[pick(SP, today)[1]], b = await (await call(`/hint?d=${today}&i=1`)).json();
+  assert.deepEqual(b, hintCircle(s.lat, s.lon, today, 1));
+  assert.equal((await call(`/hint?d=${latestDay() + 2}&i=1`)).status, 400);
+  ok(`/hint circle always contains the answer (furthest at ${(worst * 100).toFixed(0)}% of the radius)`);
 }
 
 // 5. /practice only uses days that are over everywhere

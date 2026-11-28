@@ -34,7 +34,7 @@
  {"@type":["VideoGame","WebApplication"],"@id":"https://garrettarch.github.io/habitap/#game","name":"Habitap","url":"https://garrettarch.github.io/habitap/","description":"A free daily geography game. Each day you see five plants and animals that live in only one small corner of the world, like a single island, lake or mountain, and tap where you think each one lives on a 3D globe.","genre":["Geography game","Daily puzzle","Educational game"],"gamePlatform":"Web browser","applicationCategory":"GameApplication","operatingSystem":"Any","playMode":"SinglePlayer","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://garrettarch.github.io/habitap/og.png","isPartOf":{"@id":"https://garrettarch.github.io/habitap/#site"}},
  {"@type":"FAQPage","@id":"https://garrettarch.github.io/habitap/#faq","mainEntity":[
   {"@type":"Question","name":"What is Habitap?","acceptedAnswer":{"@type":"Answer","text":"Habitap is a free daily geography game. Each day it shows you five plants and animals that live in only one small corner of the world, and you tap the spot on a 3D globe where you think each one lives."}},
-  {"@type":"Question","name":"How is my score calculated?","acceptedAnswer":{"@type":"Answer","text":"Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the region hint costs 20 points. The best possible daily score is 500."}},
+  {"@type":"Question","name":"How is my score calculated?","acceptedAnswer":{"@type":"Answer","text":"Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the hint, which circles the area, costs 20 points. The best possible daily score is 500."}},
   {"@type":"Question","name":"When does the new Habitap puzzle come out?","acceptedAnswer":{"@type":"Answer","text":"A new set of five species unlocks every day at midnight in your local time zone. Everyone gets the same five species for the same date."}},
   {"@type":"Question","name":"Is Habitap free? Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"Habitap is completely free and needs no account or sign-up. Your streak and progress are saved in your browser on your device."}},
   {"@type":"Question","name":"Is Habitap like Worldle or GeoGuessr?","acceptedAnswer":{"@type":"Answer","text":"It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a rare plant or animal lives, and you learn why it lives only there."}},
@@ -270,11 +270,11 @@ header{position:relative}
       <li>Look at the photo and the species name.</li>
       <li>Spin and zoom the globe, then tap to drop your pin where you think the species lives.</li>
       <li>Tap <b>Lock it in</b>. You score up to 100 points, depending on how close you land, and learn why it lives only there.</li>
-      <li>Stuck? A hint shows the region, for 20 points off.</li>
+      <li>Stuck? A hint circles the area where it lives, for 20 points off.</li>
       <li>After five species, share your score and come back tomorrow to keep your streak going.</li>
     </ol>
     <h2>FAQ</h2>
-    <details><summary>How is my score calculated?</summary><p>Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the region hint costs 20 points. The best possible daily score is 500.</p></details>
+    <details><summary>How is my score calculated?</summary><p>Each species is worth up to 100 points. A pin within 10 km scores the full 100, and the score drops gently the farther away you land. Using the hint, which circles the area, costs 20 points. The best possible daily score is 500.</p></details>
     <details><summary>When does the new puzzle come out?</summary><p>A new set of five species unlocks every day at midnight in your local time zone. Everyone gets the same five species for the same date.</p></details>
     <details><summary>Is Habitap free? Do I need an account?</summary><p>Habitap is completely free and needs no account or sign-up. Your streak and progress are saved in your browser on your device.</p></details>
     <details><summary>Is Habitap like Worldle or GeoGuessr?</summary><p>It's in the same spirit: a quick daily geography challenge you can share with friends. Instead of guessing a country or a street view, you guess where a rare plant or animal lives, and you learn why it lives only there.</p></details>
@@ -309,6 +309,10 @@ const km=(a,b)=>d3.geoDistance([a[1],a[0]],[b[1],b[0]])*6371;
 let SP=[];
 
 /* pick 5: max 2 per region, no two within 500 km */
+/* hint circle: 1,200 km radius, centre pushed up to 60% of the radius away from the spot in a seeded direction */
+function hintCircle(lat,lon,d,i){const r=rng((d|0)*31+i*7+1),R=1200,rad=Math.PI/180,brg=r()*2*Math.PI,off=R*.6*Math.sqrt(r())/6371,p1=lat*rad,l1=lon*rad;
+  const p2=Math.asin(Math.sin(p1)*Math.cos(off)+Math.cos(p1)*Math.sin(off)*Math.cos(brg)),l2=l1+Math.atan2(Math.sin(brg)*Math.sin(off)*Math.cos(p1),Math.cos(off)-Math.sin(p1)*Math.sin(p2));
+  return{lat:+(p2/rad).toFixed(3),lon:+((((l2/rad)+540)%360)-180).toFixed(3),km:R}}
 function pick(seed){const r=rng(seed),idx=SP.map((_,i)=>i);for(let i=idx.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]]}
   const out=[],reg={};for(const i of idx){const s=SP[i];if((reg[s.region]||0)>=2)continue;if(out.some(j=>km([SP[j].lat,SP[j].lon],[s.lat,s.lon])<500))continue;out.push(i);reg[s.region]=(reg[s.region]||0)+1;if(out.length===5)break}return out}
 
@@ -324,7 +328,7 @@ function topoToGeo(topo,name){const tf=topo.transform,arcs=topo.arcs.map(a=>{let
 const cv=$('globe'),ctx=cv.getContext('2d'),box=$('globebox');
 const proj=d3.geoOrthographic().clipAngle(90).precision(0.3),path=d3.geoPath(proj,ctx),grat=d3.geoGraticule10();
 let land=null,borders=null,states=null,W=0,H=0,sdpr=0,base=1,k=1,rot=[-20,-15];
-let pin=null,target=null,pinAt=-1e9,lineAt=-1e9,loopRaf=0;const LINE_MS=900;
+let hintC=null,hintAt=-1e9,pin=null,target=null,pinAt=-1e9,lineAt=-1e9,loopRaf=0;const LINE_MS=900;
 /* keep redrawing the globe for a short animation (pin bounce, line, target pop) */
 function animate(ms){const end=performance.now()+ms;cancelAnimationFrame(loopRaf);const f=()=>{draw();if(performance.now()<end)loopRaf=requestAnimationFrame(f)};loopRaf=requestAnimationFrame(f)}
 /* clientHeight, not innerHeight: it stays put while the iOS/Android toolbars slide, so the globe never jumps mid-drag */
@@ -338,6 +342,9 @@ function draw(){if(!W)return;proj.translate([W/2,H/2]).scale(base*k).rotate(rot)
   if(borders){ctx.beginPath();path(borders);ctx.strokeStyle='rgba(110,98,66,.85)';ctx.lineWidth=k>3?.9:.6;ctx.stroke()}
   const sh=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.2,cx,cy,R*1.02);sh.addColorStop(0,'rgba(255,253,240,.18)');sh.addColorStop(.65,'rgba(0,0,0,0)');sh.addColorStop(1,'rgba(20,35,30,.32)');
   ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=sh;ctx.fill();ctx.strokeStyle='rgba(29,46,40,.35)';ctx.lineWidth=1;ctx.stroke();
+  /* hint: a big circle that contains the answer, off-centre so its middle isn't the spot */
+  if(hintC){const a=reduce?1:Math.min(1,(performance.now()-hintAt)/450);ctx.beginPath();path(d3.geoCircle().center([hintC.lon,hintC.lat]).radius(hintC.km/111.195*(.85+.15*a))());
+    ctx.fillStyle=`rgba(192,138,43,${.2*a})`;ctx.fill();ctx.setLineDash([7,5]);ctx.strokeStyle=`rgba(192,138,43,${.95*a})`;ctx.lineWidth=2.5;ctx.stroke();ctx.setLineDash([])}
   const now=performance.now(),arrived=reduce||now>=lineAt+LINE_MS;
   /* the guess line draws itself from your pin to the real spot */
   if(pin&&target){const a=[pin[1],pin[0]],b=[target[1],target[0]],u=arrived?1:Math.max(0,(now-lineAt)/LINE_MS),e=1-Math.pow(1-u,3);
@@ -489,10 +496,12 @@ const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s
 const data=API?{
   day:d=>fetch(`${API}/day?d=${d}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   practice:()=>fetch(`${API}/practice`).then(r=>{if(!r.ok)throw 0;return r.json()}),
+  hint:(d,i)=>fetch(`${API}/hint?d=${d}&i=${i}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   guess:(d,i,p,hint)=>fetch(`${API}/guess`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({d,i,lat:p[0],lon:p[1],hint})}).then(r=>{if(!r.ok)throw 0;return r.json()})
 }:{
   day:async d=>{await loadSP();return{day:d,items:pick(d).map(fromSP)}},
   practice:async()=>{await loadSP();return{day:null,items:pick(Math.floor(Math.random()*1e9)).map(fromSP)}},
+  hint:async(d,i,it)=>{const sp=SP[it._i];return hintCircle(sp.lat,sp.lon,d,i)},
   guess:async(d,i,p,hint,it)=>{const sp=SP[it._i],dk=km(p,[sp.lat,sp.lon]);let score=scoreFor(dk);if(hint)score=Math.max(0,score-20);return{sp,km:dk,score}}
 };
 
@@ -514,13 +523,16 @@ async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];i
     const p=store.get('ht2-progress');if(p&&p.day===dayNum&&p.results.length&&p.results.length<5){results=p.results;round=results.length}}
   track('play_start',{mode,puzzle:mode==='practice'?0:noFor(playDay),resumed:round>0});show()}
 function dots(popIdx=-1){$('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
-function show(){const sp=items[round];guessToken++;pin=null;target=null;usedHint=false;locked=false;$('card').classList.remove('open');
+function show(){const sp=items[round];guessToken++;pin=null;target=null;hintC=null;usedHint=false;locked=false;$('card').classList.remove('open');
   $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
   $('clue').hidden=!sp.clue;$('clue').innerHTML=sp.clue?'<b>Clue</b>'+esc(sp.clue):'';
-  $('hint').hidden=true;$('hint').textContent='Hint: '+sp.region;$('hintBtn').hidden=false;$('hintBtn').disabled=false;
+  $('hint').hidden=true;$('hint').textContent='';$('hintBtn').hidden=false;$('hintBtn').disabled=false;
   $('acts').style.display='flex';$('go').disabled=true;$('go').textContent='Drop a pin first';$('res').style.display='none';
   showPhoto(sp,false);dots();flyTo(15,-rot[0],1)}
-$('hintBtn').onclick=()=>{usedHint=true;$('hint').hidden=false;$('hint').classList.add('rise');$('hintBtn').disabled=true;sfx.hint();track('hint',{mode,round:round+1})};
+$('hintBtn').onclick=async()=>{if(locked||usedHint)return;usedHint=true;$('hintBtn').disabled=true;const it=items[round],rd=round;
+  let c;try{c=await data.hint(playDay,round,it)}catch(e){usedHint=false;$('hintBtn').disabled=false;return}
+  if(rd!==round||locked)return;hintC=c;hintAt=performance.now();$('hint').textContent='Hint: it lives somewhere inside the circle.';
+  flyTo(c.lat,c.lon,Math.max(1,Math.min(14,.5/Math.sin(c.km/6371+.03))));animate(500);sfx.hint();track('hint',{mode,round:round+1})};
 let guessToken=0;
 $('go').onclick=async()=>{if(!pin||locked)return;locked=true;const it=items[round];$('go').disabled=true;$('go').textContent='Checking…';sfx.lock();
   let r;try{r=await data.guess(playDay,round,pin,usedHint,it)}catch(e){locked=false;$('go').disabled=false;$('go').textContent='Couldn’t check. Try again';return}
