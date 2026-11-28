@@ -66,12 +66,49 @@ async function species(env) {
   memo = raw; memoAt = Date.now(); return memo;
 }
 
-async function photoInfo(wiki, ctx) {
-  const key = new Request('https://habitap.internal/photo/' + encodeURIComponent(wiki));
+/* species with "pic": "auto" or "pic": "File:…" get a picked photo; same rules as photo-pick.js in the game */
+const BAD_NAME = /\b(map|maps|range|distribution|locator|diagram|chart|graph|skull|skeleton|bones?|specimens?|holotype|museum|herbarium|preserved|taxiderm\w*|mounted|illustration|drawing|drawn|plate|painting|lithograph|engraving|watercolou?r|artwork|sketch|logo|stamp|coin|banknote|eggs?|cladogram|phylogen\w*|habitat|landscape)\b/i;
+const BAD_CATS = /\b(maps?|distribution|diagrams?|skulls?|skeletons?|specimens?|holotypes?|herbarium|taxidermy|illustrations?|drawings?|paintings?|lithographs?|engravings?|plates from|stamps|coins|eggs)\b/i;
+const BAD_DESC = /\b(range map|distribution map|skull|skeleton|museum specimen|holotype|illustration|drawing|painting|engraving|lithograph)\b/i;
+const wq = (base, p) => fetch(base + '?' + new URLSearchParams({ format: 'json', formatversion: '2', ...p }), { headers: { 'user-agent': UA } }).then(r => r.json());
+async function pickPhoto(title, sci, pinned) {
+  let files = []; const inArticle = new Set();
+  if (pinned && /^File:/.test(pinned)) files = [pinned];
+  else {
+    const a = await wq('https://en.wikipedia.org/w/api.php', { action: 'query', prop: 'images', imlimit: '100', redirects: '1', titles: title });
+    const pg = a.query && a.query.pages && a.query.pages[0];
+    ((pg && pg.images) || []).forEach(x => { files.push(x.title); inArticle.add(x.title); });
+    if (sci) { const c = await wq('https://commons.wikimedia.org/w/api.php', { action: 'query', list: 'categorymembers', cmtitle: 'Category:' + sci, cmtype: 'file', cmlimit: '100' }).catch(() => null);
+      ((c && c.query && c.query.categorymembers) || []).forEach(x => { if (!files.includes(x.title)) files.push(x.title); }); }
+    files = files.filter(f => /\.jpe?g$/i.test(f) && !BAD_NAME.test(f.replace(/[_-]/g, ' '))).slice(0, 50);
+  }
+  if (!files.length) return null;
+  const j = await wq('https://commons.wikimedia.org/w/api.php', { action: 'query', prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: '900', titles: files.join('|') });
+  const ok = [];
+  for (const p of (j.query && j.query.pages) || []) {
+    const ii = p.imageinfo && p.imageinfo[0]; if (!ii) continue;
+    const m = ii.extmetadata || {}, lic = strip(m.LicenseShortName && m.LicenseShortName.value);
+    if (!pinned) {
+      if (!/(cc|public domain|pd)/i.test(lic) || /\b(nc|nd)\b/i.test(lic)) continue;
+      if (BAD_CATS.test(strip(m.Categories && m.Categories.value)) || BAD_DESC.test(strip(m.ImageDescription && m.ImageDescription.value))) continue;
+      if ((ii.width || 0) < 600) continue;
+    }
+    ok.push({ p, ii, m, lic, score: (inArticle.has(p.title) ? 2 : 0) + ((ii.width || 0) >= 1200 ? 1 : 0) });
+  }
+  if (!ok.length) return null;
+  ok.sort((a, b) => b.score - a.score || files.indexOf(a.p.title) - files.indexOf(b.p.title));
+  const { ii, m, lic } = ok[0];
+  return { thumb: ii.thumburl || ii.url, page: ii.descriptionurl, artist: strip(m.Artist && m.Artist.value).slice(0, 120), license: lic, licUrl: (m.LicenseUrl && m.LicenseUrl.value) || '' };
+}
+
+async function photoInfo(s, ctx) {
+  const wiki = s.wiki;
+  const key = new Request('https://habitap.internal/photo/' + encodeURIComponent(wiki) + (s.pic ? '?pic=' + encodeURIComponent(s.pic) : ''));
   const cache = typeof caches !== 'undefined' ? caches.default : null;
   if (cache) { const hit = await cache.match(key); if (hit) return hit.json(); }
   let info = null;
   try {
+    if (s.pic) { info = await pickPhoto(decodeURIComponent(wiki).replace(/_/g, ' '), s.scientific_name, s.pic === 'auto' ? null : s.pic); throw 'done'; }
     const title = decodeURIComponent(wiki).replace(/_/g, ' ');
     const u = 'https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageimages&piprop=thumbnail%7Cname&pithumbsize=900&pilicense=free&titles=' + encodeURIComponent(title);
     const j = await fetch(u, { headers: { 'user-agent': UA } }).then(r => r.json());
@@ -86,7 +123,7 @@ async function photoInfo(wiki, ctx) {
         info.licUrl = (m.LicenseUrl && m.LicenseUrl.value) || '';
       } catch (e) { /* credit falls back to "Unknown author" */ }
     }
-  } catch (e) { return null; } // don't cache failures
+  } catch (e) { if (e !== 'done') return null; } // don't cache failures
   if (cache) ctx.waitUntil(cache.put(key, new Response(JSON.stringify(info), { headers: { 'cache-control': `max-age=${PHOTO_TTL}` } })));
   return info;
 }
@@ -95,7 +132,7 @@ const strip = h => String(h || '').replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&
 async function dayPack(env, ctx, d, origin) {
   const SP = await species(env);
   const items = await Promise.all(pick(SP, d).map(async (i, n) => {
-    const s = SP[i], ph = await photoInfo(s.wiki, ctx);
+    const s = SP[i], ph = await photoInfo(s, ctx);
     return {
       kind: s.kind, region: s.region, display: mask(s.display), sci_display: mask(s.sci_display), clue: s.clue || '',
       photo: ph ? { src: `${origin}/img/${d}/${n}`, artist: ph.artist, license: ph.license, licUrl: ph.licUrl } : null,
@@ -155,7 +192,7 @@ export default {
         const SP = await species(env), s = SP[pick(SP, d)[i]];
         const dist = km([lat, lon], [s.lat, s.lon]);
         let score = scoreFor(dist); if (b.hint) score = Math.max(0, score - 20);
-        const ph = await photoInfo(s.wiki, ctx);
+        const ph = await photoInfo(s, ctx);
         return json({
           sp: { common_name: s.common_name, scientific_name: s.scientific_name, place: s.place, lat: s.lat, lon: s.lon, why_here: s.why_here, fun_fact: s.fun_fact, wiki: s.wiki, photoPage: ph ? ph.page : null },
           km: dist, score,
@@ -166,7 +203,7 @@ export default {
       if (m) {
         const d = Number(m[1]), i = Number(m[2]);
         if (!dayOk(d, now)) return new Response('Not found', { status: 404, headers: h });
-        const SP = await species(env), ph = await photoInfo(SP[pick(SP, d)[i]].wiki, ctx);
+        const SP = await species(env), ph = await photoInfo(SP[pick(SP, d)[i]], ctx);
         if (!ph) return new Response('Not found', { status: 404, headers: h });
         const img = await fetch(ph.thumb, { headers: { 'user-agent': UA }, cf: { cacheTtl: PHOTO_TTL, cacheEverything: true } });
         if (!img.ok) return new Response('Photo unavailable', { status: 502, headers: h });

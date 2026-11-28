@@ -316,6 +316,7 @@ header{position:relative}
   <p class="lbcred" id="lbCred"></p>
 </dialog>
 <script src="d3.min.js"></script>
+<script src="photo-pick.js"></script>
 <script>
 {
 const $=id=>document.getElementById(id);
@@ -495,6 +496,8 @@ const photoCache={};
 const stripHtml=h=>{const d=document.createElement('div');d.innerHTML=h||'';return (d.textContent||'').replace(/\s+/g,' ').trim()};
 /* the API sends photo info itself (served through the Worker, so file names can't give the answer away) */
 function getPhoto(sp){if(sp.photo!==undefined)return Promise.resolve(sp.photo);if(photoCache[sp.wiki])return photoCache[sp.wiki];
+  /* species whose Wikipedia lead image is a map or drawing get a picked photo instead (photo-pick.js) */
+  if(sp.pic&&window.HTPick)return photoCache[sp.wiki]=HTPick.pick(decodeURIComponent(sp.wiki).replace(/_/g,' '),sp.sci,sp.pic==='auto'?null:sp.pic).catch(()=>null);
   const title=decodeURIComponent(sp.wiki).replace(/_/g,' ');
   const u='https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&redirects=1&prop=pageimages&piprop=thumbnail%7Cname&pithumbsize=900&pilicense=free&titles='+encodeURIComponent(title);
   return photoCache[sp.wiki]=fetch(u).then(r=>r.json()).then(async j=>{const pg=j.query&&j.query.pages&&j.query.pages[0];if(!pg||!pg.thumbnail)return null;
@@ -524,7 +527,7 @@ const distTxt=k=>units==='mi'?`${fmt(k*0.621371)} mi`:`${fmt(k)} km`;
 const scoreFor=d=>d<=10?100:Math.round(100*Math.exp(-(d-10)/5150));
 let spLoad=null;
 const loadSP=()=>spLoad||(spLoad=fetch('species.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>SP=d));
-const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki,clue:s.clue||''}};
+const fromSP=i=>{const s=SP[i];return{_i:i,kind:s.kind,region:s.region,display:s.display,sci_display:s.sci_display,wiki:s.wiki,clue:s.clue||'',pic:s.pic||'',sci:s.scientific_name}};
 const data=API?{
   day:d=>fetch(`${API}/day?d=${d}`).then(r=>{if(!r.ok)throw 0;return r.json()}),
   practice:()=>fetch(`${API}/practice`).then(r=>{if(!r.ok)throw 0;return r.json()}),

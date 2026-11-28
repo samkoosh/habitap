@@ -2,8 +2,8 @@
    - Page and species list: network first, cached copy if offline (so new dailies always show up).
    - Static files and map data: cached copy first, refreshed in the background.
    - The daily puzzle API is never cached here (the Worker sets its own cache headers). */
-const CACHE = 'habitap-v1';
-const SHELL = ['./', 'd3.min.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png'];
+const CACHE = 'habitap-v2';
+const SHELL = ['./', 'd3.min.js', 'photo-pick.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png'];
 const NETWORK_FIRST = /\/(index\.html|species\.json)?$/;
 const CACHEABLE_HOSTS = ['cdn.jsdelivr.net', 'unpkg.com', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 
