@@ -476,7 +476,8 @@ function showPhoto(sp,revealed){const img=$('img'),msg=$('photoMsg');img.classLi
     img.onload=()=>{img.classList.add('ok');msg.textContent=''};img.onerror=()=>{msg.textContent='Photo failed to load.'};img.src=ph.src;
     creditLine(ph,revealed)})}
 function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):'Unknown author';const lic=ph.license?(ph.licUrl?`<a href="${esc(ph.licUrl)}" target="_blank" rel="noopener">${esc(ph.license)}</a>`:esc(ph.license)):'free license';
-  $('credit').innerHTML=`Photo: ${who}, ${lic}, via `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`:'Wikimedia Commons')}
+  /* short form: author · license · source (what CC licenses require), so it wraps neatly under the photo */
+  $('credit').innerHTML=`© ${who} · ${lic} · `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener" title="Wikimedia Commons">Commons</a>`:'<span title="Wikimedia Commons">Commons</span>')}
 
 /* ---------- data: species.json in the browser for now, the daily API once it's deployed ---------- */
 const fmt=n=>Math.round(n).toLocaleString();
