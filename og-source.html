@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Nunito;font-weight:700;src:url(../node_modules/@fontsource/nunito/files/nunito-latin-700-normal.woff2)}
+@font-face{font-family:Nunito;font-weight:800;src:url(../node_modules/@fontsource/nunito/files/nunito-latin-800-normal.woff2)}
+@font-face{font-family:Nunito;font-weight:900;src:url(../node_modules/@fontsource/nunito/files/nunito-latin-900-normal.woff2)}
+@font-face{font-family:Caveat;font-weight:700;src:url(../node_modules/@fontsource/caveat/files/caveat-latin-700-normal.woff2)}
+:root{--ground:#eef3ea;--ink:#1d2e28;--soft:#4c5f56;--moss:#557046;--ochre:#c08a2b;--ochre-ink:#8a5f14}
+html,body{margin:0}
+body{width:1200px;height:630px;overflow:hidden;position:relative;background:radial-gradient(ellipse at 78% 50%,#f8faf5 0,var(--ground) 55%,#e3ebdd 100%);font-family:Nunito,sans-serif;color:var(--ink)}
+#globe{position:absolute;left:560px;top:-40px}
+.copy{position:absolute;left:76px;top:150px;width:470px}
+.copy h1{margin:0;font-weight:900;font-size:96px;line-height:.98;letter-spacing:-.02em}
+.copy h1 b{color:var(--moss);font-weight:900}
+.copy p{margin:22px 0 0;font-weight:700;font-size:29px;line-height:1.3;color:var(--soft)}
+.pill{display:inline-flex;align-items:center;gap:12px;margin-top:34px;background:var(--moss);color:#fff;font-weight:800;font-size:25px;border-radius:999px;padding:14px 28px 14px 30px;box-shadow:0 10px 24px -12px rgba(29,46,40,.6)}
+.pill svg{width:22px;height:22px}
+.mark{position:absolute;left:76px;top:68px;display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;color:var(--soft);letter-spacing:.02em}
+.mark i{width:34px;height:34px;border-radius:9px;background:var(--moss);display:grid;place-items:center}
+.polaroid{position:absolute;left:600px;top:92px;width:318px;padding:18px 18px 0;background:#fffdf8;border-radius:4px;transform:rotate(-6deg);box-shadow:0 2px 3px rgba(0,0,0,.12),0 26px 50px -18px rgba(29,46,40,.55)}
+.polaroid .ph{width:282px;height:282px;border-radius:2px;overflow:hidden;display:block}
+.polaroid .cap{font-family:Caveat,cursive;font-weight:700;font-size:44px;color:#2b3a33;text-align:center;padding:12px 0 18px;transform:rotate(-1deg)}
+.tape{position:absolute;left:118px;top:-16px;width:92px;height:30px;background:rgba(236,229,200,.85);transform:rotate(3deg);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+</style></head><body>
+<canvas id="globe" width="1320" height="1320" style="width:660px;height:660px"></canvas>
+<div class="mark"><i><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="8" fill="#86adb6"/><path d="M12 3c3 3 3 15 0 18M4 12h16" stroke="#ece5c8" stroke-width="1.6" fill="none"/></svg></i>A free daily geography game</div>
+<div class="copy">
+  <h1>Play<br>Habi<b>tap</b></h1>
+  <p>Five rare species a day. Each lives in one tiny corner of the world. Find it on the globe.</p>
+</div>
+<div class="polaroid"><div class="tape"></div>
+<svg class="ph" viewBox="0 0 282 282" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb2b0"/><stop offset="1" stop-color="#2f6264"/></linearGradient>
+    <radialGradient id="lt" cx=".3" cy=".1" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7b9c6"/><stop offset="1" stop-color="#e88ea3"/></linearGradient>
+  </defs>
+  <rect width="282" height="282" fill="url(#w)"/>
+  <rect width="282" height="282" fill="url(#lt)"/>
+  <g fill="#3d7a5a" opacity=".75"><path d="M18 282c4-50 14-90 30-120-6 40-8 80-6 120z"/><path d="M40 282c2-36 10-64 22-86-2 30-2 58 0 86z"/><path d="M250 282c-2-60 4-100 18-130-2 40 0 90 2 130z"/><path d="M230 282c0-30 6-52 14-70 0 24 0 46-2 70z"/></g>
+  <g fill="#cfe3dc" opacity=".55"><circle cx="196" cy="52" r="5"/><circle cx="208" cy="34" r="3.5"/><circle cx="200" cy="18" r="2.5"/></g>
+  <ellipse cx="146" cy="236" rx="112" ry="12" fill="#1f4546" opacity=".35"/>
+  <!-- tail -->
+  <path d="M196 196c30 2 56-10 72-28-6 26-30 44-64 48z" fill="#f2a6b8" stroke="#d97b93" stroke-width="2"/>
+  <!-- back legs -->
+  <path d="M182 210c8 10 10 18 6 26M192 206c10 8 16 14 16 22" stroke="#e88ea3" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <!-- body -->
+  <path d="M84 196c10-30 52-44 92-38 22 4 34 18 30 34-4 18-30 28-66 30-34 2-62-6-56-26z" fill="url(#body)" stroke="#d97b93" stroke-width="2"/>
+  <!-- front legs -->
+  <path d="M104 214c-4 10-10 16-18 20M122 218c0 10-2 18-8 24" stroke="#e88ea3" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <g stroke="#e88ea3" stroke-width="3" stroke-linecap="round"><path d="M86 234l-6 4M86 234l-2 7M114 242l-6 3M114 242l-1 7"/></g>
+  <!-- gills -->
+  <g stroke="#c9486a" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M70 128c-16-18-28-24-42-24"/><path d="M66 146c-20-6-34-4-46 4"/><path d="M70 164c-18 4-28 12-36 24"/>
+    <path d="M150 124c12-20 24-28 38-30"/><path d="M156 142c18-10 32-12 44-8"/><path d="M154 162c18-2 30 4 40 14"/>
+  </g>
+  <g stroke="#e0718f" stroke-width="2.4" stroke-linecap="round" fill="none">
+    <path d="M56 118l-6-10M46 112l-8-8M38 108l-10-4M52 146l-4-10M40 146l-6-8M30 148l-8-5M56 168l-8 6M46 174l-8 2M40 182l-8 0"/>
+    <path d="M160 112l2-11M170 104l4-10M180 98l8-6M168 136l4-10M180 134l6-8M192 134l9-4M168 160l6 6M178 162l8 6M188 168l8 8"/>
+  </g>
+  <!-- head -->
+  <ellipse cx="111" cy="150" rx="50" ry="38" fill="url(#body)" stroke="#d97b93" stroke-width="2"/>
+  <ellipse cx="102" cy="134" rx="30" ry="12" fill="#fff" opacity=".25"/>
+  <circle cx="90" cy="146" r="5.5" fill="#1d2e28"/><circle cx="134" cy="146" r="5.5" fill="#1d2e28"/>
+  <circle cx="91.6" cy="144.2" r="1.7" fill="#fff"/><circle cx="135.6" cy="144.2" r="1.7" fill="#fff"/>
+  <path d="M96 164c10 7 22 7 32 0" stroke="#b8566f" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <circle cx="82" cy="160" r="5" fill="#f08aa4" opacity=".55"/><circle cx="142" cy="160" r="5" fill="#f08aa4" opacity=".55"/>
+</svg>
+<div class="cap">Where do I live?</div></div>
+<script src="d3.min.js"></script>
+<script src="../node_modules/topojson-client/dist/topojson-client.min.js"></script>
+<script>
+fetch('../node_modules/world-atlas/land-110m.json').then(r=>r.json()).catch(()=>null).then(go);
+function go(topo){
+  const c=document.getElementById('globe'),ctx=c.getContext('2d');ctx.scale(2,2);
+  const R=320,cx=330,cy=330,proj=d3.geoOrthographic().translate([cx,cy]).scale(R).rotate([-30,-12]).clipAngle(90),path=d3.geoPath(proj,ctx);
+  const g=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.1,cx,cy,R);g.addColorStop(0,'#86adb6');g.addColorStop(1,'#4a717c');
+  ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();path(d3.geoGraticule10());ctx.strokeStyle='rgba(243,244,236,.16)';ctx.lineWidth=.8;ctx.stroke();
+  if(topo){const land=topojson.feature(topo,topo.objects.land);ctx.beginPath();path(land);ctx.fillStyle='#ece5c8';ctx.fill();ctx.strokeStyle='#7d704c';ctx.lineWidth=.8;ctx.stroke()}
+  // the hint circle and a pin, as in the game
+  ctx.beginPath();path(d3.geoCircle().center([47,-19]).radius(10.8)());ctx.fillStyle='rgba(192,138,43,.2)';ctx.fill();ctx.setLineDash([7,5]);ctx.strokeStyle='rgba(192,138,43,.95)';ctx.lineWidth=2.5;ctx.stroke();ctx.setLineDash([]);
+  const sh=ctx.createRadialGradient(cx-R*.35,cy-R*.4,R*.2,cx,cy,R*1.02);sh.addColorStop(0,'rgba(255,253,240,.18)');sh.addColorStop(.65,'rgba(0,0,0,0)');sh.addColorStop(1,'rgba(20,35,30,.32)');
+  ctx.beginPath();path({type:'Sphere'});ctx.fillStyle=sh;ctx.fill();ctx.strokeStyle='rgba(29,46,40,.35)';ctx.lineWidth=1;ctx.stroke();
+  const [px,py]=proj([50,-16]);ctx.fillStyle='rgba(0,0,0,.28)';ctx.beginPath();ctx.ellipse(px,py+3,9,3.5,0,0,7);ctx.fill();
+  ctx.beginPath();ctx.moveTo(px,py);ctx.bezierCurveTo(px-15,py-17,px-13,py-36,px,py-36);ctx.bezierCurveTo(px+13,py-36,px+15,py-17,px,py);ctx.fillStyle='#c08a2b';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.stroke();
+  ctx.beginPath();ctx.arc(px,py-24,5,0,7);ctx.fillStyle='#fff';ctx.fill();
+  document.body.dataset.ready=1}
+</script></body></html>
