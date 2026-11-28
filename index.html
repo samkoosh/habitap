@@ -42,7 +42,7 @@
   {"@type":"Question","name":"Can I play past Habitap puzzles?","acceptedAnswer":{"@type":"Answer","text":"Yes. After you finish the daily, the results screen lets you replay earlier dailies or play a practice round. Past puzzles don't affect your streak."}},
   {"@type":"Question","name":"How do I share my Habitap score?","acceptedAnswer":{"@type":"Answer","text":"When you finish, tap Share result. On a phone it opens your share sheet, and on a computer it copies a short emoji summary of your five guesses with a link to the game."}},
   {"@type":"Question","name":"Can I play Habitap on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Habitap works in any modern phone browser. You can also add it to your home screen so it opens like an app."}},
-  {"@type":"Question","name":"Where do the photos come from?","acceptedAnswer":{"@type":"Answer","text":"Photos are free-licensed images from Wikimedia Commons, loaded through Wikipedia, and each one is credited with its author and license."}},
+  {"@type":"Question","name":"Where do the photos come from?","acceptedAnswer":{"@type":"Answer","text":"Photos are free-licensed images from Wikimedia Commons, loaded through Wikipedia, and each one is credited with its author and license. Tap “Photo credit” under any photo to see it."}},
   {"@type":"Question","name":"Who made Habitap?","acceptedAnswer":{"@type":"Answer","text":"Habitap was made for fun by two cousins who love maps, nature and daily puzzle games."}}
  ]}
 ]}
@@ -71,7 +71,9 @@ header h1{font-size:34px;font-weight:900;letter-spacing:-.01em}header h1 b{color
 .photo{position:relative;margin:12px 12px 0;aspect-ratio:4/3;background:var(--photo-bg);display:grid;place-items:center;color:var(--soft);font-size:14px;text-align:center;padding:0 16px;border-radius:12px;overflow:hidden}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
 .photo img.ok{opacity:1}
-.credit{font-size:11px;color:var(--soft);padding:6px 14px 0;min-height:22px;line-height:1.4;opacity:.45;transition:opacity .2s}.credit:hover,.credit:focus-within{opacity:1}
+.credit{font-size:11px;color:var(--soft);padding:6px 14px 0;min-height:22px;line-height:1.4;opacity:.45;transition:opacity .2s}.credit:hover,.credit:focus-within,.credit.open{opacity:1}
+.credbtn{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:2px;touch-action:manipulation}.credbtn:focus-visible{outline:2px solid var(--moss);outline-offset:2px;border-radius:3px}
+.credit .credfull{display:none}.credit.open .credfull{display:block;margin-top:2px}.credit.open .credbtn{display:none}
 .clue{margin:12px 0 0;padding:9px 12px;border-radius:12px;background:var(--chip);font-size:14px;line-height:1.45;color:var(--ink)}.clue b{color:var(--moss);font-weight:800;margin-right:4px}
 .credit a{color:var(--soft)}
 .body{padding:8px 18px 18px}
@@ -282,7 +284,7 @@ header{position:relative}
     <details><summary>Can I play past puzzles?</summary><p>Yes. After you finish the daily, the results screen lets you replay earlier dailies or play a practice round. Past puzzles don't affect your streak.</p></details>
     <details><summary>How do I share my score?</summary><p>When you finish, tap Share result. On a phone it opens your share sheet, and on a computer it copies a short emoji summary of your five guesses with a link to the game.</p></details>
     <details><summary>Can I play on my phone?</summary><p>Yes. Habitap works in any modern phone browser. You can also add it to your home screen so it opens like an app.</p></details>
-    <details><summary>Where do the photos come from?</summary><p>Photos are free-licensed images from Wikimedia Commons, loaded through Wikipedia, and each one is credited with its author and license.</p></details>
+    <details><summary>Where do the photos come from?</summary><p>Photos are free-licensed images from Wikimedia Commons, loaded through Wikipedia, and each one is credited with its author and license. Tap “Photo credit” under any photo to see it.</p></details>
     <details><summary>Who made Habitap?</summary><p>Habitap was made for fun by two cousins who love maps, nature and daily puzzle games.</p></details>
   </section>
 
@@ -484,7 +486,11 @@ function showPhoto(sp,revealed){const img=$('img'),msg=$('photoMsg');img.classLi
     creditLine(ph,revealed)})}
 function creditLine(ph,revealed){const who=ph.artist?esc(ph.artist.slice(0,80)):'Unknown author';const lic=ph.license?(ph.licUrl?`<a href="${esc(ph.licUrl)}" target="_blank" rel="noopener">${esc(ph.license)}</a>`:esc(ph.license)):'free license';
   /* short form: author · license · source (what CC licenses require), so it wraps neatly under the photo */
-  $('credit').innerHTML=`© ${who} · ${lic} · `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener" title="Wikimedia Commons">Commons</a>`:'<span title="Wikimedia Commons">Commons</span>')}
+  const full=`© ${who} · ${lic} · `+(revealed?`<a href="${esc(ph.page)}" target="_blank" rel="noopener" title="Wikimedia Commons">Commons</a>`:'<span title="Wikimedia Commons">Commons</span>');
+  /* just a 'Photo credit' link; tapping it opens the full credit in place (stays on the page, fine for every CC version) */
+  const open=$('credit').classList.contains('open');
+  $('credit').innerHTML=`<button type="button" class="credbtn" aria-expanded="${open}">ⓘ Photo credit</button><span class="credfull">${full}</span>`;
+  $('credit').querySelector('.credbtn').onclick=()=>{const o=$('credit').classList.toggle('open');$('credit').querySelector('.credbtn').setAttribute('aria-expanded',o)}}
 
 /* ---------- data: species.json in the browser for now, the daily API once it's deployed ---------- */
 const fmt=n=>Math.round(n).toLocaleString();
@@ -523,7 +529,7 @@ async function start(m,d){mode=m;finished=false;locked=true;round=0;results=[];i
     const p=store.get('ht2-progress');if(p&&p.day===dayNum&&p.results.length&&p.results.length<5){results=p.results;round=results.length}}
   track('play_start',{mode,puzzle:mode==='practice'?0:noFor(playDay),resumed:round>0});show()}
 function dots(popIdx=-1){$('dots').innerHTML=(items.length?items:[0,0,0,0,0]).map((_,i)=>`<span class="dot ${i<results.length?'done':i===round&&!finished?'on':''}${i===popIdx?' pop':''}"></span>`).join('');$('total').textContent=results.reduce((a,r)=>a+r.score,0)+' / 500'}
-function show(){const sp=items[round];guessToken++;pin=null;target=null;hintC=null;usedHint=false;locked=false;$('card').classList.remove('open');
+function show(){const sp=items[round];guessToken++;pin=null;target=null;hintC=null;$('credit').classList.remove('open');usedHint=false;locked=false;$('card').classList.remove('open');
   $('kind').textContent=`${sp.kind}, ${round+1} of 5`;$('name').textContent=plain(sp.display);$('sci').textContent=plain(sp.sci_display);
   $('clue').hidden=!sp.clue;$('clue').innerHTML=sp.clue?'<b>Clue</b>'+esc(sp.clue):'';
   $('hint').hidden=true;$('hint').textContent='';$('hintBtn').hidden=false;$('hintBtn').disabled=false;
