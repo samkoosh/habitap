@@ -6,6 +6,8 @@
   "compatibility_date": "2025-06-01",
   "preview_urls": true,
   "workers_dev": true,
+  // needed by `wrangler preview`, which Workers Builds runs for non-production branches
+  "previews": {},
   "assets": {
     "directory": "./",
     "not_found_handling": "404-page",
