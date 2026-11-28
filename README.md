@@ -9,7 +9,8 @@ A daily geography game: you see a photo of a plant or animal that lives in only 
 - `species_research.json`: the full research list with confidence notes.
 - Photos load at play time from Wikipedia's API (free-licensed lead images only) and are credited from Wikimedia Commons metadata.
 - Coastlines: Natural Earth (public domain) via [world-atlas](https://github.com/topojson/world-atlas). Rendering: [d3](https://d3js.org) (ISC).
-- Scoring: 100 within 10 km, then `100·e^(−(d−10)/5150)` per species. The hint costs 20.
+- `regions.json`: the region ladder (this branch). Each species has a home area (simplified RESOLVE ecoregions, or a 25 km circle) and a tier from its size. A daily plays one species per tier, huge to tiny. Built by `tools/regions/build.mjs`.
+- Scoring (region ladder): 100 anywhere inside the area, otherwise `100·e^(−d/s)` where d is the distance to the area's nearest edge and s is 5150 km × 0.35 / 0.5 / 0.7 / 0.85 / 1 for rounds 1–5. The hint costs 20.
 
 Species facts and points were compiled from Wikipedia and other sources; some points are approximate.
 
